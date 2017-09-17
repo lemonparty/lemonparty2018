@@ -1,9 +1,9 @@
 import "./app.scss";
 
-var i = 0;
-var currentIndex;
-var currentColors;
-var colors = [
+let i = 0;
+let currentIndex;
+let currentColors;
+const colors = [
 	["deeppink", "deepskyblue"],
 	["turquoise", "orangered"],
 	["springgreen", "yellow"],
@@ -11,7 +11,7 @@ var colors = [
 	["chartreuse", "magenta"],
 	["darkviolet", "orange"],
 
-	// the starting set goes last
+	// the set that is defined in the css goes last
 	["yellow", "chartreuse"],
 ];
 

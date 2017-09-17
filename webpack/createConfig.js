@@ -27,6 +27,18 @@ function createConfig(params) {
 
 	const module = {
 		loaders: [
+			// js: use babel
+			{
+				test: /\.js$/,
+				exclude: /(node_modules|bower_components)/,
+				use: {
+					loader: "babel-loader",
+					options: {
+						presets: ["env"]
+					}
+				}
+			},
+
 			// sass: pull into standalone file
 			{
 				test: /\.(sass|scss)$/,

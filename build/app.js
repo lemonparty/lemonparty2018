@@ -65,30 +65,22 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app_scss__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__app_scss__);
 
+
+__webpack_require__(1);
 
 var i = 0;
-var currentIndex;
-var currentColors;
-var colors = [
-	["deeppink", "deepskyblue"],
-	["turquoise", "orangered"],
-	["springgreen", "yellow"],
-	["red", "aqua"],
-	["chartreuse", "magenta"],
-	["darkviolet", "orange"],
+var currentIndex = void 0;
+var currentColors = void 0;
+var colors = [["deeppink", "deepskyblue"], ["turquoise", "orangered"], ["springgreen", "yellow"], ["red", "aqua"], ["chartreuse", "magenta"], ["darkviolet", "orange"],
 
-	// the starting set goes last
-	["yellow", "chartreuse"],
-];
+// the set that is defined in the css goes last
+["yellow", "chartreuse"]];
 
-setInterval(function() {
+setInterval(function () {
 	currentIndex = i % colors.length;
 	currentColors = colors[currentIndex];
 
@@ -97,7 +89,6 @@ setInterval(function() {
 
 	i++;
 }, 1000);
-
 
 /***/ }),
 /* 1 */
