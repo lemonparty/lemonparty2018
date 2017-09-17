@@ -1,52 +1,7 @@
 <html>
 	<head>
 		<title>LemonParty2018</title>
-
-		<style>
-			body {
-				background: yellow;
-				color: chartreuse;
-				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-				font-weight: bold;
-				text-align: center;
-				font-size: 13vw;
-			}
-
-			.text-wrapper {
-				position: relative;
-				top: 50%;
-				-ms-transform: translateY(-50%);
-				-webkit-transform: translateY(-50%);
-				transform: translateY(-50%);
-			}
-		</style>
-
-		<script type="text/javascript">
-			var i = 0;
-			var currentIndex;
-			var currentColors;
-			var colors = [
-				["deeppink", "deepskyblue"],
-				["turquoise", "orangered"],
-				["springgreen", "yellow"],
-				["red", "aqua"],
-				["chartreuse", "magenta"],
-				["darkviolet", "orange"],
-
-				// the starting set goes last
-				["yellow", "chartreuse"],
-			];
-
-			setInterval(function() {
-				currentIndex = i % colors.length;
-				currentColors = colors[currentIndex];
-
-				document.body.style.background = currentColors[0];
-				document.body.style.color = currentColors[1];
-
-				i++;
-			}, 1000);
-		</script>
+		<link rel="stylesheet" href="./build/app.css">
 	</head>
 	<body>
 		<div class="text-wrapper">
@@ -56,5 +11,7 @@
 			<br>
 			2018
 		</div>
+
+		<script type="text/javascript" src="./build/app.js"></script>
 	</body>
 </html>
