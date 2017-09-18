@@ -72,6 +72,12 @@
 
 __webpack_require__(1);
 
+var _bouncing_lemon = __webpack_require__(2);
+
+var _bouncing_lemon2 = _interopRequireDefault(_bouncing_lemon);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var i = 0;
 var currentIndex = void 0;
 var currentColors = void 0;
@@ -90,11 +96,80 @@ setInterval(function () {
 	i++;
 }, 1000);
 
+_bouncing_lemon2.default.init();
+
 /***/ }),
 /* 1 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = {
+	SCREEN_WIDTH: window.innerWidth,
+	SCREEN_HEIGHT: window.innerHeight,
+	LEMON_WIDTH: 249,
+	LEMON_HEIGHT: 180,
+	DELTA_X: 3,
+	DELTA_Y: 4,
+
+	init: function init() {
+		this.CANVAS = document.getElementById("lemon-canvas");
+		this.CONTEXT = this.CANVAS.getContext("2d");
+
+		// make the canvas full screen
+		this.CANVAS.width = this.SCREEN_WIDTH;
+		this.CANVAS.height = this.SCREEN_HEIGHT;
+
+		this.loadImage();
+	},
+	startInterval: function startInterval() {
+		var _this = this;
+
+		var currentX = 100;
+		var currentY = 200;
+
+		setInterval(function () {
+			_this.CONTEXT.clearRect(0, 0, _this.SCREEN_WIDTH, _this.SCREEN_HEIGHT);
+			_this.draw(currentX, currentY);
+
+			// flip the deltas if we get out of range
+			if (currentX + _this.LEMON_WIDTH > _this.SCREEN_WIDTH || currentX < 0) {
+				_this.DELTA_X = _this.DELTA_X * -1;
+			}
+
+			if (currentY + _this.LEMON_HEIGHT > _this.SCREEN_HEIGHT || currentY < 0) {
+				_this.DELTA_Y = _this.DELTA_Y * -1;
+			}
+
+			currentX += _this.DELTA_X;
+			currentY += _this.DELTA_Y;
+		}, 16);
+	},
+	loadImage: function loadImage() {
+		var _this2 = this;
+
+		this.LEMON = new Image();
+
+		this.LEMON.onload = function () {
+			_this2.startInterval();
+		};
+
+		this.LEMON.src = "./images/lemon-test.png";
+	},
+	draw: function draw(x, y) {
+		this.CONTEXT.drawImage(this.LEMON, x, y);
+	}
+};
 
 /***/ })
 /******/ ]);

@@ -1,5 +1,7 @@
 import "./app.scss";
 
+import BouncingLemon from "./bouncing_lemon";
+
 let i = 0;
 let currentIndex;
 let currentColors;
@@ -24,3 +26,5 @@ setInterval(function() {
 
 	i++;
 }, 1000);
+
+BouncingLemon.init();
