@@ -42,10 +42,8 @@ export default {
   },
 
   draw(lemon) {
-    this.context.drawImage(
-      lemon.image,
-      lemon.x * this.SCREEN_WIDTH,
-      lemon.y * this.SCREEN_HEIGHT
-    );
+    const x = lemon.x * (this.SCREEN_WIDTH - lemon.imageWidth);
+    const y = lemon.y * (this.SCREEN_HEIGHT - lemon.imageHeight);
+    this.context.drawImage(lemon.image, x, y);
   },
 };

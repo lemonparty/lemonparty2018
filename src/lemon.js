@@ -1,11 +1,19 @@
 class Lemon {
   constructor(imageSrc) {
-    this.image = new Image();
-    this.image.src = imageSrc;
     this.x = Math.random();
     this.y = Math.random();
     this.deltaX = Math.random() / 100;
     this.deltaY = Math.random() / 100;
+    this.loadImage(imageSrc);
+  }
+
+  loadImage(imageSrc) {
+    this.image = new Image();
+    this.image.onload = () => {
+      this.imageWidth = this.image.width;
+      this.imageHeight = this.image.height;
+    };
+    this.image.src = imageSrc;
   }
 
   move() {

@@ -163,7 +163,9 @@ exports.default = {
     this.context.clearRect(0, 0, this.SCREEN_WIDTH, this.SCREEN_HEIGHT);
   },
   draw: function draw(lemon) {
-    this.context.drawImage(lemon.image, lemon.x * this.SCREEN_WIDTH, lemon.y * this.SCREEN_HEIGHT);
+    var x = lemon.x * (this.SCREEN_WIDTH - lemon.imageWidth);
+    var y = lemon.y * (this.SCREEN_HEIGHT - lemon.imageHeight);
+    this.context.drawImage(lemon.image, x, y);
   }
 };
 
@@ -186,15 +188,26 @@ var Lemon = function () {
   function Lemon(imageSrc) {
     _classCallCheck(this, Lemon);
 
-    this.image = new Image();
-    this.image.src = imageSrc;
     this.x = Math.random();
     this.y = Math.random();
     this.deltaX = Math.random() / 100;
     this.deltaY = Math.random() / 100;
+    this.loadImage(imageSrc);
   }
 
   _createClass(Lemon, [{
+    key: "loadImage",
+    value: function loadImage(imageSrc) {
+      var _this = this;
+
+      this.image = new Image();
+      this.image.onload = function () {
+        _this.imageWidth = _this.image.width;
+        _this.imageHeight = _this.image.height;
+      };
+      this.image.src = imageSrc;
+    }
+  }, {
     key: "move",
     value: function move() {
       if (this.x > 1 || this.x < 0) {
