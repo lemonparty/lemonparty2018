@@ -1,30 +1,7 @@
-import "./app.scss";
-
+import BackgroundChanger from "./background_changer";
 import LemonParty from "./lemon_party";
 
-let i = 0;
-let currentIndex;
-let currentColors;
-const colors = [
-  ["deeppink", "deepskyblue"],
-  ["turquoise", "orangered"],
-  ["springgreen", "yellow"],
-  ["red", "aqua"],
-  ["chartreuse", "magenta"],
-  ["darkviolet", "orange"],
+import "./app.scss";
 
-  // the set that is defined in the css goes last
-  ["yellow", "chartreuse"],
-];
-
-setInterval(function() {
-  currentIndex = i % colors.length;
-  currentColors = colors[currentIndex];
-
-  document.body.style.background = currentColors[0];
-  document.body.style.color = currentColors[1];
-
-  i++;
-}, 1000);
-
+BackgroundChanger.init();
 LemonParty.init();

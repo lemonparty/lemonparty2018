@@ -70,32 +70,19 @@
 "use strict";
 
 
-__webpack_require__(1);
+var _background_changer = __webpack_require__(5);
+
+var _background_changer2 = _interopRequireDefault(_background_changer);
 
 var _lemon_party = __webpack_require__(4);
 
 var _lemon_party2 = _interopRequireDefault(_lemon_party);
 
+__webpack_require__(1);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var i = 0;
-var currentIndex = void 0;
-var currentColors = void 0;
-var colors = [["deeppink", "deepskyblue"], ["turquoise", "orangered"], ["springgreen", "yellow"], ["red", "aqua"], ["chartreuse", "magenta"], ["darkviolet", "orange"],
-
-// the set that is defined in the css goes last
-["yellow", "chartreuse"]];
-
-setInterval(function () {
-  currentIndex = i % colors.length;
-  currentColors = colors[currentIndex];
-
-  document.body.style.background = currentColors[0];
-  document.body.style.color = currentColors[1];
-
-  i++;
-}, 1000);
-
+_background_changer2.default.init();
 _lemon_party2.default.init();
 
 /***/ }),
@@ -224,6 +211,45 @@ exports.default = {
     var x = lemon.x * (this.canvas.width - lemon.imageWidth);
     var y = lemon.y * (this.canvas.height - lemon.imageHeight);
     this.context.drawImage(lemon.image, x, y);
+  }
+};
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+var COLORS = [["deeppink", "deepskyblue"], ["turquoise", "orangered"], ["springgreen", "yellow"], ["red", "aqua"], ["chartreuse", "magenta"], ["darkviolet", "orange"],
+
+// the set that is defined in the css goes last
+["yellow", "chartreuse"]];
+
+exports.default = {
+  i: 0,
+
+  init: function init() {
+    var _this = this;
+
+    setInterval(function () {
+      var currentIndex = _this.i % COLORS.length;
+
+      var _COLORS$currentIndex = _slicedToArray(COLORS[currentIndex], 2),
+          background = _COLORS$currentIndex[0],
+          color = _COLORS$currentIndex[1];
+
+      document.body.style.background = background;
+      document.body.style.color = color;
+
+      _this.i++;
+    }, 1000);
   }
 };
 
