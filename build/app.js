@@ -114,62 +114,106 @@ _bouncing_lemon2.default.init();
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _lemon = __webpack_require__(3);
+
+var _lemon2 = _interopRequireDefault(_lemon);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 exports.default = {
   SCREEN_WIDTH: window.innerWidth,
   SCREEN_HEIGHT: window.innerHeight,
   LEMON_WIDTH: 249,
   LEMON_HEIGHT: 180,
-  DELTA_X: 3,
-  DELTA_Y: 4,
+  LEMON_SRCS: ["./images/lemon-test.png", "./images/lemon-test.png"],
+  lemons: [],
 
   init: function init() {
-    this.CANVAS = document.getElementById("lemon-canvas");
-    this.CONTEXT = this.CANVAS.getContext("2d");
+    this.canvas = document.getElementById("lemon-canvas");
+    this.context = this.canvas.getContext("2d");
 
     // make the canvas full screen
-    this.CANVAS.width = this.SCREEN_WIDTH;
-    this.CANVAS.height = this.SCREEN_HEIGHT;
+    this.canvas.width = this.SCREEN_WIDTH;
+    this.canvas.height = this.SCREEN_HEIGHT;
 
-    this.loadImage();
+    this.createLemons();
+    this.startAnimation();
   },
-  startInterval: function startInterval() {
+  createLemons: function createLemons() {
     var _this = this;
 
-    var currentX = 100;
-    var currentY = 200;
-
-    setInterval(function () {
-      _this.CONTEXT.clearRect(0, 0, _this.SCREEN_WIDTH, _this.SCREEN_HEIGHT);
-      _this.draw(currentX, currentY);
-
-      // flip the deltas if we get out of range
-      if (currentX + _this.LEMON_WIDTH > _this.SCREEN_WIDTH || currentX < 0) {
-        _this.DELTA_X = _this.DELTA_X * -1;
-      }
-
-      if (currentY + _this.LEMON_HEIGHT > _this.SCREEN_HEIGHT || currentY < 0) {
-        _this.DELTA_Y = _this.DELTA_Y * -1;
-      }
-
-      currentX += _this.DELTA_X;
-      currentY += _this.DELTA_Y;
-    }, 16);
+    this.LEMON_SRCS.forEach(function (src) {
+      _this.lemons.push(new _lemon2.default(src));
+    });
   },
-  loadImage: function loadImage() {
+  startAnimation: function startAnimation() {
     var _this2 = this;
 
-    this.LEMON = new Image();
+    setInterval(function () {
+      _this2.clearCanvas();
 
-    this.LEMON.onload = function () {
-      _this2.startInterval();
-    };
-
-    this.LEMON.src = "./images/lemon-test.png";
+      _this2.lemons.forEach(function (lemon) {
+        lemon.move();
+        _this2.draw(lemon);
+      });
+    }, 16);
   },
-  draw: function draw(x, y) {
-    this.CONTEXT.drawImage(this.LEMON, x, y);
+  clearCanvas: function clearCanvas() {
+    this.context.clearRect(0, 0, this.SCREEN_WIDTH, this.SCREEN_HEIGHT);
+  },
+  draw: function draw(lemon) {
+    this.context.drawImage(lemon.image, lemon.x * this.SCREEN_WIDTH, lemon.y * this.SCREEN_HEIGHT);
   }
 };
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Lemon = function () {
+  function Lemon(imageSrc) {
+    _classCallCheck(this, Lemon);
+
+    this.image = new Image();
+    this.image.src = imageSrc;
+    this.x = Math.random();
+    this.y = Math.random();
+    this.deltaX = Math.random() / 100;
+    this.deltaY = Math.random() / 100;
+  }
+
+  _createClass(Lemon, [{
+    key: "move",
+    value: function move() {
+      if (this.x > 1 || this.x < 0) {
+        this.deltaX *= -1;
+      }
+
+      if (this.y > 1 || this.y < 0) {
+        this.deltaY *= -1;
+      }
+
+      this.x += this.deltaX;
+      this.y += this.deltaY;
+    }
+  }]);
+
+  return Lemon;
+}();
+
+exports.default = Lemon;
 
 /***/ })
 /******/ ]);
