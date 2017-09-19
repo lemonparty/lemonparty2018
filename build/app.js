@@ -72,9 +72,9 @@
 
 __webpack_require__(1);
 
-var _bouncing_lemon = __webpack_require__(2);
+var _lemon_party = __webpack_require__(4);
 
-var _bouncing_lemon2 = _interopRequireDefault(_bouncing_lemon);
+var _lemon_party2 = _interopRequireDefault(_lemon_party);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -96,7 +96,7 @@ setInterval(function () {
   i++;
 }, 1000);
 
-_bouncing_lemon2.default.init();
+_lemon_party2.default.init();
 
 /***/ }),
 /* 1 */
@@ -105,71 +105,7 @@ _bouncing_lemon2.default.init();
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _lemon = __webpack_require__(3);
-
-var _lemon2 = _interopRequireDefault(_lemon);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = {
-  SCREEN_WIDTH: window.innerWidth,
-  SCREEN_HEIGHT: window.innerHeight,
-  LEMON_WIDTH: 249,
-  LEMON_HEIGHT: 180,
-  LEMON_SRCS: ["./images/lemon-test.png", "./images/lemon-test.png"],
-  lemons: [],
-
-  init: function init() {
-    this.canvas = document.getElementById("lemon-canvas");
-    this.context = this.canvas.getContext("2d");
-
-    // make the canvas full screen
-    this.canvas.width = this.SCREEN_WIDTH;
-    this.canvas.height = this.SCREEN_HEIGHT;
-
-    this.createLemons();
-    this.startAnimation();
-  },
-  createLemons: function createLemons() {
-    var _this = this;
-
-    this.LEMON_SRCS.forEach(function (src) {
-      _this.lemons.push(new _lemon2.default(src));
-    });
-  },
-  startAnimation: function startAnimation() {
-    var _this2 = this;
-
-    setInterval(function () {
-      _this2.clearCanvas();
-
-      _this2.lemons.forEach(function (lemon) {
-        lemon.move();
-        _this2.draw(lemon);
-      });
-    }, 16);
-  },
-  clearCanvas: function clearCanvas() {
-    this.context.clearRect(0, 0, this.SCREEN_WIDTH, this.SCREEN_HEIGHT);
-  },
-  draw: function draw(lemon) {
-    var x = lemon.x * (this.SCREEN_WIDTH - lemon.imageWidth);
-    var y = lemon.y * (this.SCREEN_HEIGHT - lemon.imageHeight);
-    this.context.drawImage(lemon.image, x, y);
-  }
-};
-
-/***/ }),
+/* 2 */,
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -227,6 +163,69 @@ var Lemon = function () {
 }();
 
 exports.default = Lemon;
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _lemon = __webpack_require__(3);
+
+var _lemon2 = _interopRequireDefault(_lemon);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var LEMON_SRCS = ["./images/lemon-test.png", "./images/lemon-test.png"];
+var FRAMES_PER_SECOND = 16;
+
+exports.default = {
+  lemons: [],
+
+  init: function init() {
+    this.canvas = document.getElementById("lemon-canvas");
+    this.context = this.canvas.getContext("2d");
+
+    this.canvas.width = window.innerWidth;
+    this.canvas.height = window.innerHeight;
+
+    this.createLemons();
+    this.startAnimation();
+  },
+  createLemons: function createLemons() {
+    var _this = this;
+
+    LEMON_SRCS.forEach(function (src) {
+      _this.lemons.push(new _lemon2.default(src));
+    });
+  },
+  startAnimation: function startAnimation() {
+    setInterval(this.renderFrame.bind(this), FRAMES_PER_SECOND);
+  },
+  renderFrame: function renderFrame() {
+    var _this2 = this;
+
+    this.clearCanvas();
+
+    this.lemons.forEach(function (lemon) {
+      lemon.move();
+      _this2.draw(lemon);
+    });
+  },
+  clearCanvas: function clearCanvas() {
+    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  },
+  draw: function draw(lemon) {
+    var x = lemon.x * (this.canvas.width - lemon.imageWidth);
+    var y = lemon.y * (this.canvas.height - lemon.imageHeight);
+    this.context.drawImage(lemon.image, x, y);
+  }
+};
 
 /***/ })
 /******/ ]);

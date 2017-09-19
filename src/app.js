@@ -1,6 +1,6 @@
 import "./app.scss";
 
-import BouncingLemon from "./bouncing_lemon";
+import LemonParty from "./lemon_party";
 
 let i = 0;
 let currentIndex;
@@ -27,4 +27,4 @@ setInterval(function() {
   i++;
 }, 1000);
 
-BouncingLemon.init();
+LemonParty.init();
