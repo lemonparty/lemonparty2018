@@ -1,5 +1,7 @@
 class Lemon {
   constructor(imageSrc) {
+    this.imageWidth = 0;
+    this.imageHeight = 0;
     this.x = Math.random();
     this.y = Math.random();
     this.deltaX = Math.random() / 100;

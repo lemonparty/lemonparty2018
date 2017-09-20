@@ -70,15 +70,15 @@
 "use strict";
 
 
-var _background_changer = __webpack_require__(5);
+var _background_changer = __webpack_require__(1);
 
 var _background_changer2 = _interopRequireDefault(_background_changer);
 
-var _lemon_party = __webpack_require__(4);
+var _lemon_party = __webpack_require__(2);
 
 var _lemon_party2 = _interopRequireDefault(_lemon_party);
 
-__webpack_require__(1);
+__webpack_require__(4);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -87,13 +87,6 @@ _lemon_party2.default.init();
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 2 */,
-/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -103,56 +96,36 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var COLORS = [["deeppink", "deepskyblue"], ["turquoise", "orangered"], ["springgreen", "yellow"], ["red", "aqua"], ["chartreuse", "magenta"], ["darkviolet", "orange"],
 
-var Lemon = function () {
-  function Lemon(imageSrc) {
-    _classCallCheck(this, Lemon);
+// the set that is defined in the css goes last
+["yellow", "chartreuse"]];
 
-    this.x = Math.random();
-    this.y = Math.random();
-    this.deltaX = Math.random() / 100;
-    this.deltaY = Math.random() / 100;
-    this.loadImage(imageSrc);
+exports.default = {
+  i: 0,
+
+  init: function init() {
+    var _this = this;
+
+    setInterval(function () {
+      var currentIndex = _this.i % COLORS.length;
+
+      var _COLORS$currentIndex = _slicedToArray(COLORS[currentIndex], 2),
+          background = _COLORS$currentIndex[0],
+          color = _COLORS$currentIndex[1];
+
+      document.body.style.background = background;
+      document.body.style.color = color;
+
+      _this.i++;
+    }, 1000);
   }
-
-  _createClass(Lemon, [{
-    key: "loadImage",
-    value: function loadImage(imageSrc) {
-      var _this = this;
-
-      this.image = new Image();
-      this.image.onload = function () {
-        _this.imageWidth = _this.image.width;
-        _this.imageHeight = _this.image.height;
-      };
-      this.image.src = imageSrc;
-    }
-  }, {
-    key: "move",
-    value: function move() {
-      if (this.x > 1 || this.x < 0) {
-        this.deltaX *= -1;
-      }
-
-      if (this.y > 1 || this.y < 0) {
-        this.deltaY *= -1;
-      }
-
-      this.x += this.deltaX;
-      this.y += this.deltaY;
-    }
-  }]);
-
-  return Lemon;
-}();
-
-exports.default = Lemon;
+};
 
 /***/ }),
-/* 4 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -215,7 +188,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 5 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -225,33 +198,61 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var COLORS = [["deeppink", "deepskyblue"], ["turquoise", "orangered"], ["springgreen", "yellow"], ["red", "aqua"], ["chartreuse", "magenta"], ["darkviolet", "orange"],
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-// the set that is defined in the css goes last
-["yellow", "chartreuse"]];
+var Lemon = function () {
+  function Lemon(imageSrc) {
+    _classCallCheck(this, Lemon);
 
-exports.default = {
-  i: 0,
-
-  init: function init() {
-    var _this = this;
-
-    setInterval(function () {
-      var currentIndex = _this.i % COLORS.length;
-
-      var _COLORS$currentIndex = _slicedToArray(COLORS[currentIndex], 2),
-          background = _COLORS$currentIndex[0],
-          color = _COLORS$currentIndex[1];
-
-      document.body.style.background = background;
-      document.body.style.color = color;
-
-      _this.i++;
-    }, 1000);
+    this.imageWidth = 0;
+    this.imageHeight = 0;
+    this.x = Math.random();
+    this.y = Math.random();
+    this.deltaX = Math.random() / 100;
+    this.deltaY = Math.random() / 100;
+    this.loadImage(imageSrc);
   }
-};
+
+  _createClass(Lemon, [{
+    key: "loadImage",
+    value: function loadImage(imageSrc) {
+      var _this = this;
+
+      this.image = new Image();
+      this.image.onload = function () {
+        _this.imageWidth = _this.image.width;
+        _this.imageHeight = _this.image.height;
+      };
+      this.image.src = imageSrc;
+    }
+  }, {
+    key: "move",
+    value: function move() {
+      if (this.x > 1 || this.x < 0) {
+        this.deltaX *= -1;
+      }
+
+      if (this.y > 1 || this.y < 0) {
+        this.deltaY *= -1;
+      }
+
+      this.x += this.deltaX;
+      this.y += this.deltaY;
+    }
+  }]);
+
+  return Lemon;
+}();
+
+exports.default = Lemon;
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
