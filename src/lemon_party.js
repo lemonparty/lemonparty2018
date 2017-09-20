@@ -43,6 +43,15 @@ export default {
   draw(lemon) {
     const x = lemon.x * (this.canvas.width - lemon.imageWidth);
     const y = lemon.y * (this.canvas.height - lemon.imageHeight);
-    this.context.drawImage(lemon.image, x, y);
+    let width = lemon.imageWidth;
+    let height = lemon.imageHeight;
+    const smallScreenMultiplier = 0.55;
+
+    if (this.canvas.width < 700) {
+      width = width * smallScreenMultiplier;
+      height = height * smallScreenMultiplier;
+    }
+
+    this.context.drawImage(lemon.image, x, y, width, height);
   },
 };

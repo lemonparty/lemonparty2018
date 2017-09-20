@@ -183,7 +183,16 @@ exports.default = {
   draw: function draw(lemon) {
     var x = lemon.x * (this.canvas.width - lemon.imageWidth);
     var y = lemon.y * (this.canvas.height - lemon.imageHeight);
-    this.context.drawImage(lemon.image, x, y);
+    var width = lemon.imageWidth;
+    var height = lemon.imageHeight;
+    var smallScreenMultiplier = 0.55;
+
+    if (this.canvas.width < 700) {
+      width = width * smallScreenMultiplier;
+      height = height * smallScreenMultiplier;
+    }
+
+    this.context.drawImage(lemon.image, x, y, width, height);
   }
 };
 
@@ -210,8 +219,9 @@ var Lemon = function () {
     this.imageHeight = 0;
     this.x = Math.random();
     this.y = Math.random();
-    this.deltaX = Math.random() / 200 + 0.002;
-    this.deltaY = Math.random() / 200;+0.002;
+    this.deltaX = Math.random() / 300 + 0.002;
+    this.deltaY = Math.random() / 300;+0.002;
+
     this.loadImage(imageSrc);
   }
 
