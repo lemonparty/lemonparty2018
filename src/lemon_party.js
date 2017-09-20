@@ -1,6 +1,6 @@
 import Lemon from "./lemon";
 
-const LEMON_SRCS = ["./images/lemon-test.png", "./images/lemon-test.png"];
+const LEMON_SRCS = ["./images/place-lemon.png", "./images/date-lemon.png"];
 const FRAMES_PER_SECOND = 16;
 
 export default {

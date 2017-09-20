@@ -141,7 +141,7 @@ var _lemon2 = _interopRequireDefault(_lemon);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var LEMON_SRCS = ["./images/lemon-test.png", "./images/lemon-test.png"];
+var LEMON_SRCS = ["./images/place-lemon.png", "./images/date-lemon.png"];
 var FRAMES_PER_SECOND = 16;
 
 exports.default = {
@@ -210,8 +210,8 @@ var Lemon = function () {
     this.imageHeight = 0;
     this.x = Math.random();
     this.y = Math.random();
-    this.deltaX = Math.random() / 100;
-    this.deltaY = Math.random() / 100;
+    this.deltaX = Math.random() / 200 + 0.002;
+    this.deltaY = Math.random() / 200;+0.002;
     this.loadImage(imageSrc);
   }
 

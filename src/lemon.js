@@ -4,8 +4,8 @@ class Lemon {
     this.imageHeight = 0;
     this.x = Math.random();
     this.y = Math.random();
-    this.deltaX = Math.random() / 100;
-    this.deltaY = Math.random() / 100;
+    this.deltaX = Math.random() / 200 + 0.002;
+    this.deltaY = Math.random() / 200; + 0.002
     this.loadImage(imageSrc);
   }
 
