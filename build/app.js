@@ -135,14 +135,19 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 var _lemon = __webpack_require__(3);
 
 var _lemon2 = _interopRequireDefault(_lemon);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var LEMON_SRCS = ["./images/place-lemon.png", "./images/date-lemon.png"];
 var FRAMES_PER_SECOND = 16;
+var IMAGE_SRCS = ["./images/place-lemon.png", "./images/date-lemon.png"];
+
+// Must be ordered smallest to largest
+var SCALING_FACTORS = [[300, 0.5], [450, 0.6], [600, 0.7], [900, 0.8], [1200, 0.9]];
 
 exports.default = {
   lemons: [],
@@ -160,7 +165,7 @@ exports.default = {
   createLemons: function createLemons() {
     var _this = this;
 
-    LEMON_SRCS.forEach(function (src) {
+    IMAGE_SRCS.forEach(function (src) {
       _this.lemons.push(new _lemon2.default(src));
     });
   },
@@ -181,18 +186,54 @@ exports.default = {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
   },
   draw: function draw(lemon) {
-    var x = lemon.x * (this.canvas.width - lemon.imageWidth);
-    var y = lemon.y * (this.canvas.height - lemon.imageHeight);
-    var width = lemon.imageWidth;
-    var height = lemon.imageHeight;
-    var smallScreenMultiplier = 0.55;
+    var _getScaledDimensions = this.getScaledDimensions(lemon),
+        _getScaledDimensions2 = _slicedToArray(_getScaledDimensions, 2),
+        width = _getScaledDimensions2[0],
+        height = _getScaledDimensions2[1];
 
-    if (this.canvas.width < 700) {
-      width = width * smallScreenMultiplier;
-      height = height * smallScreenMultiplier;
-    }
+    var x = lemon.x * (this.canvas.width - width);
+    var y = lemon.y * (this.canvas.height - height);
 
     this.context.drawImage(lemon.image, x, y, width, height);
+  },
+  getScaledDimensions: function getScaledDimensions(lemon) {
+    var factor = this.getScalingFactor(lemon);
+    return [lemon.imageWidth * factor, lemon.imageHeight * factor];
+  },
+  getScalingFactor: function getScalingFactor(lemon) {
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
+    try {
+      for (var _iterator = SCALING_FACTORS[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var _ref = _step.value;
+
+        var _ref2 = _slicedToArray(_ref, 2);
+
+        var size = _ref2[0];
+        var factor = _ref2[1];
+
+        if (this.canvas.width < size) {
+          return factor;
+        }
+      }
+    } catch (err) {
+      _didIteratorError = true;
+      _iteratorError = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion && _iterator.return) {
+          _iterator.return();
+        }
+      } finally {
+        if (_didIteratorError) {
+          throw _iteratorError;
+        }
+      }
+    }
+
+    return 1;
   }
 };
 

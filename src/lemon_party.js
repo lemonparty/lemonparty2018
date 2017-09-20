@@ -1,7 +1,16 @@
 import Lemon from "./lemon";
 
-const LEMON_SRCS = ["./images/place-lemon.png", "./images/date-lemon.png"];
 const FRAMES_PER_SECOND = 16;
+const IMAGE_SRCS = ["./images/place-lemon.png", "./images/date-lemon.png"];
+
+// Must be ordered smallest to largest
+const SCALING_FACTORS = [
+  [300, 0.5],
+  [450, 0.6],
+  [600, 0.7],
+  [900, 0.8],
+  [1200, 0.9],
+];
 
 export default {
   lemons: [],
@@ -18,7 +27,7 @@ export default {
   },
 
   createLemons() {
-    LEMON_SRCS.forEach((src) => {
+    IMAGE_SRCS.forEach((src) => {
       this.lemons.push(new Lemon(src));
     });
   },
@@ -41,17 +50,25 @@ export default {
   },
 
   draw(lemon) {
-    const x = lemon.x * (this.canvas.width - lemon.imageWidth);
-    const y = lemon.y * (this.canvas.height - lemon.imageHeight);
-    let width = lemon.imageWidth;
-    let height = lemon.imageHeight;
-    const smallScreenMultiplier = 0.55;
-
-    if (this.canvas.width < 700) {
-      width = width * smallScreenMultiplier;
-      height = height * smallScreenMultiplier;
-    }
+    const [width, height] = this.getScaledDimensions(lemon);
+    const x = lemon.x * (this.canvas.width - width);
+    const y = lemon.y * (this.canvas.height - height);
 
     this.context.drawImage(lemon.image, x, y, width, height);
+  },
+
+  getScaledDimensions(lemon) {
+    const factor = this.getScalingFactor(lemon);
+    return [lemon.imageWidth * factor, lemon.imageHeight * factor];
+  },
+
+  getScalingFactor(lemon) {
+    for (let [size, factor] of SCALING_FACTORS) {
+      if (this.canvas.width < size) {
+        return factor;
+      }
+    }
+
+    return 1;
   },
 };
