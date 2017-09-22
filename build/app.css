@@ -7,8 +7,10 @@ body {
   font-size: 13vw; }
 
 .text-wrapper {
-  position: relative;
+  position: absolute;
   top: 50%;
+  left: 0;
+  width: 100%;
   -ms-transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%); }
