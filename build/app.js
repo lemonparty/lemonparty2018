@@ -261,7 +261,7 @@ var Lemon = function () {
     this.x = Math.random();
     this.y = Math.random();
     this.deltaX = Math.random() / 300 + 0.002;
-    this.deltaY = Math.random() / 300;+0.002;
+    this.deltaY = Math.random() / 300 + 0.002;
 
     this.loadImage(imageSrc);
   }
