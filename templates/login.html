@@ -12,6 +12,14 @@
     <canvas id="lemon-canvas" width="500" height="500">
     </canvas>
 
+		<form method="post" action="/login">
+			<input type="password" name="password" />
+			{% if login_error %}
+				Wrong password
+			{% endif %}
+			<input type="submit" value="Log in" />
+		</form>
+
     <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
   </body>
 </html>
