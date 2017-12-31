@@ -7,18 +7,30 @@
     <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
   </head>
   <body>
-    <div class="text-wrapper">LEMON<br>PARTY<br>2018</div>
-
     <canvas id="lemon-canvas" width="500" height="500">
     </canvas>
 
-		<form method="post" action="/login">
-			<input type="password" name="password" />
+		<form method="post" action="/login" class="login-form">
+			<input
+				type="password"
+				placeholder="password"
+				name="password"
+				class="login-form-input"
+			/>
+
+			<input type="submit" value="Log in" class="login-form-button" />
+
 			{% if login_error %}
-				Wrong password
+				<span class="login-form-error">wrong password!</span>
 			{% endif %}
-			<input type="submit" value="Log in" />
 		</form>
+
+		<br>
+		LEMON
+		<br>
+		PARTY
+		<br>
+		2018
 
     <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
   </body>

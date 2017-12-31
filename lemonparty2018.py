@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template, session, flash, request
+from flask import render_template, session, request
 import os
 
 app = Flask(__name__)
@@ -27,6 +27,7 @@ def do_admin_login():
 @app.route("/logout")
 def logout():
     session['logged_in'] = False
+    session['login_error'] = False
 
     return index()
 
