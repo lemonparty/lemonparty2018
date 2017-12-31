@@ -144,7 +144,7 @@ var _lemon2 = _interopRequireDefault(_lemon);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var FRAMES_PER_SECOND = 16;
-var IMAGE_SRCS = ["./images/place-lemon.png", "./images/date-lemon.png"];
+var IMAGE_SRCS = ["./static/images/place-lemon.png", "./static/images/date-lemon.png"];
 
 // Must be ordered smallest to largest
 var SCALING_FACTORS = [[300, 0.5], [450, 0.6], [600, 0.7], [900, 0.8], [1200, 0.9]];
