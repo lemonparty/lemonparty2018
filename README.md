@@ -18,7 +18,7 @@ Then you should be able to load localhost:5000 and see the site.
 
 ### `localsettings.py`
 
-`localsettings` stores information specific to a particular enbironment. Here is
+`localsettings` stores information specific to a particular environment. Here is
 an example file:
 
 ```
