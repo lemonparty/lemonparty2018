@@ -23,11 +23,6 @@ an example file:
 
 ```
 DEBUG = True
-
-VERSIONS = {
-    'css': 0,
-    'js': 0,
-}
 ```
 
 ## Front end
@@ -39,5 +34,6 @@ with webpack. Assuming you already have node and yarn installed, run
 Then to start webpack watching and compiling the files, run `npm run watch`. To
 compile the minified files for use in production, run `npm run build`. The
 minified files are used in the templates if the `DEBUG` variable in
-`localsettings` is false. To bust cache in production, increment the css or js
-version as needed, then restart apache.
+`localsettings` is false. Cachebusting is built into the `npm run build`
+command; it adds a hash to the filename and stores the current hash in a json
+file for python to read.

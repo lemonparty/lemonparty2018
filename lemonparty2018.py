@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import render_template
-from localsettings import DEBUG, VERSIONS
+import json
+from localsettings import DEBUG
 
 
 app = Flask(__name__)
@@ -12,13 +13,14 @@ def static_path_processor():
         css_path = 'app.css'
         js_path = 'app.js'
     else:
-        css_path = 'app.min.css'
-        js_path = 'app.min.js'
+        with open('static/build/manifest.json') as data:
+            data = json.load(data)
+            css_path = "build/" + data['app.css']
+            js_path = "build/" + data['app.js']
 
     return {
         'css_path': css_path,
         'js_path': js_path,
-        'VERSIONS': VERSIONS,
     }
 
 
