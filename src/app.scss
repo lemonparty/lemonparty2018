@@ -40,7 +40,6 @@ html {
   max-width: 250px;
   margin-bottom: -12vw;
   background: rgba(#000, 0.8);
-  border-radius: 1px;
   padding: 3vw;
   line-height: 14px;
 
@@ -70,6 +69,15 @@ html {
     width: 100% - $input-size - $margin;
     background-color: fuchsia;
     color: aqua;
+
+    &:active {
+      background-color: aqua;
+      color: fuchsia;
+    }
+
+    &:focus {
+      outline: none;
+    }
   }
 
   &-error {

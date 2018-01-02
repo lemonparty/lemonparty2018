@@ -12,17 +12,13 @@
       class="login-form-input"
     />
 
-    <input type="submit" value="Log in" class="login-form-button" />
+    <input type="submit" value="LOG IN" class="login-form-button" />
 
     {% if login_error %}
       <span class="login-form-error">wrong password!</span>
     {% endif %}
   </form>
 
-  <br />
-  LEMON
-  <br />
-  PARTY
-  <br />
-  2018
+  {# words must abut brs to remove inline whitespace and ensure centering #}
+  <br />LEMON<br />PARTY<br />2018
 {% endblock %}
