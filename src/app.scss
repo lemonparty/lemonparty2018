@@ -1,8 +1,15 @@
+@import "reset";
+
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-body {
+html {
+  height: 100%;
+}
+
+.page-login {
+  min-height: 100%;
   background: yellow;
   color: chartreuse;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -10,23 +17,15 @@ body {
   text-align: center;
   font-size: 13vw;
 
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-
-	/*
-	padding-top: 16vh;
-
-	@media (max-height: 450px) {
-		padding-top: 5vh;
-	}
-	*/
 }
 
 #lemon-canvas {
   position: fixed;
-	z-index: 1;
+  z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
@@ -34,50 +33,49 @@ body {
 }
 
 .login-form {
-	display: inline-block;
-	position: relative;
-	z-index: 2;
-	width: 90vw;
-	max-width: 250px;
-	background: rgba(#000, 0.8);
-	border-radius: 1px;
-	padding: 3vw;
-	line-height: 14px;
+  position: relative;
+  z-index: 2;
+  width: 90vw;
+  max-width: 250px;
+  background: rgba(#000, 0.8);
+  border-radius: 1px;
+  padding: 3vw;
+  line-height: 14px;
 
-	&-input,
-	&-button {
-		float: left;
-		border: none;
-		height: 30px;
-	}
+  &-input,
+  &-button {
+    float: left;
+    border: none;
+    height: 30px;
+  }
 
-	$input-size: 70%;
-	$margin: 3%;
+  $input-size: 70%;
+  $margin: 3%;
 
-	&-input {
-		width: $input-size;
-		margin-right: $margin;
-		padding-right: 3%;
-		padding-left: 3%;
-		color: limegreen;
+  &-input {
+    width: $input-size;
+    margin-right: $margin;
+    padding-right: 3%;
+    padding-left: 3%;
+    color: limegreen;
 
-		&:focus {
-			outline: none;
-		}
-	}
+    &:focus {
+      outline: none;
+    }
+  }
 
-	&-button {
-		width: 100% - $input-size - $margin;
-		background-color: fuchsia;
-		color: aqua;
-	}
+  &-button {
+    width: 100% - $input-size - $margin;
+    background-color: fuchsia;
+    color: aqua;
+  }
 
-	&-error {
-		float: left;
-		margin-top: 10px;
-		width: 100%;
-		text-align: center;
-		font-size: 12px;
-		color: red;
-	}
+  &-error {
+    float: left;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: red;
+  }
 }
