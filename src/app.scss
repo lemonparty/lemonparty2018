@@ -15,7 +15,8 @@ html {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
   text-align: center;
-  font-size: 13vw;
+  font-size: 12vw;
+  line-height: 15vw;
 
   display: flex;
   flex-direction: column;
@@ -37,6 +38,7 @@ html {
   z-index: 2;
   width: 90vw;
   max-width: 250px;
+  margin-bottom: -14vw;
   background: rgba(#000, 0.8);
   border-radius: 1px;
   padding: 3vw;
