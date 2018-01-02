@@ -1,0 +1,23 @@
+body {
+  background: yellow;
+  color: chartreuse;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  font-size: 13vw; }
+
+.text-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%); }
+
+#lemon-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
