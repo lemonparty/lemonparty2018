@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% block title %}{% endblock %} | LemonParty2018</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+  </head>
+  <body>
+		{% block content %}{% endblock %}
+
+    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+  </body>
+</html>
