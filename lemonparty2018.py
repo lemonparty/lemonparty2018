@@ -1,8 +1,9 @@
 from flask import Flask
 from flask import render_template, session, request
+from passlib.hash import pbkdf2_sha256
 import os
 import json
-from localsettings import DEBUG
+from localsettings import DEBUG, PASSWORD_HASH
 
 
 app = Flask(__name__)
@@ -38,7 +39,7 @@ def index():
 
 @app.route('/login', methods=['POST'])
 def do_admin_login():
-    if request.form['password'] == 'password':
+    if pbkdf2_sha256.verify(request.form['password'], PASSWORD_HASH):
         session['logged_in'] = True
         session['login_error'] = False
     else:
