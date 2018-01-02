@@ -1,7 +1,10 @@
 import Lemon from "./lemon";
 
 const FRAMES_PER_SECOND = 16;
-const IMAGE_SRCS = ["./images/place-lemon.png", "./images/date-lemon.png"];
+const IMAGE_SRCS = [
+	"./static/images/place-lemon.png",
+	"./static/images/date-lemon.png"
+];
 
 // Must be ordered smallest to largest
 const SCALING_FACTORS = [
