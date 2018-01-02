@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import render_template
+import os
 import json
 from localsettings import DEBUG
 
@@ -13,7 +14,10 @@ def static_path_processor():
         css_path = 'app.css'
         js_path = 'app.js'
     else:
-        with open('static/build/manifest.json') as data:
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        manifest_path = dir_path + "/static/build/manifest.json"
+
+        with open(manifest_path) as data:
             data = json.load(data)
             css_path = "build/" + data['app.css']
             js_path = "build/" + data['app.js']
