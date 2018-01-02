@@ -15,7 +15,11 @@ def static_path_processor():
         css_path = 'app.min.css'
         js_path = 'app.min.js'
 
-    return dict(css_path=css_path, js_path=js_path, VERSIONS=VERSIONS)
+    return {
+        'css_path': css_path,
+        'js_path': js_path,
+        'VERSIONS': VERSIONS,
+    }
 
 
 @app.route('/')
