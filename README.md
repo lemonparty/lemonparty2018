@@ -32,5 +32,8 @@ with webpack. Assuming you already have node and yarn installed, run
 `yarn install` to install the JS packages required for this app.
 
 Then to start webpack watching and compiling the files, run `npm run watch`. To
-compile the minified files for use in production, run `npm run build`. TODO:
-use the minified files in the app.
+compile the minified files for use in production, run `npm run build`. The
+minified files are used in the templates if the `DEBUG` variable in
+`localsettings` is false. Cachebusting is built into the `npm run build`
+command; it adds a hash to the filename and stores the current hash in a json
+file for python to read.

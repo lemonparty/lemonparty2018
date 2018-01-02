@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>LemonParty2018</title>
-    <meta name="viewport" content="width=device-width, user-scalable=no">
-    <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
-    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
-  </head>
-  <body>
-    <div class="text-wrapper">LEMON<br>PARTY<br>2018</div>
-
-    <canvas id="lemon-canvas" width="500" height="500">
-    </canvas>
-
-    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
-  </body>
-</html>
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+  <div class="text-wrapper">LEMON<br>PARTY<br>2018</div>
+  <canvas id="lemon-canvas" width="500" height="500"></canvas>
+{% endblock %}
