@@ -26,5 +26,7 @@
     "webpack-notifier": "^1.5.0",
     "webpack-parallel-uglify-es-plugin": "^0.1.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "webpack-assets-manifest": "^1.0.0"
+  }
 }
