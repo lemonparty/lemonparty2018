@@ -34,7 +34,9 @@ def index():
     if session.get('logged_in'):
         return render_template('home.html')
     else:
-        return render_template('login.html', login_error=session.get('login_error'))
+        return render_template('login.html',
+            login_error=session.get('login_error'),
+            show_login=request.args.get('show_login'))
 
 
 @app.route('/login', methods=['POST'])
