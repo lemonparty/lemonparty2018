@@ -33,6 +33,11 @@
   padding: 3vw;
   line-height: 14px;
 
+  @media (min-width: 1100px) {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+
   &-input,
   &-button {
     float: left;

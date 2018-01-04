@@ -5,6 +5,7 @@
 // -----------------------------------------------------------------------------
 
 $nav-height: 272px;
+$footer-height: 100px;
 
 
 // global styles
@@ -14,12 +15,16 @@ $nav-height: 272px;
   box-sizing: border-box;
 }
 
-html {
-  height: 100%;
-}
-
 body {
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  min-height: 100%;
+
+  &.logged-in {
+    padding: ($nav-height * 0.8) 4vw $footer-height;
+    background-image: url("/static/images/shitty-half-lemon.png");
+    background-repeat: repeat-x;
+    background-position: bottom;
+  }
 }
 
 @import "nav";

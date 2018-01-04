@@ -1,5 +1,7 @@
 .nav {
-  margin-bottom: $nav-height / 5;
+  position: absolute;
+  top: 0;
+  left: 0;
   padding: 3vw;
   display: flex;
   flex-wrap: wrap;
