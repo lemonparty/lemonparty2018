@@ -1,6 +1,9 @@
-{% extends "base.html" %}
+{% extends "_base.html" %}
 {% block title %}Home{% endblock %}
-{% block bodyclass %}page-home{% endblock %}
+{% block bodyclass %}logged-in page-home{% endblock %}
+{% set active_page = "" %}
+
 {% block content %}
+  {% include "_nav.html" %}
   you are logged into the party of the lemonz!
 {% endblock %}

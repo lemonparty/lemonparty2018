@@ -1,0 +1,42 @@
+.nav {
+  margin-bottom: $nav-height / 5;
+  padding: 3vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  &-bg {
+    position: absolute;
+    z-index: 1;
+    top: -200px;
+    left: -25%;
+    width: 150%;
+    height: $nav-height;
+    background: lightgray;
+    transform: rotate(8deg);
+
+    @media (max-width: 500px) {
+      top: -150px;
+    }
+
+    @media (max-width: 350px) {
+      top: -100px;
+    }
+  }
+
+  &-link {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 10px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &.active {
+      transform: rotate(157deg);
+    }
+  }
+}

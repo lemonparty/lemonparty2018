@@ -1,0 +1,21 @@
+{% set nav_items = [
+  ("", "Home"),
+  ("location", "Location"),
+  ("schedule", "Schedule"),
+  ("hotels", "Hotels"),
+  ("stuff-to-do", "Stuff to do"),
+  ("gifts", "Gifts"),
+  ("contact", "Contact"),
+] -%}
+
+<nav class="nav">
+  <div class="nav-bg"></div>
+  {% for href, title in nav_items %}
+    <a
+      class="nav-link {% if active_page == href %}active{% endif %}"
+      href="/{{ href }}"
+    >
+      {{ title }}
+    </a>
+  {% endfor %}
+</nav>

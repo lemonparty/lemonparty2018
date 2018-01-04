@@ -51,6 +51,43 @@ table {
 html {
   height: 100%; }
 
+body {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif; }
+
+.nav {
+  margin-bottom: 54.4px;
+  padding: 3vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly; }
+  .nav-bg {
+    position: absolute;
+    z-index: 1;
+    top: -200px;
+    left: -25%;
+    width: 150%;
+    height: 272px;
+    background: lightgray;
+    transform: rotate(8deg); }
+    @media (max-width: 500px) {
+      .nav-bg {
+        top: -150px; } }
+    @media (max-width: 350px) {
+      .nav-bg {
+        top: -100px; } }
+  .nav-link {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 10px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase; }
+    .nav-link.active {
+      transform: rotate(157deg); }
+
 .page-login {
   min-height: 100%;
   background: yellow;
