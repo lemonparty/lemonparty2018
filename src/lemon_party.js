@@ -2,8 +2,8 @@ import Lemon from "./lemon";
 
 const FRAMES_PER_SECOND = 16;
 const IMAGE_SRCS = [
-	"./static/images/place-lemon.png",
-	"./static/images/date-lemon.png"
+  "./static/images/place-lemon.png",
+  "./static/images/date-lemon.png"
 ];
 
 // Must be ordered smallest to largest
@@ -20,6 +20,11 @@ export default {
 
   init() {
     this.canvas = document.getElementById("lemon-canvas");
+
+    if (!this.canvas) {
+      return;
+    }
+
     this.context = this.canvas.getContext("2d");
 
     this.canvas.width = window.innerWidth;

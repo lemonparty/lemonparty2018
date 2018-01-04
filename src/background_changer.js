@@ -14,6 +14,10 @@ export default {
   i: 0,
 
   init() {
+    if (!document.body.classList.contains("page-login")) {
+      return;
+    }
+
     setInterval(() => {
       const currentIndex = this.i % COLORS.length;
       const [background, color] = COLORS[currentIndex];

@@ -109,6 +109,10 @@ exports.default = {
   init: function init() {
     var _this = this;
 
+    if (!document.body.classList.contains("page-login")) {
+      return;
+    }
+
     setInterval(function () {
       var currentIndex = _this.i % COLORS.length;
 
@@ -154,6 +158,11 @@ exports.default = {
 
   init: function init() {
     this.canvas = document.getElementById("lemon-canvas");
+
+    if (!this.canvas) {
+      return;
+    }
+
     this.context = this.canvas.getContext("2d");
 
     this.canvas.width = window.innerWidth;
