@@ -79,7 +79,8 @@ body {
     width: 150%;
     height: 272px;
     background: lightgray;
-    transform: rotate(8deg); }
+    transform: rotate(8deg);
+    box-shadow: 0 4px 0 #000; }
     @media (min-width: 900px) {
       .nav-bg {
         transform: rotate(3deg); } }
@@ -98,9 +99,11 @@ body {
     padding: 0 10px;
     font-weight: bold;
     text-decoration: none;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    color: aqua; }
     .nav-link.active {
-      transform: rotate(157deg); }
+      transform: rotate(157deg);
+      color: orange; }
 
 .page-login {
   min-height: 100%;
