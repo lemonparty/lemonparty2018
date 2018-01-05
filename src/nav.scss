@@ -22,7 +22,7 @@ $text-shadow-color: #000;
   &-bg {
     position: absolute;
     z-index: 1;
-    top: -200px;
+    top: -180px;
     left: -25%;
     width: 150%;
     height: $nav-height;
@@ -49,13 +49,13 @@ $text-shadow-color: #000;
     display: inline-block;
     height: 50px;
     font-size: 18px;
+    letter-spacing: 2px;
     line-height: 50px;
     padding: 0 10px;
     font-weight: bold;
     text-decoration: none;
     text-transform: uppercase;
-    color: springgreen;
-    color: orange;
+    color: lighten(orange, 15%);
     text-shadow: zip($text-shadow-values);
 
     &:hover {

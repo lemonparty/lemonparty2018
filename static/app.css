@@ -52,25 +52,38 @@ body {
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   min-height: 100%; }
   body.logged-in {
+    min-height: 100vh;
     padding: 217.6px 4vw 100px;
     background-image: url("/static/images/shitty-half-lemon.png");
     background-repeat: repeat-x;
     background-position: bottom;
-    font-size: 17px;
-    line-height: 25px;
+    font-size: 18px;
+    line-height: 26px;
     background-color: yellow;
-    color: #00cccc; }
+    color: #009999; }
+    @media (max-width: 500px) {
+      body.logged-in {
+        padding-top: 272px; } }
 
 .page-title {
   display: inline-block;
   width: 100%;
-  padding-bottom: 80px;
+  padding-bottom: 100px;
   text-align: center;
   font-size: 88px;
   letter-spacing: 3px;
   color: springgreen;
   font-weight: bold;
-  text-shadow: 0px 0px 0 darkviolet, 1px 1px 0 darkviolet, 2px 2px 0 darkviolet, 3px 3px 0 darkviolet, 4px 4px 0 darkviolet, 5px 5px 0 darkviolet, 6px 6px 0 darkviolet, 7px 7px 0 darkviolet, 8px 8px 0 darkviolet, 9px 9px 0 darkviolet, 10px 10px 0 darkviolet, 11px 11px 0 darkviolet, 12px 12px 0 darkviolet, 13px 13px 0 darkviolet, 14px 14px 0 darkviolet, 15px 15px 0 darkviolet, 16px 16px 0 darkviolet, 17px 17px 0 darkviolet, 18px 18px 0 darkviolet, 19px 19px 0 darkviolet, 20px 20px 0 darkviolet, 21px 21px 0 darkviolet, 22px 22px 0 darkviolet, 23px 23px 0 darkviolet, 24px 24px 0 darkviolet, 25px 25px 0 darkviolet, 26px 26px 0 darkviolet, 27px 27px 0 darkviolet, 28px 28px 0 darkviolet, 29px 29px 0 darkviolet, 30px 30px 0 darkviolet; }
+  text-shadow: 0px 0px 0 #7000a0, 1px 1px 0 #7000a0, 2px 2px 0 #7000a0, 3px 3px 0 #7000a0, 4px 4px 0 #7000a0, 5px 5px 0 #7000a0, 6px 6px 0 #7000a0, 7px 7px 0 #7000a0, 8px 8px 0 #7000a0, 9px 9px 0 #7000a0, 10px 10px 0 #7000a0, 11px 11px 0 #7000a0, 12px 12px 0 #7000a0, 13px 13px 0 #7000a0, 14px 14px 0 #7000a0, 15px 15px 0 #7000a0, 16px 16px 0 #7000a0, 17px 17px 0 #7000a0, 18px 18px 0 #7000a0, 19px 19px 0 #7000a0, 20px 20px 0 #7000a0, 21px 21px 0 #7000a0, 22px 22px 0 #7000a0, 23px 23px 0 #7000a0, 24px 24px 0 #7000a0, 25px 25px 0 #7000a0, 26px 26px 0 #7000a0, 27px 27px 0 #7000a0, 28px 28px 0 #7000a0, 29px 29px 0 #7000a0, 30px 30px 0 #7000a0; }
+
+.text {
+  position: relative;
+  left: 50%;
+  width: 100%;
+  max-width: 550px;
+  transform: translateX(-50%); }
+  .text + .text {
+    margin-top: 20px; }
 
 .nav {
   position: absolute;
@@ -87,7 +100,7 @@ body {
   .nav-bg {
     position: absolute;
     z-index: 1;
-    top: -200px;
+    top: -180px;
     left: -25%;
     width: 150%;
     height: 272px;
@@ -109,13 +122,13 @@ body {
     display: inline-block;
     height: 50px;
     font-size: 18px;
+    letter-spacing: 2px;
     line-height: 50px;
     padding: 0 10px;
     font-weight: bold;
     text-decoration: none;
     text-transform: uppercase;
-    color: springgreen;
-    color: orange;
+    color: #ffc04d;
     text-shadow: 0px 0px 0 #000, 1px 1px 0 #000, 2px 2px 0 #000, 3px 3px 0 #000, 4px 4px 0 #000, 5px 5px 0 #000, 6px 6px 0 #000, 7px 7px 0 #000, 8px 8px 0 #000, 9px 9px 0 #000, 10px 10px 0 #000, 11px 11px 0 #000, 12px 12px 0 #000, 13px 13px 0 #000, 14px 14px 0 #000, 15px 15px 0 #000, 16px 16px 0 #000, 17px 17px 0 #000, 18px 18px 0 #000, 19px 19px 0 #000, 20px 20px 0 #000, 21px 21px 0 #000, 22px 22px 0 #000, 23px 23px 0 #000, 24px 24px 0 #000, 25px 25px 0 #000, 26px 26px 0 #000, 27px 27px 0 #000, 28px 28px 0 #000, 29px 29px 0 #000, 30px 30px 0 #000; }
     .nav-link:hover {
       color: springgreen; }
@@ -186,3 +199,23 @@ body {
     text-align: center;
     font-size: 12px;
     color: red; }
+
+.page-home-rsvp-link {
+  display: block;
+  position: relative;
+  z-index: 2;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 60px;
+  margin-top: 40px;
+  text-decoration: none;
+  background: purple;
+  color: springgreen;
+  font-size: 28px;
+  letter-spacing: 2px;
+  line-height: 60px;
+  text-align: center;
+  box-shadow: -8px 8px 0 #000; }
+  .page-home-rsvp-link:hover {
+    box-shadow: -24px 12px 0 #000; }

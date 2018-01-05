@@ -20,19 +20,24 @@ body {
   min-height: 100%;
 
   &.logged-in {
+    min-height: 100vh;
     padding: ($nav-height * 0.8) 4vw $footer-height;
     background-image: url("/static/images/shitty-half-lemon.png");
     background-repeat: repeat-x;
     background-position: bottom;
-    font-size: 17px;
-    line-height: 25px;
+    font-size: 18px;
+    line-height: 26px;
     background-color: yellow;
-    color: darken(aqua, 10%);
+    color: darken(aqua, 20%);
+
+    @media (max-width: 500px) {
+      padding-top: $nav-height;
+    }
   }
 }
 
 $text-shadow-values: ();
-$text-shadow-color: darkviolet;
+$text-shadow-color: darken(darkviolet, 10%);
 
 @for $i from 0 through 30 {
   $offset: $i * 1px;
@@ -42,13 +47,25 @@ $text-shadow-color: darkviolet;
 .page-title {
   display: inline-block;
   width: 100%;
-  padding-bottom: 80px;
+  padding-bottom: 100px;
   text-align: center;
   font-size: 88px;
   letter-spacing: 3px;
   color: springgreen;
   font-weight: bold;
   text-shadow: zip($text-shadow-values);
+}
+
+.text {
+  position: relative;
+  left: 50%;
+  width: 100%;
+  max-width: 550px;
+  transform: translateX(-50%);
+
+  & + .text {
+    margin-top: 20px;
+  }
 }
 
 @import "nav";
@@ -58,3 +75,4 @@ $text-shadow-color: darkviolet;
 // -----------------------------------------------------------------------------
 
 @import "login";
+@import "home";

@@ -1,0 +1,27 @@
+$button-width: 120px;
+$button-height: 60px;
+
+.page-home {
+  &-rsvp-link {
+    display: block;
+    position: relative;
+    z-index: 2;
+    left: 50%;
+    transform: translateX(-50%);
+    width: $button-width;
+    height: $button-height;
+    margin-top: 40px;
+    text-decoration: none;
+    background: purple;
+    color: springgreen;
+    font-size: 28px;
+    letter-spacing: 2px;
+    line-height: $button-height;
+    text-align: center;
+    box-shadow: -8px 8px 0 #000;
+
+    &:hover {
+      box-shadow: -24px 12px 0 #000;
+    }
+  }
+}
