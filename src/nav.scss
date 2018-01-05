@@ -1,3 +1,11 @@
+$text-shadow-values: ();
+$text-shadow-color: #000;
+
+@for $i from 0 through 30 {
+  $offset: $i * 1px;
+  $text-shadow-values: append($text-shadow-values, $offset $offset 0 $text-shadow-color);
+}
+
 .nav {
   position: absolute;
   overflow: hidden;
@@ -18,9 +26,9 @@
     left: -25%;
     width: 150%;
     height: $nav-height;
-    background: lightgray;
+    background: turquoise;
     transform: rotate(8deg);
-    box-shadow: 0 4px 0 #000;
+    box-shadow: 0 4px 0 red;
 
     @media (min-width: 900px) {
       transform: rotate(3deg);
@@ -40,16 +48,23 @@
     z-index: 2;
     display: inline-block;
     height: 50px;
+    font-size: 18px;
     line-height: 50px;
     padding: 0 10px;
     font-weight: bold;
     text-decoration: none;
     text-transform: uppercase;
-    color: aqua;
+    color: springgreen;
+    color: orange;
+    text-shadow: zip($text-shadow-values);
+
+    &:hover {
+      color: springgreen;
+    }
 
     &.active {
       transform: rotate(157deg);
-      color: orange;
+      color: magenta;
     }
   }
 }

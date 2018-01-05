@@ -56,8 +56,21 @@ body {
     background-image: url("/static/images/shitty-half-lemon.png");
     background-repeat: repeat-x;
     background-position: bottom;
-    font-size: 16px;
-    line-height: 24px; }
+    font-size: 17px;
+    line-height: 25px;
+    background-color: yellow;
+    color: #00cccc; }
+
+.page-title {
+  display: inline-block;
+  width: 100%;
+  padding-bottom: 80px;
+  text-align: center;
+  font-size: 88px;
+  letter-spacing: 3px;
+  color: springgreen;
+  font-weight: bold;
+  text-shadow: 0px 0px 0 darkviolet, 1px 1px 0 darkviolet, 2px 2px 0 darkviolet, 3px 3px 0 darkviolet, 4px 4px 0 darkviolet, 5px 5px 0 darkviolet, 6px 6px 0 darkviolet, 7px 7px 0 darkviolet, 8px 8px 0 darkviolet, 9px 9px 0 darkviolet, 10px 10px 0 darkviolet, 11px 11px 0 darkviolet, 12px 12px 0 darkviolet, 13px 13px 0 darkviolet, 14px 14px 0 darkviolet, 15px 15px 0 darkviolet, 16px 16px 0 darkviolet, 17px 17px 0 darkviolet, 18px 18px 0 darkviolet, 19px 19px 0 darkviolet, 20px 20px 0 darkviolet, 21px 21px 0 darkviolet, 22px 22px 0 darkviolet, 23px 23px 0 darkviolet, 24px 24px 0 darkviolet, 25px 25px 0 darkviolet, 26px 26px 0 darkviolet, 27px 27px 0 darkviolet, 28px 28px 0 darkviolet, 29px 29px 0 darkviolet, 30px 30px 0 darkviolet; }
 
 .nav {
   position: absolute;
@@ -78,9 +91,9 @@ body {
     left: -25%;
     width: 150%;
     height: 272px;
-    background: lightgray;
+    background: turquoise;
     transform: rotate(8deg);
-    box-shadow: 0 4px 0 #000; }
+    box-shadow: 0 4px 0 red; }
     @media (min-width: 900px) {
       .nav-bg {
         transform: rotate(3deg); } }
@@ -95,15 +108,20 @@ body {
     z-index: 2;
     display: inline-block;
     height: 50px;
+    font-size: 18px;
     line-height: 50px;
     padding: 0 10px;
     font-weight: bold;
     text-decoration: none;
     text-transform: uppercase;
-    color: aqua; }
+    color: springgreen;
+    color: orange;
+    text-shadow: 0px 0px 0 #000, 1px 1px 0 #000, 2px 2px 0 #000, 3px 3px 0 #000, 4px 4px 0 #000, 5px 5px 0 #000, 6px 6px 0 #000, 7px 7px 0 #000, 8px 8px 0 #000, 9px 9px 0 #000, 10px 10px 0 #000, 11px 11px 0 #000, 12px 12px 0 #000, 13px 13px 0 #000, 14px 14px 0 #000, 15px 15px 0 #000, 16px 16px 0 #000, 17px 17px 0 #000, 18px 18px 0 #000, 19px 19px 0 #000, 20px 20px 0 #000, 21px 21px 0 #000, 22px 22px 0 #000, 23px 23px 0 #000, 24px 24px 0 #000, 25px 25px 0 #000, 26px 26px 0 #000, 27px 27px 0 #000, 28px 28px 0 #000, 29px 29px 0 #000, 30px 30px 0 #000; }
+    .nav-link:hover {
+      color: springgreen; }
     .nav-link.active {
       transform: rotate(157deg);
-      color: orange; }
+      color: magenta; }
 
 .page-login {
   min-height: 100%;
