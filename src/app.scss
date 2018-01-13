@@ -36,12 +36,16 @@ html {
 .login-form {
   position: relative;
   z-index: 2;
-  width: 90vw;
-  max-width: 250px;
+  width: 300px;
   margin-bottom: -12vw;
   background: rgba(#000, 0.8);
-  padding: 3vw;
+  padding: 40px;
   line-height: 14px;
+
+  @media (max-width: 500px) {
+    width: 80%;
+    padding: 20px;
+  }
 
   &-input,
   &-button {
