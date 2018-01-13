@@ -30,7 +30,7 @@ To generate a password hash, start your python console while in the project's
 virtualenv, enter the following, and copy the output to `localsettings.py`:
 
 ```.py
-from passlib.hash import pbkdf3_sha256
+from passlib.hash import pbkdf2_sha256
 pbkdf2_sha256.hash("your password")
 ```
 
