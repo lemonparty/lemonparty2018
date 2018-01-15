@@ -1,5 +1,5 @@
 # Lemon Party 2018
-Let's see if this goes off with a hitch...
+This repo holds the website for Katherine and Michael's wedding. Let's see if this goes off with a hitch...
 
 ## Back end
 
