@@ -109,7 +109,7 @@ exports.default = {
   init: function init() {
     var _this = this;
 
-    if (!document.body.classList.contains("page-login")) {
+    if (!document.body.classList.contains("body-login")) {
       return;
     }
 

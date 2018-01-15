@@ -14,7 +14,7 @@ export default {
   i: 0,
 
   init() {
-    if (!document.body.classList.contains("page-login")) {
+    if (!document.body.classList.contains("body-login")) {
       return;
     }
 
