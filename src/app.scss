@@ -8,7 +8,7 @@ html {
   height: 100%;
 }
 
-.page-login {
+.body-login {
   min-height: 100%;
   background: yellow;
   color: chartreuse;
@@ -38,13 +38,19 @@ html {
   z-index: 2;
   width: 300px;
   margin-bottom: -12vw;
-  background: rgba(#000, 0.8);
+  background: rgba(#000, 0.6);
   padding: 40px;
   line-height: 14px;
 
   @media (max-width: 500px) {
     width: 80%;
     padding: 20px;
+  }
+
+  &,
+  &-input,
+  &-button {
+    border-radius: 8px;
   }
 
   &-input,
@@ -60,8 +66,8 @@ html {
   &-input {
     width: $input-size;
     margin-right: $margin;
-    padding-right: 3%;
-    padding-left: 3%;
+    padding-right: 5%;
+    padding-left: 5%;
     color: limegreen;
 
     &:focus {
@@ -87,6 +93,7 @@ html {
   &-error {
     float: left;
     margin-top: 10px;
+    margin-bottom: -10px;
     width: 100%;
     text-align: center;
     font-size: 12px;

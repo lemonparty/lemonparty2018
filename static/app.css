@@ -51,7 +51,7 @@ table {
 html {
   height: 100%; }
 
-.page-login {
+.body-login {
   min-height: 100%;
   background: yellow;
   color: chartreuse;
@@ -78,13 +78,15 @@ html {
   z-index: 2;
   width: 300px;
   margin-bottom: -12vw;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.6);
   padding: 40px;
   line-height: 14px; }
   @media (max-width: 500px) {
     .login-form {
       width: 80%;
       padding: 20px; } }
+  .login-form, .login-form-input, .login-form-button {
+    border-radius: 8px; }
   .login-form-input, .login-form-button {
     float: left;
     border: none;
@@ -92,8 +94,8 @@ html {
   .login-form-input {
     width: 70%;
     margin-right: 3%;
-    padding-right: 3%;
-    padding-left: 3%;
+    padding-right: 5%;
+    padding-left: 5%;
     color: limegreen; }
     .login-form-input:focus {
       outline: none; }
@@ -109,6 +111,7 @@ html {
   .login-form-error {
     float: left;
     margin-top: 10px;
+    margin-bottom: -10px;
     width: 100%;
     text-align: center;
     font-size: 12px;

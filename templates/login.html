@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock %}
-{% block bodyclass %}page-login{% endblock %}
+{% block bodyclass %}body-login{% endblock %}
 {% block content %}
   <canvas id="lemon-canvas" width="500" height="500"></canvas>
 
@@ -15,7 +15,7 @@
 
       <input type="submit" value="LOG IN" class="login-form-button" />
 
-      {% if login_error %}
+      {% if authentication_error %}
         <span class="login-form-error">wrong password!</span>
       {% endif %}
     </form>
@@ -23,5 +23,5 @@
   {% endif %}
 
   {# words must abut brs to remove inline whitespace and ensure centering #}
-  LEMON<br />PARTY<br />2018
+  LEMON<br>PARTY<br>2018
 {% endblock %}

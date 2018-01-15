@@ -31,29 +31,29 @@ def static_path_processor():
 
 @app.route('/')
 def index():
-    if session.get('logged_in'):
+    if session.get('is_authenticated'):
         return render_template('home.html')
     else:
         return render_template('login.html',
-            login_error=session.get('login_error'),
+            authentication_error=session.get('authentication_error'),
             show_login=request.args.get('show_login'))
 
 
 @app.route('/login', methods=['POST'])
-def do_admin_login():
+def login():
     if pbkdf2_sha256.verify(request.form['password'], PASSWORD_HASH):
-        session['logged_in'] = True
-        session['login_error'] = False
+        session['is_authenticated'] = True
+        session['authentication_error'] = False
     else:
-        session['login_error'] = True
+        session['authentication_error'] = True
 
     return index()
 
 
 @app.route("/logout")
 def logout():
-    session['logged_in'] = False
-    session['login_error'] = False
+    session['is_authenticated'] = False
+    session['authentication_error'] = False
 
     return index()
 
