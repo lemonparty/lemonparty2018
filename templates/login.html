@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block bodyclass %}body-login{% endblock %}
+{% block content %}
+  <canvas id="lemon-canvas" width="500" height="500"></canvas>
+
+  {% if show_login %}
+    <form method="post" action="/login" class="login-form">
+      <input
+        type="password"
+        placeholder="password"
+        name="password"
+        class="login-form-input"
+      />
+
+      <input type="submit" value="LOG IN" class="login-form-button" />
+
+      {% if authentication_error %}
+        <span class="login-form-error">wrong password!</span>
+      {% endif %}
+    </form>
+    <br />
+  {% endif %}
+
+  {# words must abut brs to remove inline whitespace and ensure centering #}
+  LEMON<br>PARTY<br>2018
+{% endblock %}

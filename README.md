@@ -21,8 +21,17 @@ Then you should be able to load localhost:5000 and see the site.
 `localsettings` stores information specific to a particular environment. Here is
 an example file:
 
+```.py
+DEBUG = True # should be false in prod
+PASSWORD_HASH = "a hashed password" # see below for generating password hashes
 ```
-DEBUG = True
+
+To generate a password hash, start your python console while in the project's
+virtualenv, enter the following, and copy the output to `localsettings.py`:
+
+```.py
+from passlib.hash import pbkdf2_sha256
+pbkdf2_sha256.hash("your password")
 ```
 
 ## Front end

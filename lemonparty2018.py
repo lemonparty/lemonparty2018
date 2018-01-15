@@ -1,8 +1,9 @@
 from flask import Flask
-from flask import render_template
+from flask import render_template, session, request
+from passlib.hash import pbkdf2_sha256
 import os
 import json
-from localsettings import DEBUG
+from localsettings import DEBUG, PASSWORD_HASH
 
 
 app = Flask(__name__)
@@ -30,8 +31,33 @@ def static_path_processor():
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    if session.get('is_authenticated'):
+        return render_template('home.html')
+    else:
+        return render_template('login.html',
+            authentication_error=session.get('authentication_error'),
+            show_login=request.args.get('show_login'))
+
+
+@app.route('/login', methods=['POST'])
+def login():
+    if pbkdf2_sha256.verify(request.form['password'], PASSWORD_HASH):
+        session['is_authenticated'] = True
+        session['authentication_error'] = False
+    else:
+        session['authentication_error'] = True
+
+    return index()
+
+
+@app.route("/logout")
+def logout():
+    session['is_authenticated'] = False
+    session['authentication_error'] = False
+
+    return index()
 
 
 if __name__ == '__main__':
+    app.secret_key = os.urandom(12)
     app.run(debug=DEBUG, host='0.0.0.0')
