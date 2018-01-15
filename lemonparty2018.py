@@ -3,7 +3,7 @@ from flask import render_template, session, request
 from passlib.hash import pbkdf2_sha256
 import os
 import json
-from localsettings import DEBUG, PASSWORD_HASH
+from localsettings import DEBUG, PASSWORD_HASH, SECRET_KEY
 
 
 app = Flask(__name__)
@@ -59,5 +59,5 @@ def logout():
 
 
 if __name__ == '__main__':
-    app.secret_key = os.urandom(12)
+    app.secret_key = SECRET_KEY
     app.run(debug=DEBUG, host='0.0.0.0')

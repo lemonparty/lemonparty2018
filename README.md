@@ -23,7 +23,8 @@ an example file:
 
 ```.py
 DEBUG = True # should be false in prod
-PASSWORD_HASH = "a hashed password" # see below for generating password hashes
+PASSWORD_HASH = 'a hashed password' # see below for generating password hashes
+SECRET_KEY = 'your secret key' # usually a randomly generated string
 ```
 
 To generate a password hash, start your python console while in the project's
