@@ -7,6 +7,7 @@ from localsettings import DEBUG, PASSWORD_HASH, SECRET_KEY
 
 
 app = Flask(__name__)
+app.secret_key = os.urandom(12)
 
 
 @app.context_processor
@@ -59,5 +60,4 @@ def logout():
 
 
 if __name__ == '__main__':
-    app.secret_key = SECRET_KEY
     app.run(debug=DEBUG, host='0.0.0.0')
