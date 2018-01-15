@@ -60,7 +60,8 @@ body {
     font-size: 18px;
     line-height: 26px;
     background-color: yellow;
-    color: #009999; }
+    color: #009999;
+    color: purple; }
     @media (max-width: 500px) {
       body.logged-in {
         padding-top: 272px; } }
@@ -74,7 +75,7 @@ body {
   letter-spacing: 3px;
   color: springgreen;
   font-weight: bold;
-  text-shadow: 0px 0px 0 #7000a0, 1px 1px 0 #7000a0, 2px 2px 0 #7000a0, 3px 3px 0 #7000a0, 4px 4px 0 #7000a0, 5px 5px 0 #7000a0, 6px 6px 0 #7000a0, 7px 7px 0 #7000a0, 8px 8px 0 #7000a0, 9px 9px 0 #7000a0, 10px 10px 0 #7000a0, 11px 11px 0 #7000a0, 12px 12px 0 #7000a0, 13px 13px 0 #7000a0, 14px 14px 0 #7000a0, 15px 15px 0 #7000a0, 16px 16px 0 #7000a0, 17px 17px 0 #7000a0, 18px 18px 0 #7000a0, 19px 19px 0 #7000a0, 20px 20px 0 #7000a0, 21px 21px 0 #7000a0, 22px 22px 0 #7000a0, 23px 23px 0 #7000a0, 24px 24px 0 #7000a0, 25px 25px 0 #7000a0, 26px 26px 0 #7000a0, 27px 27px 0 #7000a0, 28px 28px 0 #7000a0, 29px 29px 0 #7000a0, 30px 30px 0 #7000a0; }
+  text-shadow: 0px 0px 0 purple, 0.6px 1px 0 purple, 1.2px 2px 0 purple, 1.8px 3px 0 purple, 2.4px 4px 0 purple, 3px 5px 0 purple, 3.6px 6px 0 purple, 4.2px 7px 0 purple, 4.8px 8px 0 purple, 5.4px 9px 0 purple, 6px 10px 0 purple, 6.6px 11px 0 purple, 7.2px 12px 0 purple, 7.8px 13px 0 purple, 8.4px 14px 0 purple, 9px 15px 0 purple, 9.6px 16px 0 purple, 10.2px 17px 0 purple, 10.8px 18px 0 purple, 11.4px 19px 0 purple, 12px 20px 0 purple, 12.6px 21px 0 purple, 13.2px 22px 0 purple, 13.8px 23px 0 purple, 14.4px 24px 0 purple, 15px 25px 0 purple, 15.6px 26px 0 purple, 16.2px 27px 0 purple, 16.8px 28px 0 purple, 17.4px 29px 0 purple, 18px 30px 0 purple; }
 
 .text {
   position: relative;
@@ -92,7 +93,7 @@ body {
   left: 0;
   width: 100%;
   height: 272px;
-  padding: 3vw;
+  padding: 4vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -106,14 +107,14 @@ body {
     height: 272px;
     background: turquoise;
     transform: rotate(8deg);
-    box-shadow: 0 4px 0 red; }
+    box-shadow: 0 4px 0 pink; }
     @media (min-width: 900px) {
       .nav-bg {
         transform: rotate(3deg); } }
     @media (max-width: 500px) {
       .nav-bg {
         top: -150px; } }
-    @media (max-width: 350px) {
+    @media (max-width: 390px) {
       .nav-bg {
         top: -100px; } }
   .nav-link {
@@ -128,8 +129,8 @@ body {
     font-weight: bold;
     text-decoration: none;
     text-transform: uppercase;
-    color: #ffc04d;
-    text-shadow: 0px 0px 0 #000, 1px 1px 0 #000, 2px 2px 0 #000, 3px 3px 0 #000, 4px 4px 0 #000, 5px 5px 0 #000, 6px 6px 0 #000, 7px 7px 0 #000, 8px 8px 0 #000, 9px 9px 0 #000, 10px 10px 0 #000, 11px 11px 0 #000, 12px 12px 0 #000, 13px 13px 0 #000, 14px 14px 0 #000, 15px 15px 0 #000, 16px 16px 0 #000, 17px 17px 0 #000, 18px 18px 0 #000, 19px 19px 0 #000, 20px 20px 0 #000, 21px 21px 0 #000, 22px 22px 0 #000, 23px 23px 0 #000, 24px 24px 0 #000, 25px 25px 0 #000, 26px 26px 0 #000, 27px 27px 0 #000, 28px 28px 0 #000, 29px 29px 0 #000, 30px 30px 0 #000; }
+    color: orange;
+    text-shadow: 0px 0px 0 #000, 1px 1px 0 #000, 2px 2px 0 #000, 3px 3px 0 #000, 4px 4px 0 #000, 5px 5px 0 #000, 6px 6px 0 #000, 7px 7px 0 #000, 8px 8px 0 #000, 9px 9px 0 #000, 10px 10px 0 #000, 11px 11px 0 #000, 12px 12px 0 #000, 13px 13px 0 #000, 14px 14px 0 #000, 15px 15px 0 #000, 16px 16px 0 #000, 17px 17px 0 #000, 18px 18px 0 #000, 19px 19px 0 #000, 20px 20px 0 #000; }
     .nav-link:hover {
       color: springgreen; }
     .nav-link.active {

@@ -29,6 +29,7 @@ body {
     line-height: 26px;
     background-color: yellow;
     color: darken(aqua, 20%);
+    color: purple;
 
     @media (max-width: 500px) {
       padding-top: $nav-height;
@@ -37,11 +38,11 @@ body {
 }
 
 $text-shadow-values: ();
-$text-shadow-color: darken(darkviolet, 10%);
+$text-shadow-color: purple;
 
 @for $i from 0 through 30 {
   $offset: $i * 1px;
-  $text-shadow-values: append($text-shadow-values, $offset $offset 0 $text-shadow-color);
+  $text-shadow-values: append($text-shadow-values, $offset * 0.6 $offset 0 $text-shadow-color);
 }
 
 .page-title {

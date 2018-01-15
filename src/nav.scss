@@ -1,7 +1,7 @@
 $text-shadow-values: ();
 $text-shadow-color: #000;
 
-@for $i from 0 through 30 {
+@for $i from 0 through 20 {
   $offset: $i * 1px;
   $text-shadow-values: append($text-shadow-values, $offset $offset 0 $text-shadow-color);
 }
@@ -13,7 +13,7 @@ $text-shadow-color: #000;
   left: 0;
   width: 100%;
   height: $nav-height;
-  padding: 3vw;
+  padding: 4vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -28,7 +28,7 @@ $text-shadow-color: #000;
     height: $nav-height;
     background: turquoise;
     transform: rotate(8deg);
-    box-shadow: 0 4px 0 red;
+    box-shadow: 0 4px 0 pink;
 
     @media (min-width: 900px) {
       transform: rotate(3deg);
@@ -38,7 +38,7 @@ $text-shadow-color: #000;
       top: -150px;
     }
 
-    @media (max-width: 350px) {
+    @media (max-width: 390px) {
       top: -100px;
     }
   }
@@ -55,7 +55,7 @@ $text-shadow-color: #000;
     font-weight: bold;
     text-decoration: none;
     text-transform: uppercase;
-    color: lighten(orange, 15%);
+    color: lighten(orange, 0%);
     text-shadow: zip($text-shadow-values);
 
     &:hover {
