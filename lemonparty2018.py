@@ -3,7 +3,7 @@ from flask import render_template, session, request
 from passlib.hash import pbkdf2_sha256
 import os
 import json
-from localsettings import DEBUG, PASSWORD_HASH, SECRET_KEY
+from localsettings import DEBUG, PASSWORD_HASH
 
 
 app = Flask(__name__)
