@@ -53,7 +53,7 @@ body {
   min-height: 100%; }
   body.logged-in {
     min-height: 100vh;
-    padding: 217.6px 4vw 100px;
+    padding: 217.6px 4vw 150px;
     background-image: url("/static/images/bottom-lemon.png");
     background-repeat: repeat-x;
     background-position: bottom;
@@ -143,11 +143,12 @@ em {
     font-weight: bold;
     text-decoration: none;
     color: orange;
-    text-shadow: 0px 0px 0 #000, 1px 1px 0 #000, 2px 2px 0 #000, 3px 3px 0 #000, 4px 4px 0 #000, 5px 5px 0 #000, 6px 6px 0 #000, 7px 7px 0 #000, 8px 8px 0 #000, 9px 9px 0 #000, 10px 10px 0 #000, 11px 11px 0 #000, 12px 12px 0 #000, 13px 13px 0 #000, 14px 14px 0 #000, 15px 15px 0 #000, 16px 16px 0 #000, 17px 17px 0 #000, 18px 18px 0 #000, 19px 19px 0 #000, 20px 20px 0 #000; }
+    text-shadow: 0 0 2px #000, 0px 0px 0 #000, 1.2px 1px 0 #000, 2.4px 2px 0 #000, 3.6px 3px 0 #000, 4.8px 4px 0 #000, 6px 5px 0 #000, 7.2px 6px 0 #000, 8.4px 7px 0 #000, 9.6px 8px 0 #000, 10.8px 9px 0 #000, 12px 10px 0 #000; }
     .nav-link:hover {
       color: springgreen; }
     .nav-link.active {
       transform: rotate(157deg);
+      left: 10px;
       color: magenta; }
 
 .body-login {

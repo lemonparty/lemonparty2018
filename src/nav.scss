@@ -1,9 +1,9 @@
 $text-shadow-values: ();
 $text-shadow-color: #000;
 
-@for $i from 0 through 20 {
+@for $i from 0 through 10 {
   $offset: $i * 1px;
-  $text-shadow-values: append($text-shadow-values, $offset $offset 0 $text-shadow-color);
+  $text-shadow-values: append($text-shadow-values, $offset * 1.2 $offset 0 $text-shadow-color);
 }
 
 .nav {
@@ -55,7 +55,7 @@ $text-shadow-color: #000;
     font-weight: bold;
     text-decoration: none;
     color: lighten(orange, 0%);
-    text-shadow: zip($text-shadow-values);
+    text-shadow: 0 0 2px $text-shadow-color, zip($text-shadow-values);
 
     &:hover {
       color: springgreen;
@@ -63,6 +63,7 @@ $text-shadow-color: #000;
 
     &.active {
       transform: rotate(157deg);
+      left: 10px;
       color: magenta;
     }
   }
