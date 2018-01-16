@@ -70,11 +70,16 @@ body {
   width: 100%;
   padding-bottom: 100px;
   text-align: center;
-  font-size: 88px;
   letter-spacing: 3px;
   color: saddlebrown;
   font-weight: bold;
   text-shadow: 0px 0px 0 magenta, 0.6px 1px 0 magenta, 1.2px 2px 0 magenta, 1.8px 3px 0 magenta, 2.4px 4px 0 magenta, 3px 5px 0 magenta, 3.6px 6px 0 magenta, 4.2px 7px 0 magenta, 4.8px 8px 0 magenta, 5.4px 9px 0 magenta, 6px 10px 0 magenta, 6.6px 11px 0 magenta, 7.2px 12px 0 magenta, 7.8px 13px 0 magenta, 8.4px 14px 0 magenta, 9px 15px 0 magenta, 9.6px 16px 0 magenta, 10.2px 17px 0 magenta, 10.8px 18px 0 magenta, 11.4px 19px 0 magenta, 12px 20px 0 magenta, 12.6px 21px 0 magenta, 13.2px 22px 0 magenta, 13.8px 23px 0 magenta, 14.4px 24px 0 magenta, 15px 25px 0 magenta, 15.6px 26px 0 magenta, 16.2px 27px 0 magenta, 16.8px 28px 0 magenta, 17.4px 29px 0 magenta, 18px 30px 0 magenta; }
+  @media (min-width: 650px) {
+    .page-title {
+      font-size: 88px; } }
+  @media (max-width: 650px) {
+    .page-title {
+      font-size: 13vw; } }
 
 em {
   font-style: italic;
