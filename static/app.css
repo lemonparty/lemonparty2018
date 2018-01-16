@@ -54,14 +54,13 @@ body {
   body.logged-in {
     min-height: 100vh;
     padding: 217.6px 4vw 100px;
-    background-image: url("/static/images/shitty-half-lemon.png");
+    background-image: url("/static/images/bottom-lemon.png");
     background-repeat: repeat-x;
     background-position: bottom;
     font-size: 18px;
     line-height: 26px;
     background-color: yellow;
-    color: #009999;
-    color: purple; }
+    color: saddlebrown; }
     @media (max-width: 500px) {
       body.logged-in {
         padding-top: 272px; } }
@@ -73,9 +72,13 @@ body {
   text-align: center;
   font-size: 88px;
   letter-spacing: 3px;
-  color: springgreen;
+  color: saddlebrown;
   font-weight: bold;
-  text-shadow: 0px 0px 0 purple, 0.6px 1px 0 purple, 1.2px 2px 0 purple, 1.8px 3px 0 purple, 2.4px 4px 0 purple, 3px 5px 0 purple, 3.6px 6px 0 purple, 4.2px 7px 0 purple, 4.8px 8px 0 purple, 5.4px 9px 0 purple, 6px 10px 0 purple, 6.6px 11px 0 purple, 7.2px 12px 0 purple, 7.8px 13px 0 purple, 8.4px 14px 0 purple, 9px 15px 0 purple, 9.6px 16px 0 purple, 10.2px 17px 0 purple, 10.8px 18px 0 purple, 11.4px 19px 0 purple, 12px 20px 0 purple, 12.6px 21px 0 purple, 13.2px 22px 0 purple, 13.8px 23px 0 purple, 14.4px 24px 0 purple, 15px 25px 0 purple, 15.6px 26px 0 purple, 16.2px 27px 0 purple, 16.8px 28px 0 purple, 17.4px 29px 0 purple, 18px 30px 0 purple; }
+  text-shadow: 0px 0px 0 magenta, 0.6px 1px 0 magenta, 1.2px 2px 0 magenta, 1.8px 3px 0 magenta, 2.4px 4px 0 magenta, 3px 5px 0 magenta, 3.6px 6px 0 magenta, 4.2px 7px 0 magenta, 4.8px 8px 0 magenta, 5.4px 9px 0 magenta, 6px 10px 0 magenta, 6.6px 11px 0 magenta, 7.2px 12px 0 magenta, 7.8px 13px 0 magenta, 8.4px 14px 0 magenta, 9px 15px 0 magenta, 9.6px 16px 0 magenta, 10.2px 17px 0 magenta, 10.8px 18px 0 magenta, 11.4px 19px 0 magenta, 12px 20px 0 magenta, 12.6px 21px 0 magenta, 13.2px 22px 0 magenta, 13.8px 23px 0 magenta, 14.4px 24px 0 magenta, 15px 25px 0 magenta, 15.6px 26px 0 magenta, 16.2px 27px 0 magenta, 16.8px 28px 0 magenta, 17.4px 29px 0 magenta, 18px 30px 0 magenta; }
+
+em {
+  font-style: italic;
+  letter-spacing: 1px; }
 
 .text {
   position: relative;
@@ -85,6 +88,12 @@ body {
   transform: translateX(-50%); }
   .text + .text {
     margin-top: 20px; }
+  .text a {
+    color: saddlebrown;
+    background: pink;
+    text-decoration: none; }
+    .text a:hover {
+      background: orange; }
 
 .nav {
   position: absolute;
@@ -107,7 +116,7 @@ body {
     height: 272px;
     background: turquoise;
     transform: rotate(8deg);
-    box-shadow: 0 4px 0 pink; }
+    box-shadow: 0 12px 0 pink; }
     @media (min-width: 900px) {
       .nav-bg {
         transform: rotate(3deg); } }
@@ -122,13 +131,12 @@ body {
     z-index: 2;
     display: inline-block;
     height: 50px;
-    font-size: 18px;
-    letter-spacing: 2px;
+    font-size: 19px;
+    letter-spacing: 3px;
     line-height: 50px;
     padding: 0 10px;
     font-weight: bold;
     text-decoration: none;
-    text-transform: uppercase;
     color: orange;
     text-shadow: 0px 0px 0 #000, 1px 1px 0 #000, 2px 2px 0 #000, 3px 3px 0 #000, 4px 4px 0 #000, 5px 5px 0 #000, 6px 6px 0 #000, 7px 7px 0 #000, 8px 8px 0 #000, 9px 9px 0 #000, 10px 10px 0 #000, 11px 11px 0 #000, 12px 12px 0 #000, 13px 13px 0 #000, 14px 14px 0 #000, 15px 15px 0 #000, 16px 16px 0 #000, 17px 17px 0 #000, 18px 18px 0 #000, 19px 19px 0 #000, 20px 20px 0 #000; }
     .nav-link:hover {
@@ -214,12 +222,23 @@ body {
   height: 60px;
   margin-top: 40px;
   text-decoration: none;
-  background: purple;
-  color: springgreen;
+  background: saddlebrown;
+  box-shadow: -8px 8px 0 #000;
+  color: magenta;
   font-size: 28px;
-  letter-spacing: 2px;
+  font-weight: bold;
+  letter-spacing: 4px;
   line-height: 60px;
-  text-align: center;
-  box-shadow: -8px 8px 0 #000; }
+  text-align: center; }
   .body-home-rsvp-link:hover {
     box-shadow: -24px 12px 0 #000; }
+
+@media (min-width: 650px) {
+  .body-location iframe {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%); } }
+
+@media (max-width: 650px) {
+  .body-location iframe {
+    width: 100%; } }

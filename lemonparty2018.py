@@ -1,5 +1,6 @@
 from flask import Flask
-from flask import render_template, session, request
+from flask import render_template, session, request, redirect
+from functools import wraps
 from passlib.hash import pbkdf2_sha256
 import os
 import json
@@ -9,6 +10,9 @@ from localsettings import DEBUG, PASSWORD_HASH
 app = Flask(__name__)
 app.secret_key = os.urandom(12)
 
+
+# context processors and decorators
+# ------------------------------------------------------------------------------
 
 @app.context_processor
 def static_path_processor():
@@ -29,6 +33,21 @@ def static_path_processor():
         'js_path': js_path,
     }
 
+
+def login_required(f):
+    @wraps(f)
+
+    def decorated_function(*args, **kwargs):
+        if not session.get('is_authenticated'):
+            return redirect('/')
+
+        return f(*args, **kwargs)
+
+    return decorated_function
+
+
+# pages
+# ------------------------------------------------------------------------------
 
 @app.route('/')
 def index():
@@ -57,6 +76,12 @@ def logout():
     session['authentication_error'] = False
 
     return index()
+
+
+@app.route('/location')
+@login_required
+def location():
+    return render_template('location.html')
 
 
 if __name__ == '__main__':

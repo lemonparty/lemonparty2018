@@ -11,14 +11,17 @@ $button-height: 60px;
     width: $button-width;
     height: $button-height;
     margin-top: 40px;
+
     text-decoration: none;
-    background: purple;
-    color: springgreen;
+    background: saddlebrown;
+    box-shadow: -8px 8px 0 #000;
+
+    color: magenta;
     font-size: 28px;
-    letter-spacing: 2px;
+    font-weight: bold;
+    letter-spacing: 4px;
     line-height: $button-height;
     text-align: center;
-    box-shadow: -8px 8px 0 #000;
 
     &:hover {
       box-shadow: -24px 12px 0 #000;

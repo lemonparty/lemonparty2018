@@ -1,0 +1,13 @@
+.body-location {
+  iframe {
+    @media (min-width: 650px) {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @media (max-width: 650px) {
+      width: 100%;
+    }
+  }
+}

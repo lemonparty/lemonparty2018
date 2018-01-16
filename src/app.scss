@@ -6,6 +6,7 @@
 
 $nav-height: 272px;
 $footer-height: 100px;
+$text-color: saddlebrown;
 
 
 // global styles
@@ -22,14 +23,13 @@ body {
   &.logged-in {
     min-height: 100vh;
     padding: ($nav-height * 0.8) 4vw $footer-height;
-    background-image: url("/static/images/shitty-half-lemon.png");
+    background-image: url("/static/images/bottom-lemon.png");
     background-repeat: repeat-x;
     background-position: bottom;
     font-size: 18px;
     line-height: 26px;
     background-color: yellow;
-    color: darken(aqua, 20%);
-    color: purple;
+    color: $text-color;
 
     @media (max-width: 500px) {
       padding-top: $nav-height;
@@ -38,7 +38,7 @@ body {
 }
 
 $text-shadow-values: ();
-$text-shadow-color: purple;
+$text-shadow-color: magenta;
 
 @for $i from 0 through 30 {
   $offset: $i * 1px;
@@ -52,9 +52,14 @@ $text-shadow-color: purple;
   text-align: center;
   font-size: 88px;
   letter-spacing: 3px;
-  color: springgreen;
+  color: $text-color;
   font-weight: bold;
   text-shadow: zip($text-shadow-values);
+}
+
+em {
+  font-style: italic;
+  letter-spacing: 1px;
 }
 
 .text {
@@ -67,6 +72,16 @@ $text-shadow-color: purple;
   & + .text {
     margin-top: 20px;
   }
+
+  a {
+    color: $text-color;
+    background: pink;
+    text-decoration: none;
+
+    &:hover {
+      background: orange;
+    }
+  }
 }
 
 @import "nav";
@@ -75,5 +90,6 @@ $text-shadow-color: purple;
 // subpages
 // -----------------------------------------------------------------------------
 
-@import "login";
-@import "home";
+@import "pages/login";
+@import "pages/home";
+@import "pages/location";
