@@ -1,0 +1,11 @@
+.body-stuff {
+  &-section-title {
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  &-item {
+    display: inline-block;
+    margin-top: 8px;
+  }
+}

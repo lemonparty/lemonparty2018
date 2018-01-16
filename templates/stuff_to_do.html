@@ -7,6 +7,18 @@
   {% include "_nav.html" %}
   <h1 class="page-title">Stuff to do</h1>
 
-  <p class="text">
-  </p>
+  {% for section in stuff_to_do %}
+    <p class="text">
+      <span class="body-stuff-section-title">
+        {{ section.section_name }}
+      </span>
+      {% for item in section.contents %}
+        <br>
+        <span class="body-stuff-item">
+          <a href="{{ item.link }}">{{ item.name }}</a>:
+          {{ item.description }}
+        </span>
+      {% endfor %}
+    </p>
+  {% endfor %}
 {% endblock %}

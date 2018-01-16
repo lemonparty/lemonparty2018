@@ -248,3 +248,11 @@ em {
 @media (max-width: 650px) {
   .body-location iframe {
     width: 100%; } }
+
+.body-stuff-section-title {
+  font-weight: bold;
+  font-style: italic; }
+
+.body-stuff-item {
+  display: inline-block;
+  margin-top: 8px; }

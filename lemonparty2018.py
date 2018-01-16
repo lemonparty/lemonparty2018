@@ -5,6 +5,7 @@ from passlib.hash import pbkdf2_sha256
 import os
 import json
 from localsettings import DEBUG, PASSWORD_HASH
+from stuff_to_do_data import STUFF_TO_DO
 
 
 app = Flask(__name__)
@@ -99,7 +100,7 @@ def hotels():
 @app.route('/stuff-to-do')
 @login_required
 def stuff_to_do():
-    return render_template('stuff_to_do.html')
+    return render_template('stuff_to_do.html', stuff_to_do=STUFF_TO_DO)
 
 
 @app.route('/gifts')
