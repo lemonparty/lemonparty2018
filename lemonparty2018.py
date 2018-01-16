@@ -84,5 +84,35 @@ def location():
     return render_template('location.html')
 
 
+@app.route('/schedule')
+@login_required
+def schedule():
+    return render_template('schedule.html')
+
+
+@app.route('/hotels')
+@login_required
+def hotels():
+    return render_template('hotels.html')
+
+
+@app.route('/stuff-to-do')
+@login_required
+def stuff_to_do():
+    return render_template('stuff_to_do.html')
+
+
+@app.route('/gifts')
+@login_required
+def gifts():
+    return render_template('gifts.html')
+
+
+@app.route('/contact')
+@login_required
+def contact():
+    return render_template('contact.html')
+
+
 if __name__ == '__main__':
     app.run(debug=DEBUG, host='0.0.0.0')
