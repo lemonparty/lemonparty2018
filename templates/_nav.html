@@ -10,12 +10,14 @@
 
 <nav class="nav">
   <div class="nav-bg"></div>
-  {% for href, title in nav_items %}
-    <a
-      class="nav-link {% if active_page == href %}active{% endif %}"
-      href="/{{ href }}"
-    >
-      {{ title }}
-    </a>
-  {% endfor %}
+  <div class="nav-content">
+    {% for href, title in nav_items %}
+      <a
+        class="nav-link {% if active_page == href %}active{% endif %}"
+        href="/{{ href }}"
+      >
+        {{ title }}
+      </a>
+    {% endfor %}
+  </div>
 </nav>
