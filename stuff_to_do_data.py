@@ -3,6 +3,7 @@
 STUFF_TO_DO = [
     {
         'section_name': 'In Duluth',
+        'section_id': 'in_duluth',
         'contents': [
             {
                 'name': 'Canal Park',
@@ -59,6 +60,7 @@ STUFF_TO_DO = [
 
     {
         'section_name': 'Up the shore a ways',
+        'section_id': 'up_the_shore',
         'contents': [
             {
                 'name': 'Gooseberry Falls',
@@ -80,6 +82,7 @@ STUFF_TO_DO = [
 
     {
         'section_name': 'Food and drink',
+        'section_id': 'food_and_drink',
         'contents': [
             {
                 'name': u'Pizza Lucé',

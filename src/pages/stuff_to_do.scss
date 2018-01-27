@@ -1,4 +1,26 @@
 .body-stuff {
+  &-nav {
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+    margin-bottom: 50px;
+
+    &-item {
+      display: inline-block;
+      margin-left: 20px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      a {
+        @include link;
+      }
+    }
+  }
+
   &-section-title {
     font-weight: bold;
     font-style: italic;
@@ -6,6 +28,6 @@
 
   &-item {
     display: inline-block;
-    margin-top: 8px;
+    margin-top: 10px;
   }
 }

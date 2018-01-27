@@ -7,8 +7,16 @@
   {% include "_nav.html" %}
   <h1 class="page-title">Stuff to do</h1>
 
+  <ul class="body-stuff-nav">
+    {% for section in stuff_to_do %}
+      <li class="body-stuff-nav-item">
+        <a href="#{{ section.section_id }}">{{ section.section_name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
   {% for section in stuff_to_do %}
-    <p class="text">
+    <p class="text" id="{{ section.section_id }}">
       <span class="body-stuff-section-title">
         {{ section.section_name }}
       </span>

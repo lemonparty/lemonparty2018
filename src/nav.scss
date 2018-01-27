@@ -26,6 +26,10 @@ $text-shadow-color: #000;
     transform: rotate(8deg);
     box-shadow: 0 12px 0 pink;
 
+    @media (min-width: 1000px) {
+      top: -170px;
+    }
+
     @media (min-width: 900px) {
       transform: rotate(3deg);
     }
@@ -59,7 +63,7 @@ $text-shadow-color: #000;
     padding: 0 10px;
     font-weight: bold;
     text-decoration: none;
-    color: lighten(orange, 0%);
+    color: lighten(orange, 20%);
     text-shadow: 0 0 2px $text-shadow-color, zip($text-shadow-values);
 
     &:hover {

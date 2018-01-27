@@ -1,12 +1,22 @@
 @import "reset";
 
 
-// variables
+// variables and mixins
 // -----------------------------------------------------------------------------
 
 $nav-height: 272px;
 $footer-height: 150px;
 $text-color: saddlebrown;
+
+@mixin link {
+  color: $text-color;
+  background: pink;
+  text-decoration: none;
+
+  &:hover {
+    background: orange;
+  }
+}
 
 
 // global styles
@@ -81,13 +91,7 @@ em {
   }
 
   a {
-    color: $text-color;
-    background: pink;
-    text-decoration: none;
-
-    &:hover {
-      background: orange;
-    }
+    @include link;
   }
 }
 
