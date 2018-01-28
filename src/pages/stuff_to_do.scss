@@ -1,15 +1,17 @@
 .body-stuff {
   &-nav {
+    @include center;
     display: inline-block;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    max-width: 600px;
     margin-top: 10px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 
     &-item {
       display: inline-block;
-      margin-left: 20px;
+      padding: 10px;
 
       &:first-child {
         margin-left: 0;

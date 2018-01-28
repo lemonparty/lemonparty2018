@@ -18,6 +18,12 @@ $text-color: saddlebrown;
   }
 }
 
+@mixin center {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 
 // global styles
 // -----------------------------------------------------------------------------
@@ -50,27 +56,33 @@ body {
 $text-shadow-values: ();
 $text-shadow-color: magenta;
 
-@for $i from 0 through 30 {
-  $offset: $i * 1px;
-  $text-shadow-values: append($text-shadow-values, $offset * 0.6 $offset 0 $text-shadow-color);
+@for $i from 0 through 20 {
+  $offset: $i * 0.8px;
+  $text-shadow-values: append($text-shadow-values, $offset * 0.6 $offset * 1.1 0 $text-shadow-color);
 }
 
 .page-title {
+  @include center;
   display: inline-block;
   width: 100%;
+  max-width: 800px;
   padding-bottom: 100px;
   text-align: center;
   letter-spacing: 3px;
-  color: $text-color;
+  color: darken($text-color, 8%);
   font-weight: bold;
   text-shadow: zip($text-shadow-values);
 
   @media (min-width: 650px) {
+    margin: -20px 0;
     font-size: 88px;
+    line-height: 100px;
   }
 
   @media (max-width: 650px) {
+    margin: -8vw 0;
     font-size: 13vw;
+    line-height: 13vw;
   }
 }
 
@@ -80,11 +92,9 @@ em {
 }
 
 .text {
-  position: relative;
-  left: 50%;
+  @include center;
   width: 100%;
   max-width: 550px;
-  transform: translateX(-50%);
 
   & + .text {
     margin-top: 20px;

@@ -1,9 +1,7 @@
 .body-location {
   iframe {
     @media (min-width: 650px) {
-      position: relative;
-      left: 50%;
-      transform: translateX(-50%);
+      @include center;
     }
 
     @media (max-width: 650px) {

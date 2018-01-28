@@ -15,6 +15,10 @@ $text-shadow-color: #000;
   height: $nav-height;
   padding: 4vw;
 
+  @media (min-width: 1000px) {
+    padding: 60px;
+  }
+
   &-bg {
     position: absolute;
     z-index: 1;

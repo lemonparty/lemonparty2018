@@ -3,14 +3,12 @@ $button-height: 60px;
 
 .body-home {
   &-rsvp-link {
+    @include center;
     display: block;
-    position: relative;
     z-index: 2;
-    left: 50%;
-    transform: translateX(-50%);
     width: $button-width;
     height: $button-height;
-    margin-top: 40px;
+    margin-top: 50px;
 
     text-decoration: none;
     background: saddlebrown;
