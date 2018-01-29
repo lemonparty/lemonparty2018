@@ -24,6 +24,7 @@ an example file:
 ```.py
 DEBUG = True # should be false in prod
 PASSWORD_HASH = 'a hashed password' # see below for generating password hashes
+FORM_URL = 'the url of a google form to submit rsvps' # see below for google form information
 ```
 
 To generate a password hash, start your python console while in the project's
@@ -33,6 +34,9 @@ virtualenv, enter the following, and copy the output to `localsettings.py`:
 from passlib.hash import pbkdf2_sha256
 pbkdf2_sha256.hash("your password")
 ```
+
+We followed these instructions to make a google form that you can submit to
+with ajax: https://medium.com/@dmccoy/how-to-submit-an-html-form-to-google-sheets-without-google-forms-b833952cc175
 
 ## Front end
 

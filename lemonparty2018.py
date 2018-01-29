@@ -4,7 +4,7 @@ from functools import wraps
 from passlib.hash import pbkdf2_sha256
 import os
 import json
-from localsettings import DEBUG, PASSWORD_HASH
+from localsettings import DEBUG, PASSWORD_HASH, FORM_URL
 from stuff_to_do_data import STUFF_TO_DO
 
 
@@ -82,7 +82,7 @@ def logout():
 @app.route('/rsvp')
 @login_required
 def rsvp():
-    return render_template('rsvp.html')
+    return render_template('rsvp.html', form_url=FORM_URL)
 
 
 @app.route('/location')
