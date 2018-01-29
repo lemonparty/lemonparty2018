@@ -79,6 +79,12 @@ def logout():
     return index()
 
 
+@app.route('/rsvp')
+@login_required
+def rsvp():
+    return render_template('rsvp.html')
+
+
 @app.route('/location')
 @login_required
 def location():
