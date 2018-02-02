@@ -8,7 +8,8 @@
   <h1 class="page-title">RSVP</h1>
 
   <p class="text">
-    Thanks for RSVPing. If you're confused or have any questions, just
+    Thanks for RSVPing. If you're confused, have any questions, or this thing
+    doesn’t work because two software engineers can’t even make a web form, just
     <a href="/contact">ask</a>!
   </p>
 
@@ -21,6 +22,7 @@
 
   <form
     id="rsvp-form"
+    class="body-rsvp-form"
     action=""
     method="POST"
     target="submit-target"
@@ -28,7 +30,7 @@
   >
 
     <fieldset>
-      <label for="name">
+      <label for="name" class="body-rsvp-label">
         Name(s)
       </label>
       <input
@@ -37,12 +39,12 @@
         autocomplete="off"
         tabindex="0"
         name="entry.1644957506"
-        placeholder="everyone who’s going"
+        placeholder="everyone invited"
       />
     </fieldset>
 
     <fieldset>
-      <label>
+      <label class="body-rsvp-label">
         Are you going?
       </label>
 
@@ -73,7 +75,7 @@
     </fieldset>
 
     <fieldset class="body-rsvp-submit">
-      <input type="submit" />
+      <input type="submit" class="body-rsvp-submit-button" />
     </fieldset>
 
     <input type="hidden" name="fvv" value="1">

@@ -24,6 +24,36 @@ $text-color: saddlebrown;
   transform: translateX(-50%);
 }
 
+$button-width: 120px;
+$button-height: 60px;
+
+@mixin button {
+  @include center;
+  display: block;
+  z-index: 2;
+  min-width: $button-width;
+	padding: 0 16px;
+  height: $button-height;
+
+  text-decoration: none;
+  background: saddlebrown;
+	border: 0;
+  box-shadow: -8px 8px 0 #000;
+
+  color: magenta;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  line-height: $button-height;
+  text-align: center;
+
+	cursor: pointer;
+
+  &:hover {
+    box-shadow: -24px 12px 0 #000;
+  }
+}
+
 
 // global styles
 // -----------------------------------------------------------------------------
@@ -56,7 +86,7 @@ body {
 $text-shadow-values: ();
 $text-shadow-color: magenta;
 
-@for $i from 0 through 20 {
+@for $i from 0 through 17 {
   $offset: $i * 0.8px;
   $text-shadow-values: append($text-shadow-values, $offset * 0.6 $offset * 1.1 0 $text-shadow-color);
 }
