@@ -296,3 +296,25 @@ em {
 .body-stuff-item {
   display: inline-block;
   margin-top: 10px; }
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%); }
+  100% {
+    transform: translateX(-100%); } }
+
+.body-rsvp-going-default {
+  opacity: 0;
+  width: 0;
+  height: 0; }
+
+.body-rsvp-error {
+  display: none;
+  color: red; }
+
+.body-rsvp-success {
+  display: none;
+  position: relative;
+  overflow: hidden;
+  color: green;
+  animation: marquee 7s linear infinite; }

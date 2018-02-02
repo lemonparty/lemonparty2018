@@ -34,12 +34,10 @@
       <input
         id="name"
         type="text"
-        class="quantumWizTextinputPaperinputInput exportInput"
-        jsname="YPqjbf"
         autocomplete="off"
         tabindex="0"
         name="entry.1644957506"
-        value=""
+        placeholder="everyone who’s going"
       />
     </fieldset>
 
@@ -47,14 +45,34 @@
       <label>
         Are you going?
       </label>
-      <input id="yes" type="radio" name="entry.1258761215" value="Sure." />
-      <label for="yes">Sure.</label>
+
+      <input
+        id="going-default"
+        class="body-rsvp-going-default"
+        type="radio"
+        name="entry.1258761215"
+        value=""
+        checked="checked"
+      />
+
+      <input id="going-yes" type="radio" name="entry.1258761215" value="Sure." />
+      <label for="going-yes">Sure.</label>
+
       <br />
-      <input id="no" type="radio" name="entry.1258761215" value="Nah." />
-      <label for="no">Nah.</label>
+
+      <input id="going-no" type="radio" name="entry.1258761215" value="Nah." />
+      <label for="going-no">Nah.</label>
     </fieldset>
 
-    <fieldset>
+    <fieldset class="body-rsvp-error">
+      There was a problem submitting your rsvp… did you fill everything out?
+    </fieldset>
+
+    <fieldset class="body-rsvp-success">
+      THANKS!!! Hope we see you sooooooooooooooooooooooooooooooooooooooooon!
+    </fieldset>
+
+    <fieldset class="body-rsvp-submit">
       <input type="submit" />
     </fieldset>
 

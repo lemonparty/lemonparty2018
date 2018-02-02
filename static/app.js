@@ -331,13 +331,52 @@ var _jquery2 = _interopRequireDefault(_jquery);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Form = {
-  init: function init() {},
+  init: function init() {
+    this.form = (0, _jquery2.default)("#rsvp-form");
+    this.formError = (0, _jquery2.default)(".body-rsvp-error");
+    this.formSubmit = (0, _jquery2.default)(".body-rsvp-submit");
+    this.formSuccess = (0, _jquery2.default)(".body-rsvp-success");
+  },
 
 
-  // return false to stop submission, or true to let it through
+  /**
+   * Validate the form, finding any input with a `name` starting with `entry`
+   * (which is how google forms handles their inputs) and ensuring that it is
+   * filled out.
+   *
+   * @return {bool} - true if valid, false if not
+   */
   validate: function validate() {
-    console.log("vali val");
-    return true;
+    // hide all statuses
+    this.formError.hide();
+    this.formSuccess.hide();
+    this.formSubmit.hide();
+
+    var formData = this.form.serializeArray();
+    var isValid = true;
+
+    formData.forEach(function (field) {
+      if (field.name.indexOf("entry") != 0) {
+        return;
+      }
+
+      if (!field.value || field.value === "") {
+        isValid = false;
+      }
+    });
+
+    // show and hide the appropriate statuses
+    if (isValid) {
+      this.formError.hide();
+      this.formSubmit.hide();
+      this.formSuccess.show();
+    } else {
+      this.formError.show();
+      this.formSubmit.show();
+      this.formSuccess.hide();
+    }
+
+    return isValid;
   }
 };
 
