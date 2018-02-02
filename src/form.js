@@ -1,37 +1,17 @@
-import $ from "jquery"
+import $ from "jquery";
 
-export default {
+const Form = {
   init() {
-    if (!document.body.classList.contains("body-rsvp")) {
-      return;
-    }
-
-    console.log("form init");
-
-    // this is poor form, har har har, but there's only one form on the damn
-    // site, so we can just grab it by its tag instead of the weird id that
-    // google gave it.
-    this.form = $("form");
-    this.form.on("submit", this.onSubmit.bind(this));
   },
 
-  onSubmit(e) {
-    e.preventDefault();
-    const data = this.form.serialize();
-    const url = this.form.attr("action");
-
-    console.log("submit dudddeee", url, data);
-
-    $.ajax(url, {
-      method: "GET",
-      dataType: "json",
-      data,
-      success() {
-        alert("success");
-      },
-      failure() {
-        alert("failure");
-      },
-    });
+  // return false to stop submission, or true to let it through
+  validate() {
+    console.log("vali val");
+    return true;
   },
 };
+
+// bind to the window so the validator can be accesesd by the form onsubmit
+window.Form = Form;
+
+export default Form;

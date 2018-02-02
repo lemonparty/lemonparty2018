@@ -12,18 +12,26 @@
     <a href="/contact">ask</a>!
   </p>
 
-	<form
-    action="{{ form_url }}"
-		target="_self"
-		method="POST"
-		id="mG61Hd"
-	>
+  <iframe
+    src="#"
+    id="submit-target"
+    name="submit-target"
+    style="width:0px; height:0px; border:0px;"
+  ></iframe>
 
-		<fieldset>
-			<label for="name">
-				Name(s)
-			</label>
-			<input
+  <form
+    id="rsvp-form"
+    action=""
+    method="POST"
+    target="submit-target"
+    onsubmit="this.action='{{ form_url }}'; return Form.validate();"
+  >
+
+    <fieldset>
+      <label for="name">
+        Name(s)
+      </label>
+      <input
         id="name"
         type="text"
         class="quantumWizTextinputPaperinputInput exportInput"
@@ -33,26 +41,26 @@
         name="entry.1644957506"
         value=""
       />
-		</fieldset>
+    </fieldset>
 
-		<fieldset>
-			<label>
-				Are you going?
-			</label>
+    <fieldset>
+      <label>
+        Are you going?
+      </label>
       <input id="yes" type="radio" name="entry.1258761215" value="Sure." />
       <label for="yes">Sure.</label>
-			<br />
-			<input id="no" type="radio" name="entry.1258761215" value="Nah." />
+      <br />
+      <input id="no" type="radio" name="entry.1258761215" value="Nah." />
       <label for="no">Nah.</label>
-		</fieldset>
+    </fieldset>
 
-		<fieldset>
-			<input type="submit" />
-		</fieldset>
+    <fieldset>
+      <input type="submit" />
+    </fieldset>
 
-		<input type="hidden" name="fvv" value="1">
-		<input type="hidden" name="draftResponse" value="[null,null,&quot;-8056623372887314694&quot;]">
-		<input type="hidden" name="pageHistory" value="0">
-		<input type="hidden" name="fbzx" value="-8056623372887314694">
-	</form>
+    <input type="hidden" name="fvv" value="1">
+    <input type="hidden" name="draftResponse" value="[null,null,&quot;-8056623372887314694&quot;]">
+    <input type="hidden" name="pageHistory" value="0">
+    <input type="hidden" name="fbzx" value="-8056623372887314694">
+  </form>
 {% endblock %}

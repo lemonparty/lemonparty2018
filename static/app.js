@@ -78,11 +78,11 @@ var _lemon_party = __webpack_require__(2);
 
 var _lemon_party2 = _interopRequireDefault(_lemon_party);
 
-var _form = __webpack_require__(5);
+var _form = __webpack_require__(4);
 
 var _form2 = _interopRequireDefault(_form);
 
-__webpack_require__(4);
+__webpack_require__(6);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -315,12 +315,6 @@ exports.default = Lemon;
 
 /***/ }),
 /* 4 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -330,49 +324,30 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _jquery = __webpack_require__(6);
+var _jquery = __webpack_require__(5);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = {
-  init: function init() {
-    if (!document.body.classList.contains("body-rsvp")) {
-      return;
-    }
+var Form = {
+  init: function init() {},
 
-    console.log("form init");
 
-    // this is poor form, har har har, but there's only one form on the damn
-    // site, so we can just grab it by its tag instead of the weird id that
-    // google gave it.
-    this.form = (0, _jquery2.default)("form");
-    this.form.on("submit", this.onSubmit.bind(this));
-  },
-  onSubmit: function onSubmit(e) {
-    e.preventDefault();
-    var data = this.form.serialize();
-    var url = this.form.attr("action");
-
-    console.log("submit dudddeee", url, data);
-
-    _jquery2.default.ajax(url, {
-      method: "GET",
-      dataType: "json",
-      data: data,
-      success: function success() {
-        alert("success");
-      },
-      failure: function failure() {
-        alert("failure");
-      }
-    });
+  // return false to stop submission, or true to let it through
+  validate: function validate() {
+    console.log("vali val");
+    return true;
   }
 };
 
+// bind to the window so the validator can be accesesd by the form onsubmit
+window.Form = Form;
+
+exports.default = Form;
+
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10741,6 +10716,12 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
