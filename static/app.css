@@ -258,6 +258,8 @@ em {
   margin-top: 50px; }
   .body-home-rsvp-link:hover {
     box-shadow: -24px 12px 0 #000; }
+  .body-home-rsvp-link:focus {
+    outline: none; }
 
 @media (min-width: 650px) {
   .body-location iframe {
@@ -302,7 +304,7 @@ em {
 
 @keyframes marquee {
   0% {
-    transform: translateX(100%); }
+    transform: translateX(55%); }
   100% {
     transform: translateX(-100%); } }
 
@@ -327,19 +329,38 @@ em {
   .body-rsvp fieldset:first-child {
     margin-top: 0; }
 
+.body-rsvp input[type=text],
+.body-rsvp textarea {
+  border: 1px solid #ccc;
+  padding: 8px; }
+  .body-rsvp input[type=text]:focus,
+  .body-rsvp textarea:focus {
+    outline: none;
+    border-color: purple; }
+
 .body-rsvp input[type=text] {
-  padding: 8px;
   min-width: 200px; }
 
 .body-rsvp input[type=radio] {
   position: relative;
   bottom: 2px; }
 
+.body-rsvp textarea {
+  width: 100%;
+  resize: none; }
+
 .body-rsvp-label {
   display: block;
   width: 100%;
   font-weight: 500;
   margin-bottom: 5px; }
+
+.body-rsvp-note {
+  display: block;
+  margin-bottom: 8px;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 21px; }
 
 .body-rsvp-going-default {
   position: absolute !important;
@@ -366,9 +387,12 @@ em {
   letter-spacing: 4px;
   line-height: 60px;
   text-align: center;
-  cursor: pointer; }
+  cursor: pointer;
+  margin-top: 15px; }
   .body-rsvp-submit-button:hover {
     box-shadow: -24px 12px 0 #000; }
+  .body-rsvp-submit-button:focus {
+    outline: none; }
 
 .body-rsvp-error {
   display: none;
@@ -378,5 +402,13 @@ em {
   display: none;
   position: relative;
   overflow: hidden;
-  color: green;
-  animation: marquee 7s linear infinite; }
+  width: calc(100% + 40px);
+  height: 26px;
+  margin-left: -20px;
+  color: green; }
+  .body-rsvp-success-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: marquee 8s linear infinite;
+    white-space: nowrap; }

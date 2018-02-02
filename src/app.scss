@@ -32,12 +32,12 @@ $button-height: 60px;
   display: block;
   z-index: 2;
   min-width: $button-width;
-	padding: 0 16px;
+  padding: 0 16px;
   height: $button-height;
 
   text-decoration: none;
   background: saddlebrown;
-	border: 0;
+  border: 0;
   box-shadow: -8px 8px 0 #000;
 
   color: magenta;
@@ -47,10 +47,14 @@ $button-height: 60px;
   line-height: $button-height;
   text-align: center;
 
-	cursor: pointer;
+  cursor: pointer;
 
   &:hover {
     box-shadow: -24px 12px 0 #000;
+  }
+
+  &:focus {
+    outline: none;
   }
 }
 

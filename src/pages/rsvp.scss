@@ -1,6 +1,6 @@
 @keyframes marquee {
   0% {
-    transform: translateX(100%);
+    transform: translateX(55%);
   }
 
   100% {
@@ -8,12 +8,14 @@
   }
 }
 
+$form-padding: 20px;
+
 .body-rsvp {
   $form-shadow-color: mix(purple, yellow);
 
   &-form {
     margin-top: 20px;
-    padding: 20px 20px 30px;
+    padding: $form-padding $form-padding $form-padding + 10;
     background: lighten(yellow, 15%);
     border: 5px solid cyan;
     border-radius: 8px;
@@ -35,8 +37,18 @@
     }
   }
 
-  input[type=text] {
+  input[type=text],
+  textarea {
+    border: 1px solid #ccc;
     padding: 8px;
+
+    &:focus {
+      outline: none;
+      border-color: purple;
+    }
+  }
+
+  input[type=text] {
     min-width: 200px;
   }
 
@@ -45,11 +57,24 @@
     bottom: 2px;
   }
 
+  textarea {
+    width: 100%;
+    resize: none;
+  }
+
   &-label {
     display: block;
     width: 100%;
     font-weight: 500;
     margin-bottom: 5px;
+  }
+
+  &-note {
+    display: block;
+    margin-bottom: 8px;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 21px;
   }
 
   // default empty-string Are You Going? response
@@ -62,6 +87,7 @@
 
   &-submit-button {
     @include button;
+    margin-top: 15px;
   }
 
   // statuses
@@ -76,7 +102,17 @@
     display: none;
     position: relative;
     overflow: hidden;
+    width: calc(100% + #{$form-padding * 2});
+    height: 26px;
+    margin-left: $form-padding * -1;
     color: green;
-    animation: marquee 7s linear infinite;
+
+    &-content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: marquee 8s linear infinite;
+      white-space: nowrap;
+    }
   }
 }
