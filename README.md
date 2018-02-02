@@ -50,3 +50,8 @@ minified files are used in the templates if the `DEBUG` variable in
 `localsettings` is false. Cachebusting is built into the `npm run build`
 command; it adds a hash to the filename and stores the current hash in a json
 file for python to read.
+
+## Google form submission
+
+The technique used for submitting a custom google form was found here:
+https://googlesystem.blogspot.com/2008/05/customize-google-docs-forms.html
