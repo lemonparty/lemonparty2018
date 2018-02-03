@@ -18,9 +18,10 @@ const Form = {
     });
   },
 
+  /*
+   * Post a form, or show an error. Whichever. Depends.
+   */
   handleFormSubmission() {
-    console.log("on subm");
-
     const url = this.form.attr("action");
     const formArray = this.form.serializeArray();
     const data = {};
@@ -29,26 +30,20 @@ const Form = {
       data[field.name] = field.value;
     });
 
-    console.log(data);
-
-    // hide all statuses
-    this.formError.hide();
-    this.formSuccess.hide();
-    this.formSubmit.hide();
+    this.hideMessages();
 
     // validate
     const formIsValid = this.validate(data);
-    console.log(formIsValid);
 
     // show and hide the appropriate statuses
     if (formIsValid) {
-      this.formError.hide();
-      this.formSubmit.hide();
-      this.formSuccess.show();
+      this.showSuccessMessage();
+
+      $.post(url, {
+        data,
+      });
     } else {
-      this.formError.show();
-      this.formSubmit.show();
-      this.formSuccess.hide();
+      this.showErrorMessage();
     }
   },
 
@@ -70,6 +65,33 @@ const Form = {
     });
 
     return isValid;
+  },
+
+  /*
+   * Hide the submit button, and all statuses.
+   */
+  hideMessages() {
+    this.formError.hide();
+    this.formSuccess.hide();
+    this.formSubmit.hide();
+  },
+
+  /*
+   * Show the success state.
+   */
+  showSuccessMessage() {
+    this.formError.hide();
+    this.formSubmit.hide();
+    this.formSuccess.show();
+  },
+
+  /*
+   * Show the error state.
+   */
+  showErrorMessage() {
+    this.formError.show();
+    this.formSubmit.show();
+    this.formSuccess.hide();
   },
 };
 

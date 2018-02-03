@@ -14,7 +14,7 @@ $form-padding: 20px;
   $form-shadow-color: mix(purple, yellow);
 
   &-form {
-    margin-top: 20px;
+    margin-top: 50px;
     padding: $form-padding $form-padding $form-padding + 10;
     background: lighten(yellow, 15%);
     border: 5px solid cyan;
