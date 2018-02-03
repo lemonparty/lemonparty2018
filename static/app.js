@@ -78,11 +78,11 @@ var _lemon_party = __webpack_require__(2);
 
 var _lemon_party2 = _interopRequireDefault(_lemon_party);
 
-var _form = __webpack_require__(4);
+var _form = __webpack_require__(5);
 
 var _form2 = _interopRequireDefault(_form);
 
-__webpack_require__(6);
+__webpack_require__(4);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -315,6 +315,12 @@ exports.default = Lemon;
 
 /***/ }),
 /* 4 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -324,7 +330,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _jquery = __webpack_require__(5);
+var _jquery = __webpack_require__(6);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -386,7 +392,7 @@ window.Form = Form;
 exports.default = Form;
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10755,12 +10761,6 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

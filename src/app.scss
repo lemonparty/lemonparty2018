@@ -29,7 +29,7 @@ $button-height: 60px;
 
 @mixin button {
   @include center;
-  display: block;
+  display: inline-block;
   z-index: 2;
   min-width: $button-width;
   padding: 0 16px;

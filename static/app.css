@@ -239,7 +239,7 @@ em {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  display: block;
+  display: inline-block;
   z-index: 2;
   min-width: 120px;
   padding: 0 16px;
@@ -372,7 +372,7 @@ em {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  display: block;
+  display: inline-block;
   z-index: 2;
   min-width: 120px;
   padding: 0 16px;
