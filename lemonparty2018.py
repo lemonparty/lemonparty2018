@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_mail import Mail, Message
 from flask import render_template, session, request, redirect
 from functools import wraps
 from passlib.hash import pbkdf2_sha256
@@ -10,6 +11,7 @@ from stuff_to_do_data import STUFF_TO_DO
 
 app = Flask(__name__)
 app.secret_key = os.urandom(12)
+mail = Mail(app)
 
 
 # context processors and decorators
@@ -85,10 +87,17 @@ def rsvp():
     return render_template('rsvp.html')
 
 
-@app.route('/rsvp-response-hander', methods=['POST'])
+@app.route('/rsvp-response-handler', methods=['POST'])
 @login_required
 def rsvp_response_handler():
     print request.form
+
+    msg = Message("Test",
+            sender="me@mgeraci.com",
+            recipients=["me@mgeraci.com"])
+
+    mail.send(msg)
+
     return "hi"
 
 

@@ -104,7 +104,8 @@ em {
   .text a {
     color: saddlebrown;
     background: pink;
-    text-decoration: none; }
+    text-decoration: none;
+    padding: 0 2px; }
     .text a:hover {
       background: orange; }
 
@@ -290,7 +291,8 @@ em {
     .body-stuff-nav-item a {
       color: saddlebrown;
       background: pink;
-      text-decoration: none; }
+      text-decoration: none;
+      padding: 0 2px; }
       .body-stuff-nav-item a:hover {
         background: orange; }
 
