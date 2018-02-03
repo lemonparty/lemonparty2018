@@ -4,7 +4,7 @@ from functools import wraps
 from passlib.hash import pbkdf2_sha256
 import os
 import json
-from localsettings import DEBUG, PASSWORD_HASH, FORM_URL
+from localsettings import DEBUG, PASSWORD_HASH
 from stuff_to_do_data import STUFF_TO_DO
 
 
@@ -39,7 +39,7 @@ def login_required(f):
     @wraps(f)
 
     def decorated_function(*args, **kwargs):
-        if not session.get('is_authenticated'):
+        if not DEBUG and not session.get('is_authenticated'):
             return redirect('/')
 
         return f(*args, **kwargs)
@@ -82,7 +82,14 @@ def logout():
 @app.route('/rsvp')
 @login_required
 def rsvp():
-    return render_template('rsvp.html', form_url=FORM_URL)
+    return render_template('rsvp.html')
+
+
+@app.route('/rsvp-response-hander', methods=['POST'])
+@login_required
+def rsvp_response_handler():
+    print request.form
+    return "hi"
 
 
 @app.route('/location')

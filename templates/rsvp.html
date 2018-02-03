@@ -13,20 +13,11 @@
     <a href="/contact">ask</a>!
   </p>
 
-  <iframe
-    src="#"
-    id="submit-target"
-    name="submit-target"
-    style="width:0px; height:0px; border:0px;"
-  ></iframe>
-
   <form
     id="rsvp-form"
     class="body-rsvp-form"
-    action=""
+    action="/rsvp-response-hander"
     method="POST"
-    target="submit-target"
-    onsubmit="this.action='{{ form_url }}'; return Form.validate();"
   >
 
     <fieldset>
@@ -37,7 +28,7 @@
         id="name"
         autocomplete="off"
         tabindex="0"
-        name="entry.1644957506"
+        name="name"
         placeholder="you know who you are"
       ></textarea>
     </fieldset>
@@ -51,17 +42,17 @@
         id="going-default"
         class="body-rsvp-going-default"
         type="radio"
-        name="entry.1258761215"
+        name="is_going"
         value=""
         checked="checked"
       />
 
-      <input id="going-yes" type="radio" name="entry.1258761215" value="Sure." />
+      <input id="going-yes" type="radio" name="is_going" value="Sure." />
       <label for="going-yes">Sure.</label>
 
       <br />
 
-      <input id="going-no" type="radio" name="entry.1258761215" value="Nah." />
+      <input id="going-no" type="radio" name="is_going" value="Nah." />
       <label for="going-no">Nah.</label>
     </fieldset>
 
@@ -76,7 +67,7 @@
       <textarea
         id="diet"
         autocomplete="off"
-        name="entry.1349519174"
+        name="diet"
         placeholder="I only eat the leaves of every 3rd fallen tree"
       ></textarea>
     </fieldset>
@@ -94,10 +85,5 @@
     <fieldset class="body-rsvp-submit">
       <input type="submit" class="body-rsvp-submit-button" />
     </fieldset>
-
-    <input type="hidden" name="fvv" value="1">
-    <input type="hidden" name="draftResponse" value="[null,null,&quot;-8056623372887314694&quot;]">
-    <input type="hidden" name="pageHistory" value="0">
-    <input type="hidden" name="fbzx" value="-8056623372887314694">
   </form>
 {% endblock %}

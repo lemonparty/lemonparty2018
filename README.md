@@ -24,7 +24,6 @@ an example file:
 ```.py
 DEBUG = True # should be false in prod
 PASSWORD_HASH = 'a hashed password' # see below for generating password hashes
-FORM_URL = 'the url of a google form to submit rsvps' # see below for google form information
 ```
 
 To generate a password hash, start your python console while in the project's
@@ -34,9 +33,6 @@ virtualenv, enter the following, and copy the output to `localsettings.py`:
 from passlib.hash import pbkdf2_sha256
 pbkdf2_sha256.hash("your password")
 ```
-
-We followed these instructions to make a google form that you can submit to
-with ajax: https://medium.com/@dmccoy/how-to-submit-an-html-form-to-google-sheets-without-google-forms-b833952cc175
 
 ## Front end
 
@@ -50,8 +46,3 @@ minified files are used in the templates if the `DEBUG` variable in
 `localsettings` is false. Cachebusting is built into the `npm run build`
 command; it adds a hash to the filename and stores the current hash in a json
 file for python to read.
-
-## Google form submission
-
-The technique used for submitting a custom google form was found here:
-https://googlesystem.blogspot.com/2008/05/customize-google-docs-forms.html

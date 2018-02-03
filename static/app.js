@@ -336,43 +336,46 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var REQUIRED_FIELDS = ["name", "is_going"];
+
 var Form = {
   init: function init() {
+    var _this = this;
+
     this.form = (0, _jquery2.default)("#rsvp-form");
     this.formError = (0, _jquery2.default)(".body-rsvp-error");
     this.formSubmit = (0, _jquery2.default)(".body-rsvp-submit");
     this.formSuccess = (0, _jquery2.default)(".body-rsvp-success");
+
+    this.form.on("submit", function (e) {
+      e.preventDefault();
+      _this.handleFormSubmission();
+    });
   },
+  handleFormSubmission: function handleFormSubmission() {
+    console.log("on subm");
 
+    var url = this.form.attr("action");
+    var formArray = this.form.serializeArray();
+    var data = {};
 
-  /**
-   * Validate the form, finding any input with a `name` starting with `entry`
-   * (which is how google forms handles their inputs) and ensuring that it is
-   * filled out.
-   *
-   * @return {bool} - true if valid, false if not
-   */
-  validate: function validate() {
+    formArray.forEach(function (field) {
+      data[field.name] = field.value;
+    });
+
+    console.log(data);
+
     // hide all statuses
     this.formError.hide();
     this.formSuccess.hide();
     this.formSubmit.hide();
 
-    var formData = this.form.serializeArray();
-    var isValid = true;
-
-    formData.forEach(function (field) {
-      if (field.name.indexOf("entry") != 0) {
-        return;
-      }
-
-      if (!field.value || field.value === "") {
-        isValid = false;
-      }
-    });
+    // validate
+    var formIsValid = this.validate(data);
+    console.log(formIsValid);
 
     // show and hide the appropriate statuses
-    if (isValid) {
+    if (formIsValid) {
       this.formError.hide();
       this.formSubmit.hide();
       this.formSuccess.show();
@@ -381,6 +384,25 @@ var Form = {
       this.formSubmit.show();
       this.formSuccess.hide();
     }
+  },
+
+
+  /**
+   * Validate the form, finding any input with a `name` starting with `entry`
+   * (which is how google forms handles their inputs) and ensuring that it is
+   * filled out.
+   *
+   * @param {object} data - the form data to validate
+   * @return {bool} - true if valid, false if not
+   */
+  validate: function validate(data) {
+    var isValid = true;
+
+    REQUIRED_FIELDS.forEach(function (field) {
+      if (!data[field] || data[field] === "") {
+        isValid = false;
+      }
+    });
 
     return isValid;
   }
