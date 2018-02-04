@@ -358,6 +358,8 @@ var Form = {
    * Post a form, or show an error. Whichever. Depends.
    */
   handleFormSubmission: function handleFormSubmission() {
+    var _this2 = this;
+
     var url = this.form.attr("action");
     var formArray = this.form.serializeArray();
     var data = {};
@@ -373,13 +375,17 @@ var Form = {
 
     // show and hide the appropriate statuses
     if (formIsValid) {
-      this.showSuccessMessage();
-
       _jquery2.default.post(url, {
         data: data
+      }).then(function (res) {
+        console.log("success", res);
+        _this2.showSuccessMessage();
+      }).catch(function (err) {
+        console.log("error", err);
+        _this2.showErrorMessage("Shit, something went wrong saving the rsvp; I guess just email us your response.");
       });
     } else {
-      this.showErrorMessage();
+      this.showErrorMessage("There was a problem submitting your rsvp… did you fill everything out?");
     }
   },
 
@@ -427,8 +433,14 @@ var Form = {
 
   /*
    * Show the error state.
+   *
+   * @param {str} [message] - a message to display
    */
-  showErrorMessage: function showErrorMessage() {
+  showErrorMessage: function showErrorMessage(message) {
+    if (message) {
+      this.formError.text(message);
+    }
+
     this.formError.show();
     this.formSubmit.show();
     this.formSuccess.hide();

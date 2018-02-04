@@ -37,13 +37,17 @@ const Form = {
 
     // show and hide the appropriate statuses
     if (formIsValid) {
-      this.showSuccessMessage();
-
       $.post(url, {
         data,
+      }).then((res) => {
+        console.log("success", res);
+        this.showSuccessMessage();
+      }).catch((err) => {
+        console.log("error", err);
+        this.showErrorMessage("Shit, something went wrong saving the rsvp; I guess just email us your response.");
       });
     } else {
-      this.showErrorMessage();
+      this.showErrorMessage("There was a problem submitting your rsvp… did you fill everything out?");
     }
   },
 
@@ -87,8 +91,14 @@ const Form = {
 
   /*
    * Show the error state.
+   *
+   * @param {str} [message] - a message to display
    */
-  showErrorMessage() {
+  showErrorMessage(message) {
+    if (message) {
+      this.formError.text(message);
+    }
+
     this.formError.show();
     this.formSubmit.show();
     this.formSuccess.hide();
