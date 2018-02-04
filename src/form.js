@@ -5,6 +5,9 @@ const REQUIRED_FIELDS = [
   "is_going",
 ];
 
+const BACKEND_ERROR = "Shit, something went wrong saving the rsvp; I guess just email us your response.";
+const VALIDATION_ERROR = "There was a problem submitting your rsvp… did you fill everything out?";
+
 const Form = {
   init() {
     this.form = $("#rsvp-form");
@@ -40,14 +43,16 @@ const Form = {
       $.post(url, {
         data,
       }).then((res) => {
-        console.log("success", res);
-        this.showSuccessMessage();
+        if (res.success) {
+          this.showSuccessMessage();
+        } else {
+          this.showErrorMessage(BACKEND_ERROR);
+        }
       }).catch((err) => {
-        console.log("error", err);
-        this.showErrorMessage("Shit, something went wrong saving the rsvp; I guess just email us your response.");
+        this.showErrorMessage(BACKEND_ERROR);
       });
     } else {
-      this.showErrorMessage("There was a problem submitting your rsvp… did you fill everything out?");
+      this.showErrorMessage(VALIDATION_ERROR);
     }
   },
 

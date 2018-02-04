@@ -1,16 +1,22 @@
-from flask import Flask
+from flask import Flask, jsonify, render_template, session, request, redirect
 from flask_mail import Mail, Message
-from flask import render_template, session, request, redirect
 from functools import wraps
 from passlib.hash import pbkdf2_sha256
 import os
 import json
-from localsettings import DEBUG, PASSWORD_HASH
+from localsettings import DEBUG, PASSWORD_HASH, EMAIL_SERVER, EMAIL_USERNAME, EMAIL_PASSWORD
 from stuff_to_do_data import STUFF_TO_DO
 
 
 app = Flask(__name__)
 app.secret_key = os.urandom(12)
+
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_SERVER'] = EMAIL_SERVER
+app.config['MAIL_USERNAME'] = EMAIL_USERNAME
+app.config['MAIL_PASSWORD'] = EMAIL_PASSWORD
 mail = Mail(app)
 
 
@@ -92,13 +98,21 @@ def rsvp():
 def rsvp_response_handler():
     print request.form
 
-    msg = Message("Test",
-            sender="me@mgeraci.com",
+    msg = Message("[lemonparty2018-rsvp]",
+            sender=EMAIL_USERNAME,
             recipients=["me@mgeraci.com"])
 
-    mail.send(msg)
+    try:
+        send_response = mailsend(msg)
 
-    return "hi"
+        return jsonify({
+            'success': True,
+        })
+
+    except:
+        return jsonify({
+            'success': False,
+        })
 
 
 @app.route('/location')

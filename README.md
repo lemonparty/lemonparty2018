@@ -24,6 +24,9 @@ an example file:
 ```.py
 DEBUG = True # should be false in prod
 PASSWORD_HASH = 'a hashed password' # see below for generating password hashes
+EMAIL_SERVER = 'smtp.whatever.biz'
+EMAIL_USERNAME = 'the username from which to send rsvp confirmations'
+EMAIL_PASSWORD = 'the password for the email account'
 ```
 
 To generate a password hash, start your python console while in the project's

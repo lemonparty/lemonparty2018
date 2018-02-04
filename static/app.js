@@ -338,6 +338,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var REQUIRED_FIELDS = ["name", "is_going"];
 
+var BACKEND_ERROR = "Shit, something went wrong saving the rsvp; I guess just email us your response.";
+var VALIDATION_ERROR = "There was a problem submitting your rsvp… did you fill everything out?";
+
 var Form = {
   init: function init() {
     var _this = this;
@@ -378,14 +381,16 @@ var Form = {
       _jquery2.default.post(url, {
         data: data
       }).then(function (res) {
-        console.log("success", res);
-        _this2.showSuccessMessage();
+        if (res.success) {
+          _this2.showSuccessMessage();
+        } else {
+          _this2.showErrorMessage(BACKEND_ERROR);
+        }
       }).catch(function (err) {
-        console.log("error", err);
-        _this2.showErrorMessage("Shit, something went wrong saving the rsvp; I guess just email us your response.");
+        _this2.showErrorMessage(BACKEND_ERROR);
       });
     } else {
-      this.showErrorMessage("There was a problem submitting your rsvp… did you fill everything out?");
+      this.showErrorMessage(VALIDATION_ERROR);
     }
   },
 
