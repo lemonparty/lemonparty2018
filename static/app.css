@@ -261,6 +261,11 @@ em {
     box-shadow: -24px 12px 0 #000; }
   .body-home-rsvp-link:focus {
     outline: none; }
+  .body-home-rsvp-link[disabled] {
+    background: #b85b19;
+    cursor: default; }
+    .body-home-rsvp-link[disabled], .body-home-rsvp-link[disabled]:hover {
+      box-shadow: -8px 8px 0 #000; }
 
 @media (min-width: 650px) {
   .body-location iframe {
@@ -395,6 +400,11 @@ em {
     box-shadow: -24px 12px 0 #000; }
   .body-rsvp-submit-button:focus {
     outline: none; }
+  .body-rsvp-submit-button[disabled] {
+    background: #b85b19;
+    cursor: default; }
+    .body-rsvp-submit-button[disabled], .body-rsvp-submit-button[disabled]:hover {
+      box-shadow: -8px 8px 0 #000; }
 
 .body-rsvp-error {
   display: none;

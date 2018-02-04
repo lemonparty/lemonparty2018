@@ -338,7 +338,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var REQUIRED_FIELDS = ["name", "is_going"];
 
-var BACKEND_ERROR = "Shit, something went wrong saving the rsvp; I guess just email us your response.";
+var BACKEND_ERROR = "Shit, something went wrong saving the rsvp; I guess just email us your response?";
 var VALIDATION_ERROR = "There was a problem submitting your rsvp… did you fill everything out?";
 
 var Form = {
@@ -348,6 +348,7 @@ var Form = {
     this.form = (0, _jquery2.default)("#rsvp-form");
     this.formError = (0, _jquery2.default)(".body-rsvp-error");
     this.formSubmit = (0, _jquery2.default)(".body-rsvp-submit");
+    this.formSubmitButton = (0, _jquery2.default)(".body-rsvp-submit-button");
     this.formSuccess = (0, _jquery2.default)(".body-rsvp-success");
 
     this.form.on("submit", function (e) {
@@ -417,12 +418,11 @@ var Form = {
 
 
   /*
-   * Hide the submit button, and all statuses.
+   * Hide the statuses.
    */
   hideMessages: function hideMessages() {
     this.formError.hide();
-    this.formSuccess.hide();
-    this.formSubmit.hide();
+    this.showSavingState();
   },
 
 
@@ -447,8 +447,26 @@ var Form = {
     }
 
     this.formError.show();
-    this.formSubmit.show();
     this.formSuccess.hide();
+    this.hideSavingState();
+  },
+
+
+  /*
+   * Disable the save button while the form is being submitted
+   */
+  showSavingState: function showSavingState() {
+    this.formSubmitButton.attr("disabled", "disabled");
+    this.formSubmitButton.val("Saving...");
+  },
+
+
+  /*
+   * Endable the save button again
+   */
+  hideSavingState: function hideSavingState() {
+    this.formSubmitButton.removeAttr("disabled");
+    this.formSubmitButton.val("Submit");
   }
 };
 

@@ -27,6 +27,8 @@ $text-color: saddlebrown;
 
 $button-width: 120px;
 $button-height: 60px;
+$button-inactive-bs: -8px 8px 0 #000;
+$button-active-bs: -24px 12px 0 #000;
 
 @mixin button {
   @include center;
@@ -39,7 +41,7 @@ $button-height: 60px;
   text-decoration: none;
   background: saddlebrown;
   border: 0;
-  box-shadow: -8px 8px 0 #000;
+  box-shadow: $button-inactive-bs;
 
   color: magenta;
   font-size: 28px;
@@ -51,11 +53,21 @@ $button-height: 60px;
   cursor: pointer;
 
   &:hover {
-    box-shadow: -24px 12px 0 #000;
+    box-shadow: $button-active-bs;
   }
 
   &:focus {
     outline: none;
+  }
+
+  &[disabled] {
+    background: lighten(saddlebrown, 10%);
+    cursor: default;
+
+    &,
+    &:hover {
+      box-shadow: $button-inactive-bs;
+    }
   }
 }
 

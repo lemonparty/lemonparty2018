@@ -103,7 +103,7 @@ def rsvp_response_handler():
             recipients=["me@mgeraci.com"])
 
     try:
-        send_response = mailsend(msg)
+        send_response = mail.send(msg)
 
         return jsonify({
             'success': True,
