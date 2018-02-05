@@ -96,11 +96,23 @@ def rsvp():
 @app.route('/rsvp-response-handler', methods=['POST'])
 @login_required
 def rsvp_response_handler():
-    print request.form
-
-    msg = Message("[lemonparty2018-rsvp]",
+    msg = Message('[lemonparty2018-rsvp]',
             sender=EMAIL_USERNAME,
-            recipients=["me@mgeraci.com"])
+            recipients=['me@mgeraci.com'])
+
+    msg.html = ''
+
+    for field in request.form:
+        field_title = field.replace('data[', '').replace(']', '').replace('_', ' ')
+        field_content = request.form.get(field)
+
+        if field_content == '':
+            field_content = '<i>no response</i>'
+
+        msg.html = '{}<b>{}</b><br>'.format(msg.html, field_title)
+        msg.html = '{}{}<br><br>'.format(msg.html, field_content)
+
+    msg.html = '{}- Sincerely,<br>The Happy Lemon Party RSVP Robot'.format(msg.html)
 
     try:
         send_response = mail.send(msg)
