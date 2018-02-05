@@ -338,8 +338,10 @@ em {
 
 .body-rsvp input[type=text],
 .body-rsvp textarea {
+  padding: 8px;
   border: 1px solid #ccc;
-  padding: 8px; }
+  border-radius: 2px;
+  font-size: 14px; }
   .body-rsvp input[type=text]:focus,
   .body-rsvp textarea:focus {
     outline: none;

@@ -39,8 +39,10 @@ $form-padding: 20px;
 
   input[type=text],
   textarea {
-    border: 1px solid #ccc;
     padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    font-size: 14px;
 
     &:focus {
       outline: none;
