@@ -240,6 +240,7 @@ em {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+  -webkit-appearance: none;
   display: inline-block;
   z-index: 2;
   min-width: 120px;
@@ -248,6 +249,7 @@ em {
   text-decoration: none;
   background: saddlebrown;
   border: 0;
+  border-radius: 0;
   box-shadow: -8px 8px 0 #000;
   color: magenta;
   font-size: 28px;
@@ -382,6 +384,7 @@ em {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+  -webkit-appearance: none;
   display: inline-block;
   z-index: 2;
   min-width: 120px;
@@ -390,6 +393,7 @@ em {
   text-decoration: none;
   background: saddlebrown;
   border: 0;
+  border-radius: 0;
   box-shadow: -8px 8px 0 #000;
   color: magenta;
   font-size: 28px;

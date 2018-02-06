@@ -32,6 +32,7 @@ $button-active-bs: -24px 12px 0 #000;
 
 @mixin button {
   @include center;
+  -webkit-appearance: none;
   display: inline-block;
   z-index: 2;
   min-width: $button-width;
@@ -41,6 +42,7 @@ $button-active-bs: -24px 12px 0 #000;
   text-decoration: none;
   background: saddlebrown;
   border: 0;
+  border-radius: 0;
   box-shadow: $button-inactive-bs;
 
   color: magenta;
