@@ -4,10 +4,10 @@ this goes off with a hitch...
 
 This site is pretty basic; the only non-static thing going on here is the RSVP
 form. In searching for an RSVP solution of the right weight, we settled on
-emailing when a form is submitted; a database felt too heavy, and submitting
-to a google form with some unsupported ajax felt too brittle. So when a form is
-submitted, we get an email, and a flat file is written to `./rsvps/` as a
-backup/confirmation.
+emailing when a form is submitted — a database felt too heavy, and submitting
+to a google form with some weird unsupported ajax felt too brittle. So when a
+form is submitted, an email gets sent, and a flat file is written to `./rsvps/`
+as a backup/confirmation.
 
 ## Back end
 
