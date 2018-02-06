@@ -1,11 +1,15 @@
+import os
+import json
+from datetime import datetime
+
 from flask import Flask, jsonify, render_template, session, request, redirect
 from flask_mail import Mail, Message
 from functools import wraps
 from passlib.hash import pbkdf2_sha256
-import os
-import json
-from localsettings import DEBUG, PASSWORD_HASH, EMAIL_SERVER, EMAIL_USERNAME, EMAIL_PASSWORD
+from localsettings import DEBUG, PASSWORD_HASH, EMAIL_SERVER, EMAIL_USERNAME, EMAIL_PASSWORD, EMAIL_RECIPIENT
 from stuff_to_do_data import STUFF_TO_DO
+
+from helpers import prep_rsvp_field_title, prep_rsvp_field_content
 
 
 app = Flask(__name__)
@@ -96,18 +100,39 @@ def rsvp():
 @app.route('/rsvp-response-handler', methods=['POST'])
 @login_required
 def rsvp_response_handler():
+
+    # write to a flat file
+    # -------------------------------------------------------------------------
+
+    output_dir = os.path.dirname(os.path.realpath(__file__))
+    rsvps_dir = '{}/rsvps'.format(output_dir)
+    time = datetime.now().strftime("%Y-%m-%d--%H-%M-%S-%f")
+    output_file = '{}/{}.txt'.format(rsvps_dir, time)
+
+    if not os.path.exists(rsvps_dir):
+        os.makedirs(rsvps_dir)
+
+    with open(output_file, 'w') as f:
+        for field in request.form:
+            field_title = prep_rsvp_field_title(field)
+            field_content = prep_rsvp_field_content(request.form.get(field))
+
+            f.write('# {}\n'.format(field_title))
+            f.write('{}\n\n'.format(field_content))
+
+
+    # send an email
+    # -------------------------------------------------------------------------
+
     msg = Message('[lemonparty2018-rsvp]',
             sender=EMAIL_USERNAME,
-            recipients=['me@mgeraci.com'])
+            recipients=[EMAIL_RECIPIENT])
 
     msg.html = ''
 
     for field in request.form:
-        field_title = field.replace('data[', '').replace(']', '').replace('_', ' ')
-        field_content = request.form.get(field)
-
-        if field_content == '':
-            field_content = '<i>no response</i>'
+        field_title = prep_rsvp_field_title(field)
+        field_content = prep_rsvp_field_content(request.form.get(field))
 
         msg.html = '{}<b>{}</b><br>'.format(msg.html, field_title)
         msg.html = '{}{}<br><br>'.format(msg.html, field_content)

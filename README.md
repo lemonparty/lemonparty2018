@@ -1,5 +1,13 @@
 # Lemon Party 2018
-This repo holds the website for Katherine and Michael's wedding. Let's see if this goes off with a hitch...
+This repo holds the website for Katherine and Michael's wedding. Let's see if
+this goes off with a hitch...
+
+This site is pretty basic; the only non-static thing going on here is the RSVP
+form. In searching for an RSVP solution of the right weight, we settled on
+emailing when a form is submitted; a database felt too heavy, and submitting
+to a google form with some unsupported ajax felt too brittle. So when a form is
+submitted, we get an email, and a flat file is written to `./rsvps/` as a
+backup/confirmation.
 
 ## Back end
 
@@ -18,15 +26,16 @@ Then you should be able to load localhost:5000 and see the site.
 
 ### `localsettings.py`
 
-`localsettings` stores information specific to a particular environment. Here is
-an example file:
+`localsettings` stores information specific to a particular environment. Here
+is an example file:
 
 ```.py
 DEBUG = True # should be false in prod
-PASSWORD_HASH = 'a hashed password' # see below for generating password hashes
+PASSWORD_HASH = 'see below for generating password hashes'
 EMAIL_SERVER = 'smtp.whatever.biz'
-EMAIL_USERNAME = 'the username from which to send rsvp confirmations'
+EMAIL_USERNAME = 'the username/email address from which to send confirmations'
 EMAIL_PASSWORD = 'the password for the email account'
+EMAIL_RECIPIENT = 'the email address to send the rsvp confirmation'
 ```
 
 To generate a password hash, start your python console while in the project's
