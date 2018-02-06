@@ -1,4 +1,5 @@
 import $ from "jquery";
+import WanderingBoxShadow from "./wandering_box_shadow";
 
 const REQUIRED_FIELDS = [
   "name",
@@ -20,6 +21,8 @@ const Form = {
       e.preventDefault();
       this.handleFormSubmission();
     });
+
+    new WanderingBoxShadow(this.form);
   },
 
   /*

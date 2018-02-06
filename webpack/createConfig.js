@@ -7,6 +7,7 @@ function createConfig(params) {
   const WebpackNotifierPlugin = require("webpack-notifier");
   const ParallelUglifyESPlugin = require("webpack-parallel-uglify-es-plugin");
   const WebpackAssetsManifest = require("webpack-assets-manifest");
+  // const bourbon = require("bourbon");
 
 
   // settings common to both `watch` and `build`
@@ -50,8 +51,18 @@ function createConfig(params) {
         test: /\.(sass|scss)$/,
         exclude: [/node_modules/],
         loader: ExtractTextPlugin.extract({
-          use: ["raw-loader", "sass-loader"],
-        })
+          use: [
+            {
+              loader: "raw-loader",
+            },
+            {
+              loader: "sass-loader",
+              options: {
+                // includePaths: [bourbon.includePaths],
+              },
+            },
+          ],
+        }),
       },
     ]
   };

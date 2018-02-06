@@ -326,7 +326,8 @@ em {
   max-width: 500px;
   position: relative;
   left: 50%;
-  transform: translateX(-50%); }
+  transform: translateX(-50%);
+  transition: box-shadow 500ms linear; }
   @media (max-width: 380px) {
     .body-rsvp-form {
       box-shadow: -8px -16px #c08040; } }
