@@ -1,3 +1,4 @@
+import "babel-polyfill";
 import BackgroundChanger from "./background_changer";
 import LemonParty from "./lemon_party";
 
