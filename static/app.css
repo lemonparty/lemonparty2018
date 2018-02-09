@@ -296,3 +296,15 @@ em {
 .body-stuff-item {
   display: inline-block;
   margin-top: 10px; }
+
+.body-schedule-header {
+  display: block;
+  font-weight: bold;
+  font-style: italic; }
+
+.body-schedule-time {
+  color: magenta;
+  font-weight: bold; }
+
+.body-schedule-event {
+  display: inline-block; }

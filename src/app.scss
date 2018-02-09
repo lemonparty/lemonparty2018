@@ -91,6 +91,11 @@ em {
   letter-spacing: 1px;
 }
 
+@mixin h2 {
+  font-weight: bold;
+  font-style: italic;
+}
+
 .text {
   @include center;
   width: 100%;
@@ -115,3 +120,4 @@ em {
 @import "pages/home";
 @import "pages/location";
 @import "pages/stuff_to_do";
+@import "pages/schedule";

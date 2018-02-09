@@ -24,8 +24,7 @@
   }
 
   &-section-title {
-    font-weight: bold;
-    font-style: italic;
+    @include h2;
   }
 
   &-item {

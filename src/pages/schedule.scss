@@ -1,0 +1,15 @@
+.body-schedule {
+  &-header {
+    display: block;
+    @include h2;
+  }
+
+  &-time {
+    color: magenta;
+    font-weight: bold;
+  }
+
+  &-event {
+    display: inline-block;
+  }
+}
