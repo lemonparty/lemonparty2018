@@ -27,6 +27,7 @@
     "webpack-parallel-uglify-es-plugin": "^0.1.0"
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "webpack-assets-manifest": "^1.0.0",
     "webpack-notifier": "^1.5.0"
   }
