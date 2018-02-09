@@ -53,7 +53,7 @@ def login_required(f):
 @app.route('/')
 def index():
     if session.get('is_authenticated'):
-        return render_template('home.html')
+        return redirect('/home')
     else:
         return render_template('login.html',
             authentication_error=session.get('authentication_error'),
@@ -65,10 +65,10 @@ def login():
     if pbkdf2_sha256.verify(request.form['password'], PASSWORD_HASH):
         session['is_authenticated'] = True
         session['authentication_error'] = False
+        return redirect('/home')
     else:
         session['authentication_error'] = True
-
-    return index()
+        return redirect('/')
 
 
 @app.route("/logout")
@@ -76,7 +76,13 @@ def logout():
     session['is_authenticated'] = False
     session['authentication_error'] = False
 
-    return index()
+    return redirect('/')
+
+
+@app.route('/home')
+@login_required
+def home():
+    return render_template('home.html')
 
 
 @app.route('/location')
