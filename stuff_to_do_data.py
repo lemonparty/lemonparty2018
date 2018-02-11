@@ -43,7 +43,7 @@ STUFF_TO_DO = [
             {
                 'name': 'Duluth Family Sauna',
                 'link': 'https://www.yelp.com/biz/duluth-family-sauna-duluth',
-                'description': u'As far as we can tell, it is a sauna, and it is in Duluth, but it doesn’t seem family friendly. It is a place of lore.',
+                'description': u'As far as we can tell, it is a sauna, and it is in Duluth, but it doesn’t seem family friendly.',
             },
             {
                 'name': 'The Zinema',
