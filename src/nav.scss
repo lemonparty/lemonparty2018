@@ -79,5 +79,37 @@ $text-shadow-color: #000;
       left: 10px;
       color: magenta;
     }
+
+    &:nth-child(1).active {
+      transform: rotate(157deg);
+    }
+
+    &:nth-child(2).active {
+      transform: rotate(130deg);
+    }
+
+    &:nth-child(3).active {
+      transform: rotate(82deg);
+    }
+
+    &:nth-child(4).active {
+      transform: rotate(100deg);
+    }
+
+    &:nth-child(5).active {
+      transform: rotate(173deg);
+    }
+
+    &:nth-child(6).active {
+      transform: rotate(121deg);
+    }
+
+    &:nth-child(7).active {
+      transform: rotate(76deg);
+    }
+
+    &:nth-child(8).active {
+      transform: rotate(162deg);
+    }
   }
 }

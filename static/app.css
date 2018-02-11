@@ -167,6 +167,22 @@ em {
       transform: rotate(157deg);
       left: 10px;
       color: magenta; }
+    .nav-link:nth-child(1).active {
+      transform: rotate(157deg); }
+    .nav-link:nth-child(2).active {
+      transform: rotate(130deg); }
+    .nav-link:nth-child(3).active {
+      transform: rotate(82deg); }
+    .nav-link:nth-child(4).active {
+      transform: rotate(100deg); }
+    .nav-link:nth-child(5).active {
+      transform: rotate(173deg); }
+    .nav-link:nth-child(6).active {
+      transform: rotate(121deg); }
+    .nav-link:nth-child(7).active {
+      transform: rotate(76deg); }
+    .nav-link:nth-child(8).active {
+      transform: rotate(162deg); }
 
 .body-login {
   min-height: 100%;
