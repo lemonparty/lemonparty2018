@@ -97,6 +97,7 @@ em {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+  display: inline-block;
   width: 100%;
   max-width: 550px; }
   .text + .text {
@@ -319,6 +320,11 @@ em {
 .body-stuff-item {
   display: inline-block;
   margin-top: 10px; }
+
+.body-stuff .text {
+  padding-top: 20px; }
+  .body-stuff .text:first-of-type {
+    padding-top: 0; }
 
 .body-schedule-header {
   display: block;
