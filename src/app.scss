@@ -63,7 +63,7 @@ $text-shadow-color: magenta;
 
 .page-title {
   @include center;
-  display: inline-block;
+  display: block;
   width: 100%;
   max-width: 800px;
   padding-bottom: 80px;
@@ -98,7 +98,7 @@ em {
 
 .text {
   @include center;
-  display: inline-block;
+  display: block;
   width: 100%;
   max-width: 550px;
 

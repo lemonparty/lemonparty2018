@@ -69,7 +69,7 @@ body {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  display: inline-block;
+  display: block;
   width: 100%;
   max-width: 800px;
   padding-bottom: 80px;
@@ -97,7 +97,7 @@ em {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  display: inline-block;
+  display: block;
   width: 100%;
   max-width: 550px; }
   .text + .text {
