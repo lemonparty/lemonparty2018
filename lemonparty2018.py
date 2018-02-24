@@ -1,14 +1,19 @@
 from flask import Flask
-from flask import render_template, session, request
+from flask import render_template, session, request, redirect, url_for
+from functools import wraps
 from passlib.hash import pbkdf2_sha256
 import os
 import json
 from localsettings import DEBUG, PASSWORD_HASH
+from stuff_to_do_data import STUFF_TO_DO
 
 
 app = Flask(__name__)
 app.secret_key = os.urandom(12)
 
+
+# context processors and decorators
+# ------------------------------------------------------------------------------
 
 @app.context_processor
 def static_path_processor():
@@ -30,10 +35,25 @@ def static_path_processor():
     }
 
 
+def login_required(f):
+    @wraps(f)
+
+    def decorated_function(*args, **kwargs):
+        if not DEBUG and not session.get('is_authenticated'):
+            return redirect(url_for('splash'))
+
+        return f(*args, **kwargs)
+
+    return decorated_function
+
+
+# pages
+# ------------------------------------------------------------------------------
+
 @app.route('/')
-def index():
+def splash():
     if session.get('is_authenticated'):
-        return render_template('home.html')
+        return redirect(url_for('home'))
     else:
         return render_template('login.html',
             authentication_error=session.get('authentication_error'),
@@ -45,10 +65,10 @@ def login():
     if pbkdf2_sha256.verify(request.form['password'], PASSWORD_HASH):
         session['is_authenticated'] = True
         session['authentication_error'] = False
+        return redirect(url_for('home'))
     else:
         session['authentication_error'] = True
-
-    return index()
+        return redirect(url_for('splash'))
 
 
 @app.route("/logout")
@@ -56,7 +76,49 @@ def logout():
     session['is_authenticated'] = False
     session['authentication_error'] = False
 
-    return index()
+    return redirect(url_for('splash'))
+
+
+@app.route('/home')
+@login_required
+def home():
+    return render_template('home.html')
+
+
+@app.route('/location')
+@login_required
+def location():
+    return render_template('location.html')
+
+
+@app.route('/schedule')
+@login_required
+def schedule():
+    return render_template('schedule.html')
+
+
+@app.route('/where-to-stay')
+@login_required
+def where_to_stay():
+    return render_template('where_to_stay.html')
+
+
+@app.route('/stuff-to-do')
+@login_required
+def stuff_to_do():
+    return render_template('stuff_to_do.html', stuff_to_do=STUFF_TO_DO)
+
+
+@app.route('/gifts')
+@login_required
+def gifts():
+    return render_template('gifts.html')
+
+
+@app.route('/contact')
+@login_required
+def contact():
+    return render_template('contact.html')
 
 
 if __name__ == '__main__':

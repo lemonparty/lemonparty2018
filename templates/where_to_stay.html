@@ -1,0 +1,14 @@
+{% extends '_base.html' %}
+{% set title = 'Where to stay' %}
+{% block title %}{{ title }}{% endblock %}
+{% block bodyclass %}logged-in body-hotels{% endblock %}
+{% set active_page = 'where_to_stay' %}
+
+{% block content %}
+  {% include '_nav.html' %}
+
+  <h1 class="page-title">{{ title }}</h1>
+
+  <p class="text">
+  </p>
+{% endblock %}

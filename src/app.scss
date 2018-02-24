@@ -1,102 +1,125 @@
 @import "reset";
 
+
+// variables and mixins
+// -----------------------------------------------------------------------------
+
+$nav-height: 272px;
+$footer-height: 150px;
+$text-color: saddlebrown;
+
+@mixin link {
+  color: $text-color;
+  background: pink;
+  text-decoration: none;
+
+  &:hover {
+    background: orange;
+  }
+}
+
+@mixin center {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+// global styles
+// -----------------------------------------------------------------------------
+
 * {
   box-sizing: border-box;
 }
 
-html {
-  height: 100%;
-}
-
-.body-login {
+body {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   min-height: 100%;
-  background: yellow;
-  color: chartreuse;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  text-align: center;
-  font-size: 12vw;
-  line-height: 15vw;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  &.logged-in {
+    min-height: 100vh;
+    padding: ($nav-height * 0.8) 4vw $footer-height;
+    background-image: url("/static/images/bottom-lemon.png");
+    background-repeat: repeat-x;
+    background-position: bottom;
+    font-size: 18px;
+    line-height: 26px;
+    background-color: yellow;
+    color: $text-color;
+
+    @media (max-width: 500px) {
+      padding-top: $nav-height;
+    }
+  }
 }
 
-#lemon-canvas {
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
+$text-shadow-values: ();
+$text-shadow-color: magenta;
+
+@for $i from 0 through 20 {
+  $offset: $i * 0.8px;
+  $text-shadow-values: append($text-shadow-values, $offset * 0.6 $offset * 1.1 0 $text-shadow-color);
+}
+
+.page-title {
+  @include center;
+  display: block;
   width: 100%;
-  height: 100%;
-}
+  max-width: 800px;
+  padding-bottom: 80px;
+  text-align: center;
+  letter-spacing: 3px;
+  color: darken($text-color, 8%);
+  font-weight: bold;
+  text-shadow: zip($text-shadow-values);
 
-.login-form {
-  position: relative;
-  z-index: 2;
-  width: 300px;
-  margin-bottom: -12vw;
-  background: rgba(#000, 0.6);
-  padding: 40px;
-  line-height: 14px;
-
-  @media (max-width: 500px) {
-    width: 80%;
-    padding: 20px;
+  @media (min-width: 650px) {
+    margin: -20px 0;
+    font-size: 88px;
+    line-height: 100px;
   }
 
-  &,
-  &-input,
-  &-button {
-    border-radius: 8px;
-  }
-
-  &-input,
-  &-button {
-    float: left;
-    border: none;
-    height: 30px;
-  }
-
-  $input-size: 70%;
-  $margin: 3%;
-
-  &-input {
-    width: $input-size;
-    margin-right: $margin;
-    padding-right: 5%;
-    padding-left: 5%;
-    color: limegreen;
-
-    &:focus {
-      outline: none;
-    }
-  }
-
-  &-button {
-    width: 100% - $input-size - $margin;
-    background-color: fuchsia;
-    color: aqua;
-
-    &:active {
-      background-color: aqua;
-      color: fuchsia;
-    }
-
-    &:focus {
-      outline: none;
-    }
-  }
-
-  &-error {
-    float: left;
-    margin-top: 10px;
-    margin-bottom: -10px;
-    width: 100%;
-    text-align: center;
-    font-size: 12px;
-    color: red;
+  @media (max-width: 650px) {
+    margin: -8vw 0;
+    font-size: 13vw;
+    line-height: 13vw;
   }
 }
+
+em {
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+@mixin h2 {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.text {
+  @include center;
+  display: block;
+  width: 100%;
+  max-width: 550px;
+
+  & + .text {
+    margin-top: 20px;
+  }
+
+  a {
+    @include link;
+  }
+}
+
+@import "nav";
+
+
+// subpages
+// -----------------------------------------------------------------------------
+
+@import "pages/login";
+@import "pages/home";
+@import "pages/gifts";
+@import "pages/location";
+@import "pages/stuff_to_do";
+@import "pages/schedule";

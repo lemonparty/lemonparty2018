@@ -24,7 +24,7 @@ function createConfig(params) {
 
   if (isProduction) {
     output.filename = "[name].[chunkhash].min.js";
-		output.path = `${output.path}/build/`;
+    output.path = `${output.path}/build/`;
   }
 
   const resolve = {

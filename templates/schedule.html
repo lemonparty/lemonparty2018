@@ -1,0 +1,56 @@
+{% extends '_base.html' %}
+{% set title = 'Schedule' %}
+{% block title %}{{ title }}{% endblock %}
+{% block bodyclass %}logged-in body-schedule{% endblock %}
+{% set active_page = 'schedule' %}
+
+{% block content %}
+  {% include '_nav.html' %}
+
+  <h1 class="page-title">{{ title }}</h1>
+
+  <p class="text">
+    <span class="body-schedule-header">Friday</span>
+
+    <span class="body-schedule-event">
+      <span class="body-schedule-time">?pm Drinks at PLACE</span>
+      If you’re in town, drop by SOME PLACE for a drink and a snack. Nothing
+      formal; we’ll be hanging out there until maybe SOME TIME.
+    </span>
+  </p>
+
+  <p class="text">
+    <span class="body-schedule-header">Saturday</span>
+
+    <span class="body-schedule-event">
+      <span class="body-schedule-time">?pm Pre-wedding</span>
+      We’ll be doing SOMETHING around Lake Breeze before the wedding thing.
+    </span>
+
+    <span class="body-schedule-event">
+      <span class="body-schedule-time">?pm Wedding</span>
+      This is when where we get this whole marriage situation sorted out.
+    </span>
+
+    <span class="body-schedule-event">
+      <span class="body-schedule-time">?pm Post-wedding drinks</span>
+      Some people call this a cocktail hour. You can, too. Maybe play some lawn
+      games with your cocktails?
+    </span>
+
+    <span class="body-schedule-event">
+      <span class="body-schedule-time">?pm Post-wedding food (and more drinks)</span>
+      After the thing before, then you get more food and can sit down and stuff, and isn’t that nice?
+    </span>
+  </p>
+
+  <p class="text">
+    <span class="body-schedule-header">Sunday</span>
+
+    <span class="body-schedule-event">
+      <span class="body-schedule-time">11am Brunch</span>
+      We’ll have coffee and breakfast and all that stuff set out in the lodge
+      at Lake Breeze.
+    </span>
+  </p>
+{% endblock %}

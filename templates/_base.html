@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8">
     <title>{% block title %}{% endblock %} | LemonParty2018</title>
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <link rel="stylesheet" href="{{ url_for('static', filename=css_path) }}">
     <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
   </head>
+
   <body class="{% block bodyclass %}{% endblock %}">
     {% block content %}{% endblock %}
-
     <script type="text/javascript" src="{{ url_for('static', filename=js_path) }}"></script>
   </body>
 </html>

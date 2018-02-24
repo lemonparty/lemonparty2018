@@ -1,0 +1,115 @@
+$text-shadow-values: ();
+$text-shadow-color: #000;
+
+@for $i from 0 through 10 {
+  $offset: $i * 1px;
+  $text-shadow-values: append($text-shadow-values, $offset * 1.2 $offset 0 $text-shadow-color);
+}
+
+.nav {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $nav-height;
+  padding: 4vw;
+
+  @media (min-width: 1000px) {
+    padding: 60px;
+  }
+
+  &-bg {
+    position: absolute;
+    z-index: 1;
+    top: -180px;
+    left: -25%;
+    width: 150%;
+    height: $nav-height;
+    background: turquoise;
+    transform: rotate(8deg);
+    box-shadow: 0 12px 0 pink;
+
+    @media (min-width: 1000px) {
+      top: -170px;
+    }
+
+    @media (min-width: 900px) {
+      transform: rotate(3deg);
+    }
+
+    @media (max-width: 500px) {
+      top: -150px;
+    }
+
+    @media (max-width: 390px) {
+      top: -100px;
+    }
+  }
+
+  &-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: flex-start;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  &-link {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    height: 50px;
+    font-size: 19px;
+    letter-spacing: 3px;
+    line-height: 50px;
+    padding: 0 10px;
+    font-weight: bold;
+    text-decoration: none;
+    color: lighten(orange, 20%);
+    text-shadow: 0 0 2px $text-shadow-color, zip($text-shadow-values);
+
+    &:hover {
+      color: springgreen;
+    }
+
+    &.active {
+      transform: rotate(157deg);
+      left: 10px;
+      color: magenta;
+    }
+
+    &:nth-child(1).active {
+      transform: rotate(157deg);
+    }
+
+    &:nth-child(2).active {
+      transform: rotate(130deg);
+    }
+
+    &:nth-child(3).active {
+      transform: rotate(82deg);
+    }
+
+    &:nth-child(4).active {
+      transform: rotate(100deg);
+    }
+
+    &:nth-child(5).active {
+      transform: rotate(173deg);
+    }
+
+    &:nth-child(6).active {
+      transform: rotate(121deg);
+    }
+
+    &:nth-child(7).active {
+      transform: rotate(76deg);
+    }
+
+    &:nth-child(8).active {
+      transform: rotate(162deg);
+    }
+  }
+}

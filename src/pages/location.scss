@@ -1,0 +1,11 @@
+.body-location {
+  iframe {
+    @media (min-width: 650px) {
+      @include center;
+    }
+
+    @media (max-width: 650px) {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+.body-stuff {
+  &-nav {
+    @include center;
+    display: inline-block;
+    max-width: 600px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    &-item {
+      display: inline-block;
+      padding: 10px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      a {
+        @include link;
+      }
+    }
+  }
+
+  &-section-title {
+    @include h2;
+  }
+
+  &-item {
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+  // because of the density of text on this page, the paragraphs need just a
+  // touch more space between them
+  .text {
+    padding-top: 20px;
+
+    &:first-of-type {
+      padding-top: 0;
+    }
+  }
+}

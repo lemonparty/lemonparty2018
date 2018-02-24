@@ -1,0 +1,29 @@
+{% extends '_base.html' %}
+{% set title = 'Contact' %}
+{% block title %}{{ title }}{% endblock %}
+{% block bodyclass %}logged-in body-contact{% endblock %}
+{% set active_page = 'contact' %}
+
+{% block content %}
+  {% include '_nav.html' %}
+
+  <h1 class="page-title">{{ title }}</h1>
+
+  <p class="text">
+    <em>Our emails:</em>
+    <br>
+    Katherine: <a href="mailto:katherine.erickson@gmail.com">katherine.erickson@gmail.com</a>
+    <br>
+    Michael: <a href="mailto:me@mgeraci.com">me@mgeraci.com</a>
+    <br>
+    Muxy: <a href="mailto:muxyericksongeraci@gmail.com">muxyericksongeraci@gmail.com</a>
+  </p>
+
+  <p class="text">
+    <em>Our address:</em>
+    <br>
+    194 Butler St., Apt. 1
+    <br>
+    Brooklyn, NY 11217
+  </p>
+{% endblock %}

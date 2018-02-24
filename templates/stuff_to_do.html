@@ -1,0 +1,35 @@
+{% extends '_base.html' %}
+{% set title = 'Stuff to do' %}
+{% block title %}{{ title }}{% endblock %}
+{% block bodyclass %}logged-in body-stuff{% endblock %}
+{% set active_page = 'stuff_to_do' %}
+
+{% block content %}
+  {% include '_nav.html' %}
+
+  <h1 class="page-title">{{ title }}</h1>
+
+  <ul class="body-stuff-nav">
+    {% for section in stuff_to_do %}
+      <li class="body-stuff-nav-item">
+        <a href="#{{ section.section_id }}">{{ section.section_name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  {% for section in stuff_to_do %}
+    <p class="text" id="{{ section.section_id }}">
+      <span class="body-stuff-section-title">
+        {{ section.section_name }}
+      </span>
+
+      {% for item in section.contents %}
+        <br>
+        <span class="body-stuff-item">
+          <a href="{{ item.link }}">{{ item.name }}</a>:
+          {{ item.description }}
+        </span>
+      {% endfor %}
+    </p>
+  {% endfor %}
+{% endblock %}
