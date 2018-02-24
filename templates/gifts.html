@@ -1,11 +1,13 @@
-{% extends "_base.html" %}
-{% block title %}Gifts{% endblock %}
+{% extends '_base.html' %}
+{% set title = 'Gifts' %}
+{% block title %}{{ title }}{% endblock %}
 {% block bodyclass %}logged-in body-gifts{% endblock %}
-{% set active_page = "gifts" %}
+{% set active_page = 'gifts' %}
 
 {% block content %}
-  {% include "_nav.html" %}
-  <h1 class="page-title">Gifts</h1>
+  {% include '_nav.html' %}
+
+  <h1 class="page-title">{{ title }}</h1>
 
   <p class="text">
     Spending your weekend with us in Duluth is more than gift enough! We are

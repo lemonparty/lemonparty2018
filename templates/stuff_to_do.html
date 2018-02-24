@@ -1,11 +1,13 @@
-{% extends "_base.html" %}
-{% block title %}Stuff to do{% endblock %}
+{% extends '_base.html' %}
+{% set title = 'Stuff to do' %}
+{% block title %}{{ title }}{% endblock %}
 {% block bodyclass %}logged-in body-stuff{% endblock %}
-{% set active_page = "stuff-to-do" %}
+{% set active_page = 'stuff_to_do' %}
 
 {% block content %}
-  {% include "_nav.html" %}
-  <h1 class="page-title">Stuff to do</h1>
+  {% include '_nav.html' %}
+
+  <h1 class="page-title">{{ title }}</h1>
 
   <ul class="body-stuff-nav">
     {% for section in stuff_to_do %}
@@ -20,6 +22,7 @@
       <span class="body-stuff-section-title">
         {{ section.section_name }}
       </span>
+
       {% for item in section.contents %}
         <br>
         <span class="body-stuff-item">

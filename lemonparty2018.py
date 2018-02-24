@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template, session, request, redirect
+from flask import render_template, session, request, redirect, url_for
 from functools import wraps
 from passlib.hash import pbkdf2_sha256
 import os
@@ -40,7 +40,7 @@ def login_required(f):
 
     def decorated_function(*args, **kwargs):
         if not DEBUG and not session.get('is_authenticated'):
-            return redirect('/')
+            return redirect(url_for('splash'))
 
         return f(*args, **kwargs)
 
@@ -51,9 +51,9 @@ def login_required(f):
 # ------------------------------------------------------------------------------
 
 @app.route('/')
-def index():
+def splash():
     if session.get('is_authenticated'):
-        return redirect('/home')
+        return redirect(url_for('home'))
     else:
         return render_template('login.html',
             authentication_error=session.get('authentication_error'),
@@ -65,10 +65,10 @@ def login():
     if pbkdf2_sha256.verify(request.form['password'], PASSWORD_HASH):
         session['is_authenticated'] = True
         session['authentication_error'] = False
-        return redirect('/home')
+        return redirect(url_for('home'))
     else:
         session['authentication_error'] = True
-        return redirect('/')
+        return redirect(url_for('splash'))
 
 
 @app.route("/logout")
@@ -76,7 +76,7 @@ def logout():
     session['is_authenticated'] = False
     session['authentication_error'] = False
 
-    return redirect('/')
+    return redirect(url_for('splash'))
 
 
 @app.route('/home')
@@ -97,10 +97,10 @@ def schedule():
     return render_template('schedule.html')
 
 
-@app.route('/hotels')
+@app.route('/where-to-stay')
 @login_required
-def hotels():
-    return render_template('hotels.html')
+def where_to_stay():
+    return render_template('where_to_stay.html')
 
 
 @app.route('/stuff-to-do')

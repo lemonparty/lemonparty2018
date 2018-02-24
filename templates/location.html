@@ -1,15 +1,18 @@
-{% extends "_base.html" %}
-{% block title %}Location{% endblock %}
+{% extends '_base.html' %}
+{% set title = 'Location' %}
+{% block title %}{{ title }}{% endblock %}
 {% block bodyclass %}logged-in body-location{% endblock %}
-{% set active_page = "location" %}
+{% set active_page = 'location' %}
 
 {% block content %}
-  {% include "_nav.html" %}
-  <h1 class="page-title">Location</h1>
+  {% include '_nav.html' %}
+
+  <h1 class="page-title">{{ title }}</h1>
 
   <p class="text">
     Our wedding will be in Katherine’s hometown: Duluth, Minnesota.
   </p>
+
   <p class="text">
     The ceremony and reception will be at <em>Lake Breeze Motel Resort</em>,
     located 15 minutes up the shore from downtown Duluth at
@@ -18,11 +21,13 @@
     Lake Breeze has a heated outdoor pool, and the whole place is ours for the
     weekend, so bring a bathing suit and come hang out!
   </p>
+
   <p class="text">
     The average temperature range for this weekend is a low of 56º and a high
     of 76º. So expect a lovely day, and bring a sweater and jacket for
     the evening. Unless it rains, then <em>all bets are off</em>.
   </p>
+
   <p class="text">
     To get to Duluth, you can fly into Duluth International Airport (DLH). Once
     there, you can rent a car at the airport, or use a ride-sharing service

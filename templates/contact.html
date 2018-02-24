@@ -1,11 +1,13 @@
-{% extends "_base.html" %}
-{% block title %}Contact{% endblock %}
+{% extends '_base.html' %}
+{% set title = 'Contact' %}
+{% block title %}{{ title }}{% endblock %}
 {% block bodyclass %}logged-in body-contact{% endblock %}
-{% set active_page = "contact" %}
+{% set active_page = 'contact' %}
 
 {% block content %}
-  {% include "_nav.html" %}
-  <h1 class="page-title">Contact</h1>
+  {% include '_nav.html' %}
+
+  <h1 class="page-title">{{ title }}</h1>
 
   <p class="text">
     <em>Our emails:</em>
@@ -16,6 +18,7 @@
     <br>
     Muxy: <a href="mailto:muxyericksongeraci@gmail.com">muxyericksongeraci@gmail.com</a>
   </p>
+
   <p class="text">
     <em>Our address:</em>
     <br>

@@ -1,11 +1,13 @@
-{% extends "_base.html" %}
-{% block title %}Schedule{% endblock %}
+{% extends '_base.html' %}
+{% set title = 'Schedule' %}
+{% block title %}{{ title }}{% endblock %}
 {% block bodyclass %}logged-in body-schedule{% endblock %}
-{% set active_page = "schedule" %}
+{% set active_page = 'schedule' %}
 
 {% block content %}
-  {% include "_nav.html" %}
-  <h1 class="page-title">Schedule</h1>
+  {% include '_nav.html' %}
+
+  <h1 class="page-title">{{ title }}</h1>
 
   <p class="text">
     <span class="body-schedule-header">Friday</span>
