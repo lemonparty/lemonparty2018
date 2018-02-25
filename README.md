@@ -32,7 +32,7 @@ is an example file:
 ```.py
 DEBUG = True # should be false in prod
 PASSWORD_HASH = 'see below for generating password hashes'
-EMAIL_SERVER = 'smtp.whatever.biz'
+EMAIL_SERVER = 'smtp.gmail.com' # or whatever your server is
 EMAIL_USERNAME = 'the username/email address from which to send confirmations'
 EMAIL_PASSWORD = 'the password for the email account'
 EMAIL_RECIPIENT = 'the email address to send the rsvp confirmation'
