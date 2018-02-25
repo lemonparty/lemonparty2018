@@ -275,7 +275,7 @@ em {
   width: 120px; }
   .body-home-rsvp-link:hover {
     box-shadow: -24px 12px 0 #000;
-    cursor: pointer; }
+    cursor: pointeror whatever your server is; }
 
 .body-gifts-signature {
   display: inline-block;
@@ -434,7 +434,7 @@ em {
   margin-top: 15px; }
   .body-rsvp-submit-button:hover {
     box-shadow: -24px 12px 0 #000;
-    cursor: pointer; }
+    cursor: pointeror whatever your server is; }
 
 .body-rsvp-error {
   display: none;

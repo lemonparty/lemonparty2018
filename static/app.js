@@ -19719,9 +19719,7 @@ var Form = {
 
 
   /**
-   * Validate the form, finding any input with a `name` starting with `entry`
-   * (which is how google forms handles their inputs) and ensuring that it is
-   * filled out.
+   * Validate the form.
    *
    * @param {object} data - the form data to validate
    * @return {bool} - true if valid, false if not
