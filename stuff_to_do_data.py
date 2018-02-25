@@ -43,7 +43,7 @@ STUFF_TO_DO = [
             {
                 'name': 'Duluth Family Sauna',
                 'link': 'https://www.yelp.com/biz/duluth-family-sauna-duluth',
-                'description': u'As far as we can tell, it is a sauna, and it is in Duluth, but it doesn’t seem family friendly. It is a place of lore.',
+                'description': u'As far as we can tell, it is a sauna, and it is in Duluth, but it doesn’t seem family friendly.',
             },
             {
                 'name': 'The Zinema',
@@ -134,6 +134,28 @@ STUFF_TO_DO = [
                 'link': 'http://www.matildasdogbakery.com/',
                 'description': u'Pick up something for your loved ones back home from this local, home-made dog treat shop. Hot tip: get Al’s Chicago Pizza if it’s in stock; it’s a rare find.',
             }
+        ],
+    },
+
+    {
+        'section_name': 'Big-ass trips',
+        'section_id': 'big_ass_trips',
+        'contents': [
+            {
+                'name': u'The Boundary Waters Canoe Area',
+                'link': 'http://www.dnr.state.mn.us/watertrails/bwca/index.html',
+                'description': 'The Boundary Waters is a huge network of interconnected lakes in the border area between Minnesota and Canada. Rent a canoe (try Sawtooth Outfitters in Tofte) and do anything from an overnight to a multi-day trip. We\'ve enjoyed an overnight to Larch Lake, and a two-night trip to Crystal Lake.',
+            },
+            {
+                'name': u'The Superior Hiking Trail',
+                'link': 'https://shta.org/',
+                'description': u'The SHT stretches over 300 miles from Duluth along the shore to Canada. You can do an easy and really pretty overnight to Bear Lake (start from a parking area on Route 11, outside of Silver Bay), or through hike for a longer section of trail — drop one car at the end or take the shuttle back.',
+            },
+            {
+                'name': u'Climbing at Palisade Head',
+                'link': 'https://www.mountainproject.com/area/105814857/palisade-head',
+                'description': u'This bluff not in Tettegouche State Park has some of Minnesota\'s best climbing. It\'s a scenic cliff of volcanic rock over Lake Superior where you can build an anchor, lower down to the water, and climb out.',
+            },
         ],
     },
 ]

@@ -1,20 +1,20 @@
 {% set nav_items = [
-  ("", "Home"),
-  ("location", "Location"),
-  ("schedule", "Schedule"),
-  ("hotels", "Hotels"),
-  ("stuff-to-do", "Stuff to do"),
-  ("gifts", "Gifts"),
-  ("contact", "Contact"),
+  ('home', 'Home'),
+  ('location', 'Location'),
+  ('schedule', 'Schedule'),
+  ('where_to_stay', 'Where to stay'),
+  ('stuff_to_do', 'Stuff to do'),
+  ('gifts', 'Gifts'),
+  ('contact', 'Contact'),
 ] -%}
 
 <nav class="nav">
   <div class="nav-bg"></div>
   <div class="nav-content">
-    {% for href, title in nav_items %}
+    {% for route, title in nav_items %}
       <a
-        class="nav-link {% if active_page == href %}active{% endif %}"
-        href="/{{ href }}"
+        class="nav-link {% if active_page == route %}active{% endif %}"
+        href="{{ url_for(route) }}"
       >
         {{ title }}
       </a>

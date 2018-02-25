@@ -1,12 +1,34 @@
-{% extends "_base.html" %}
-{% block title %}Gifts{% endblock %}
+{% extends '_base.html' %}
+{% set title = 'Gifts' %}
+{% block title %}{{ title }}{% endblock %}
 {% block bodyclass %}logged-in body-gifts{% endblock %}
-{% set active_page = "gifts" %}
+{% set active_page = 'gifts' %}
 
 {% block content %}
-  {% include "_nav.html" %}
-  <h1 class="page-title">Gifts</h1>
+  {% include '_nav.html' %}
+
+  <h1 class="page-title">{{ title }}</h1>
 
   <p class="text">
+    Spending your weekend with us in Duluth is more than gift enough! We are
+    grateful that you’ve chosen to come hang out with us, and know that many of
+    you already spent a bundle traveling to Duluth. Case closed.
+  </p>
+
+  <p class="text">
+    If you’d like to give us something, you can volunteer to help out with
+    stuff at the wedding; we’d appreciate any assistance!
+  </p>
+
+  <p class="text">
+    If you insist on giving a gift, you can make a donation to
+    <a href="https://secure.aspca.org/donate/donate">ASPCA</a> or the
+    <a href="https://action.aclu.org/donate-aclu">ACLU</a>. And if you really,
+    really insist on getting us something, you can contribute to our honeymoon
+    fund [here](gotta figure something out, if we do this).
+  </p>
+
+  <p class="text">
+    <span class="body-gifts-signature"></span>
   </p>
 {% endblock %}

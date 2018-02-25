@@ -1,19 +1,22 @@
-{% extends "_base.html" %}
+{% extends '_base.html' %}
 {% block title %}Home{% endblock %}
 {% block bodyclass %}logged-in body-home{% endblock %}
-{% set active_page = "" %}
+{% set active_page = 'home' %}
 
 {% block content %}
-  {% include "_nav.html" %}
+  {% include '_nav.html' %}
+
   <h1 class="page-title">Katherine and Michael are getting married</h1>
 
   <p class="text">
-    Hello. Hi there. We are going to get married on August 4th in Duluth, and
-    we are thrilled at the prospect of hanging out with you! Thanks for lemon
-    partying with us!
+    Hello. Hi there. We are doing this thing on August 4th, 2018 in Duluth,
+    and we are thrilled at the prospect of hanging out with you! Thanks for
+    lemon partying with us!
   </p>
+
   <p class="text">
     If you haven’t already, please RSVP by, what, late June?
   </p>
-  <a class="body-home-rsvp-link" href="/rsvp">RSVP</a>
+
+	<a class="body-home-rsvp-link" href="{{ url_for('rsvp') }}">RSVP</a>
 {% endblock %}

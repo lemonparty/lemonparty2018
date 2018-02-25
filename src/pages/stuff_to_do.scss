@@ -24,12 +24,21 @@
   }
 
   &-section-title {
-    font-weight: bold;
-    font-style: italic;
+    @include h2;
   }
 
   &-item {
     display: inline-block;
     margin-top: 10px;
+  }
+
+  // because of the density of text on this page, the paragraphs need just a
+  // touch more space between them
+  .text {
+    padding-top: 20px;
+
+    &:first-of-type {
+      padding-top: 0;
+    }
   }
 }

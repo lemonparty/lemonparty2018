@@ -89,6 +89,7 @@ $form-padding: 20px;
   }
 
   &-submit-button {
+    @include center;
     @include button;
     margin-top: 15px;
   }

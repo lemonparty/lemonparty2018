@@ -7,12 +7,13 @@
 $nav-height: 272px;
 $footer-height: 150px;
 $text-color: saddlebrown;
+$button-width: 120px;
+$button-height: 60px;
 
 @mixin link {
   color: $text-color;
   background: pink;
   text-decoration: none;
-  padding: 0 2px;
 
   &:hover {
     background: orange;
@@ -25,25 +26,18 @@ $text-color: saddlebrown;
   transform: translateX(-50%);
 }
 
-$button-width: 120px;
-$button-height: 60px;
-$button-inactive-bs: -8px 8px 0 #000;
-$button-active-bs: -24px 12px 0 #000;
-
 @mixin button {
-  @include center;
-  -webkit-appearance: none;
-  display: inline-block;
+  display: block;
   z-index: 2;
   min-width: $button-width;
-  padding: 0 16px;
   height: $button-height;
+	padding: 0 15px;
+  margin-top: 50px;
 
+	border: none;
   text-decoration: none;
   background: saddlebrown;
-  border: 0;
-  border-radius: 0;
-  box-shadow: $button-inactive-bs;
+  box-shadow: -8px 8px 0 #000;
 
   color: magenta;
   font-size: 28px;
@@ -52,24 +46,9 @@ $button-active-bs: -24px 12px 0 #000;
   line-height: $button-height;
   text-align: center;
 
-  cursor: pointer;
-
   &:hover {
-    box-shadow: $button-active-bs;
-  }
-
-  &:focus {
-    outline: none;
-  }
-
-  &[disabled] {
-    background: lighten(saddlebrown, 10%);
-    cursor: default;
-
-    &,
-    &:hover {
-      box-shadow: $button-inactive-bs;
-    }
+    box-shadow: -24px 12px 0 #000;
+		cursor: pointer;
   }
 }
 
@@ -105,17 +84,17 @@ body {
 $text-shadow-values: ();
 $text-shadow-color: magenta;
 
-@for $i from 0 through 17 {
+@for $i from 0 through 20 {
   $offset: $i * 0.8px;
   $text-shadow-values: append($text-shadow-values, $offset * 0.6 $offset * 1.1 0 $text-shadow-color);
 }
 
 .page-title {
   @include center;
-  display: inline-block;
+  display: block;
   width: 100%;
   max-width: 800px;
-  padding-bottom: 100px;
+  padding-bottom: 80px;
   text-align: center;
   letter-spacing: 3px;
   color: darken($text-color, 8%);
@@ -140,8 +119,14 @@ em {
   letter-spacing: 1px;
 }
 
+@mixin h2 {
+  font-weight: bold;
+  font-style: italic;
+}
+
 .text {
   @include center;
+  display: block;
   width: 100%;
   max-width: 550px;
 
@@ -162,6 +147,8 @@ em {
 
 @import "pages/login";
 @import "pages/home";
+@import "pages/gifts";
 @import "pages/location";
 @import "pages/stuff_to_do";
+@import "pages/schedule";
 @import "pages/rsvp";

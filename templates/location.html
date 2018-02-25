@@ -1,34 +1,42 @@
-{% extends "_base.html" %}
-{% block title %}Location{% endblock %}
+{% extends '_base.html' %}
+{% set title = 'Location' %}
+{% block title %}{{ title }}{% endblock %}
 {% block bodyclass %}logged-in body-location{% endblock %}
-{% set active_page = "location" %}
+{% set active_page = 'location' %}
 
 {% block content %}
-  {% include "_nav.html" %}
-  <h1 class="page-title">Location</h1>
+  {% include '_nav.html' %}
+
+  <h1 class="page-title">{{ title }}</h1>
 
   <p class="text">
-    Our wedding will be in Katherine’s hometown, Duluth, Minnesota.
+    Our wedding will be in Katherine’s hometown: Duluth, Minnesota.
   </p>
+
   <p class="text">
     The ceremony and reception will be at <em>Lake Breeze Motel Resort</em>,
     located 15 minutes up the shore from downtown Duluth at
     <a href="https://www.google.com/maps/place/9000+Congdon+Blvd,+Duluth,+MN+55804/@46.8748741,-91.9412126,17z/data=!3m1!4b1!4m5!3m4!1s0x52af00b9b2af62a7:0x72739a0f5b8f359e!8m2!3d46.8748741!4d-91.9390239?hl=en">
       9000 Congdon Boulevard, Duluth, MN 55804</a>.
-    Lake Breeze has a heated outdoor pool, so bring a bathing suit!
+    Lake Breeze has a heated outdoor pool, and the whole place is ours for the
+    weekend, so bring a bathing suit and come hang out!
   </p>
+
   <p class="text">
-    Around this time in Duluth, the average temperature range for a day is
-    56º-76º. So expect a lovely day, and the need for a sweater or jacket in
+    The average temperature range for this weekend is a low of 56º and a high
+    of 76º. So expect a lovely day, and bring a sweater and jacket for
     the evening. Unless it rains, then <em>all bets are off</em>.
   </p>
+
   <p class="text">
     To get to Duluth, you can fly into Duluth International Airport (DLH). Once
     there, you can rent a car at the airport, or use a ride-sharing service
-    like Lyft. If you prefer longer journeys, you could fly to Minneapolis
-    (MSP) and either drive, or take the
-    <a href="http://dmsp.hudsonltd.net/res">Skyline Shuttle</a> to Duluth.
+    like Lyft. Flying to Minneapolis (MSP) is cheaper, but it’s a 2½ hour drive
+    up to Duluth. If you do this, you could either rent a car, or take the
+    <a href="http://dmsp.hudsonltd.net/res">Skyline Shuttle</a> bus to Duluth.
+    Half-dozen of one, 6 of the other. We usually fly to Duluth.
   </p>
+  <br>
   <br>
   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2727.41530372783!2d-91.94121258396478!3d46.87487774622851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52af00b9b2af62a7%3A0x72739a0f5b8f359e!2s9000+Congdon+Blvd%2C+Duluth%2C+MN+55804!5e0!3m2!1sen!2sus!4v1516062418544" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 {% endblock %}

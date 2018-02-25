@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename=css_path) }}">
     <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
   </head>
+
   <body class="{% block bodyclass %}{% endblock %}">
     {% block content %}{% endblock %}
     <script type="text/javascript" src="{{ url_for('static', filename=js_path) }}"></script>

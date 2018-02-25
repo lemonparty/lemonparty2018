@@ -2,7 +2,7 @@ import os
 import json
 from datetime import datetime
 
-from flask import Flask, jsonify, render_template, session, request, redirect
+from flask import Flask, jsonify, render_template, session, request, redirect, url_for
 from flask_mail import Mail, Message
 from functools import wraps
 from passlib.hash import pbkdf2_sha256
@@ -52,7 +52,7 @@ def login_required(f):
 
     def decorated_function(*args, **kwargs):
         if not DEBUG and not session.get('is_authenticated'):
-            return redirect('/')
+            return redirect(url_for('splash'))
 
         return f(*args, **kwargs)
 
@@ -63,9 +63,9 @@ def login_required(f):
 # ------------------------------------------------------------------------------
 
 @app.route('/')
-def index():
+def splash():
     if session.get('is_authenticated'):
-        return render_template('home.html')
+        return redirect(url_for('home'))
     else:
         return render_template('login.html',
             authentication_error=session.get('authentication_error'),
@@ -77,10 +77,10 @@ def login():
     if pbkdf2_sha256.verify(request.form['password'], PASSWORD_HASH):
         session['is_authenticated'] = True
         session['authentication_error'] = False
+        return redirect(url_for('home'))
     else:
         session['authentication_error'] = True
-
-    return index()
+        return redirect(url_for('splash'))
 
 
 @app.route("/logout")
@@ -88,7 +88,49 @@ def logout():
     session['is_authenticated'] = False
     session['authentication_error'] = False
 
-    return index()
+    return redirect(url_for('splash'))
+
+
+@app.route('/home')
+@login_required
+def home():
+    return render_template('home.html')
+
+
+@app.route('/location')
+@login_required
+def location():
+    return render_template('location.html')
+
+
+@app.route('/schedule')
+@login_required
+def schedule():
+    return render_template('schedule.html')
+
+
+@app.route('/where-to-stay')
+@login_required
+def where_to_stay():
+    return render_template('where_to_stay.html')
+
+
+@app.route('/stuff-to-do')
+@login_required
+def stuff_to_do():
+    return render_template('stuff_to_do.html', stuff_to_do=STUFF_TO_DO)
+
+
+@app.route('/gifts')
+@login_required
+def gifts():
+    return render_template('gifts.html')
+
+
+@app.route('/contact')
+@login_required
+def contact():
+    return render_template('contact.html')
 
 
 @app.route('/rsvp')
@@ -150,42 +192,6 @@ def rsvp_response_handler():
         return jsonify({
             'success': False,
         })
-
-
-@app.route('/location')
-@login_required
-def location():
-    return render_template('location.html')
-
-
-@app.route('/schedule')
-@login_required
-def schedule():
-    return render_template('schedule.html')
-
-
-@app.route('/hotels')
-@login_required
-def hotels():
-    return render_template('hotels.html')
-
-
-@app.route('/stuff-to-do')
-@login_required
-def stuff_to_do():
-    return render_template('stuff_to_do.html', stuff_to_do=STUFF_TO_DO)
-
-
-@app.route('/gifts')
-@login_required
-def gifts():
-    return render_template('gifts.html')
-
-
-@app.route('/contact')
-@login_required
-def contact():
-    return render_template('contact.html')
 
 
 if __name__ == '__main__':

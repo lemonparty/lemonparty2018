@@ -1,6 +1,7 @@
 .body-home {
   &-rsvp-link {
+    @include center;
     @include button;
-    margin-top: 50px;
+		width: 120px;
   }
 }
