@@ -1,24 +1,29 @@
-import os
-import json
 from datetime import datetime
-
-from flask import Flask, jsonify, render_template, session, request, redirect, url_for
-from flask_mail import Mail, Message
 from functools import wraps
+import json
+import os
+
+from flask import (
+    Flask, jsonify, render_template, session, request, redirect, url_for
+)
+from flask_mail import Mail, Message
 from passlib.hash import pbkdf2_sha256
-from localsettings import DEBUG, PASSWORD_HASH, EMAIL_SERVER, EMAIL_USERNAME, EMAIL_PASSWORD, EMAIL_RECIPIENT
-from stuff_to_do_data import STUFF_TO_DO
 
 from helpers import prep_rsvp_field_title, prep_rsvp_field_content
+from localsettings import (
+    DEBUG, PASSWORD_HASH, EMAIL_SERVER, EMAIL_PORT, EMAIL_USE_TLS,
+    EMAIL_USE_SSL, EMAIL_USERNAME, EMAIL_PASSWORD, EMAIL_RECIPIENT
+)
+from stuff_to_do_data import STUFF_TO_DO
 
 
 app = Flask(__name__)
 app.secret_key = os.urandom(12)
 
-app.config['MAIL_PORT'] = 465
-app.config['MAIL_USE_TLS'] = False
-app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_SERVER'] = EMAIL_SERVER
+app.config['MAIL_PORT'] = EMAIL_PORT
+app.config['MAIL_USE_TLS'] = EMAIL_USE_TLS
+app.config['MAIL_USE_SSL'] = EMAIL_USE_SSL
 app.config['MAIL_USERNAME'] = EMAIL_USERNAME
 app.config['MAIL_PASSWORD'] = EMAIL_PASSWORD
 mail = Mail(app)

@@ -33,6 +33,9 @@ is an example file:
 DEBUG = True # should be false in prod
 PASSWORD_HASH = 'see below for generating password hashes'
 EMAIL_SERVER = 'smtp.gmail.com' # or whatever your server is
+EMAIL_PORT = 465
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
 EMAIL_USERNAME = 'the username/email address from which to send confirmations'
 EMAIL_PASSWORD = 'the password for the email account'
 EMAIL_RECIPIENT = 'the email address to send the rsvp confirmation'
