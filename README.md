@@ -52,8 +52,11 @@ pbkdf2_sha256.hash("your password")
 ## Front end
 
 The CSS is written using SASS, and the JS is written in ES6. Both are managed
-with webpack. Assuming you already have node and yarn installed, run
-`yarn install` to install the JS packages required for this app.
+with webpack.
+
+Our desired node version is specified in `.nvmrc`. Assuming you have that
+installed and activated (e.g. with `nvm use`), run `yarn install` to install
+the JS packages required for this app.
 
 Then to start webpack watching and compiling the files, run `npm run watch`. To
 compile the minified files for use in production, run `npm run build`. The
