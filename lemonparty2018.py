@@ -9,7 +9,7 @@ from flask import (
 from flask_mail import Mail, Message
 from passlib.hash import pbkdf2_sha256
 
-from helpers import format_rsvp_field
+from helpers import format_rsvp_field, get_valid_filename
 from localsettings import (
     DEBUG, PASSWORD_HASH, EMAIL_SERVER, EMAIL_PORT, EMAIL_USE_TLS,
     EMAIL_USE_SSL, EMAIL_USERNAME, EMAIL_PASSWORD, EMAIL_RECIPIENT
@@ -156,11 +156,17 @@ def rsvp_response_handler():
     # -------------------------------------------------------------------------
 
     rsvps_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'rsvps')
-    time = datetime.now().strftime("%Y-%m-%d--%H-%M-%S-%f")
-    output_file = '{}/{}.html'.format(rsvps_dir, time)
 
     if not os.path.exists(rsvps_dir):
         os.makedirs(rsvps_dir)
+
+    time = datetime.now().strftime("%Y-%m-%d--%H-%M-%S-%f")
+    name = request.form.get('data[name]')
+
+    output_file = os.path.join(
+        rsvps_dir,
+        get_valid_filename('{}--{}.html'.format(time, name))
+    )
 
     with open(output_file, 'w') as f:
         f.write(body)
