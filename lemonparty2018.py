@@ -9,7 +9,7 @@ from flask import (
 from flask_mail import Mail, Message
 from passlib.hash import pbkdf2_sha256
 
-from helpers import prep_rsvp_field_title, prep_rsvp_field_content
+from helpers import format_rsvp_field
 from localsettings import (
     DEBUG, PASSWORD_HASH, EMAIL_SERVER, EMAIL_PORT, EMAIL_USE_TLS,
     EMAIL_USE_SSL, EMAIL_USERNAME, EMAIL_PASSWORD, EMAIL_RECIPIENT
@@ -147,56 +147,39 @@ def rsvp():
 @app.route('/rsvp-response-handler', methods=['POST'])
 @login_required
 def rsvp_response_handler():
+    body = '<br><br>'.join(
+        [format_rsvp_field(k, v) for k, v in request.form.items()] +
+            ['- Sincerely,<br>The Happy Lemon Party RSVP Robot']
+    )
 
     # write to a flat file
     # -------------------------------------------------------------------------
 
-    output_dir = os.path.dirname(os.path.realpath(__file__))
-    rsvps_dir = '{}/rsvps'.format(output_dir)
+    rsvps_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'rsvps')
     time = datetime.now().strftime("%Y-%m-%d--%H-%M-%S-%f")
-    output_file = '{}/{}.txt'.format(rsvps_dir, time)
+    output_file = '{}/{}.html'.format(rsvps_dir, time)
 
     if not os.path.exists(rsvps_dir):
         os.makedirs(rsvps_dir)
 
     with open(output_file, 'w') as f:
-        for field in request.form:
-            field_title = prep_rsvp_field_title(field)
-            field_content = prep_rsvp_field_content(request.form.get(field))
-
-            f.write('# {}\n'.format(field_title))
-            f.write('{}\n\n'.format(field_content))
+        f.write(body)
 
 
     # send an email
     # -------------------------------------------------------------------------
 
     msg = Message('[lemonparty2018-rsvp]',
-            sender=EMAIL_USERNAME,
-            recipients=[EMAIL_RECIPIENT])
-
-    msg.html = ''
-
-    for field in request.form:
-        field_title = prep_rsvp_field_title(field)
-        field_content = prep_rsvp_field_content(request.form.get(field))
-
-        msg.html = '{}<b>{}</b><br>'.format(msg.html, field_title)
-        msg.html = '{}{}<br><br>'.format(msg.html, field_content)
-
-    msg.html = '{}- Sincerely,<br>The Happy Lemon Party RSVP Robot'.format(msg.html)
+                  sender=EMAIL_USERNAME,
+                  recipients=[EMAIL_RECIPIENT],
+                  html=body)
 
     try:
-        send_response = mail.send(msg)
-
-        return jsonify({
-            'success': True,
-        })
+        mail.send(msg)
+        return jsonify({ 'success': True })
 
     except:
-        return jsonify({
-            'success': False,
-        })
+        return jsonify({ 'success': False })
 
 
 if __name__ == '__main__':
