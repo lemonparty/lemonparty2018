@@ -1,4 +1,3 @@
-import $ from "jquery";
 import WanderingBoxShadow from "./wandering_box_shadow";
 
 const REQUIRED_FIELDS = [
@@ -6,18 +5,18 @@ const REQUIRED_FIELDS = [
   "is_going",
 ];
 
-const BACKEND_ERROR = "Shit, something went wrong saving the rsvp; I guess just email us your response?";
+const BACKEND_ERROR = "Uh... something went wrong saving the rsvp; I guess just email us your response?";
 const VALIDATION_ERROR = "There was a problem submitting your rsvp… did you fill everything out?";
 
 const Form = {
   init() {
-    this.form = $("#rsvp-form");
-    this.formError = $(".body-rsvp-error");
-    this.formSubmit = $(".body-rsvp-submit");
-    this.formSubmitButton = $(".body-rsvp-submit-button");
-    this.formSuccess = $(".body-rsvp-success");
+    this.form = document.querySelectorAll(".body-rsvp-form")[0];
+    this.formError = document.querySelectorAll(".body-rsvp-error")[0];
+    this.formSubmit = document.querySelectorAll(".body-rsvp-submit")[0];
+    this.formSubmitButton = document.querySelectorAll(".body-rsvp-submit-button")[0];
+    this.formSuccess = document.querySelectorAll(".body-rsvp-success")[0];
 
-    this.form.on("submit", (e) => {
+    this.form.addEventListener("submit", (e) => {
       e.preventDefault();
       this.handleFormSubmission();
     });
@@ -26,15 +25,35 @@ const Form = {
   },
 
   /*
+   * This helper converts either an html object set OR a NodeList (used on older
+   * iOS devices, roughly iOS version 8.1 and earlier) into an array for looping.
+   *
+   * @param {nodelist|object} nodes - a NodeList or a list of html objects
+   * @returns {array} - an array
+   */
+  nodesToArray(nodes) {
+    return [].slice.call(nodes);
+  },
+
+  /*
    * Post a form, or show an error. Whichever. Depends.
    */
   handleFormSubmission() {
-    const url = this.form.attr("action");
-    const formArray = this.form.serializeArray();
+    const url = this.form.getAttribute("action");
     const data = {};
 
-    formArray.forEach((field) => {
-      data[field.name] = field.value;
+    this.nodesToArray(this.form.elements).forEach((field) => {
+      if (
+        // only use form elements; the canary is that they have a name
+        field.getAttribute("name") &&
+        (
+          // only get checked radios, or anything not a radio
+          (field.type === "radio" && field.checked) ||
+          field.type !== "radio"
+        )
+      ) {
+        data[field.name] = field.value;
+      }
     });
 
     this.hideMessages();
@@ -42,17 +61,26 @@ const Form = {
     // validate
     const formIsValid = this.validate(data);
 
-    // show and hide the appropriate statuses
+    // show and hide the appropriate statuses; submit if valid
     if (formIsValid) {
-      $.post(url, {
-        data,
+      fetch(url, {
+        method: "post",
+        headers: {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data)
+      }).then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
       }).then((res) => {
         if (res.success) {
           this.showSuccessMessage();
         } else {
           this.showErrorMessage(BACKEND_ERROR);
         }
-      }).catch((err) => {
+      }).catch(() => {
         this.showErrorMessage(BACKEND_ERROR);
       });
     } else {
@@ -82,7 +110,7 @@ const Form = {
    * Hide the statuses.
    */
   hideMessages() {
-    this.formError.hide();
+    this.formError.style.display = "none";
     this.showSavingState();
   },
 
@@ -90,9 +118,9 @@ const Form = {
    * Show the success state.
    */
   showSuccessMessage() {
-    this.formError.hide();
-    this.formSubmit.hide();
-    this.formSuccess.show();
+    this.formError.style.display = "none";
+    this.formSubmit.style.display = "none";
+    this.formSuccess.style.display = "block";
   },
 
   /*
@@ -102,11 +130,11 @@ const Form = {
    */
   showErrorMessage(message) {
     if (message) {
-      this.formError.text(message);
+      this.formError.innerHTML = message;
     }
 
-    this.formError.show();
-    this.formSuccess.hide();
+    this.formError.style.display = "block";
+    this.formSuccess.style.display = "none";
     this.hideSavingState();
   },
 
@@ -114,16 +142,16 @@ const Form = {
    * Disable the save button while the form is being submitted
    */
   showSavingState() {
-    this.formSubmitButton.attr("disabled", "disabled")
-    this.formSubmitButton.val("Saving...")
+    this.formSubmitButton.disabled = "disabled";
+    this.formSubmitButton.value = "Saving...";
   },
 
   /*
    * Endable the save button again
    */
   hideSavingState() {
-    this.formSubmitButton.removeAttr("disabled")
-    this.formSubmitButton.val("Submit")
+    this.formSubmitButton.removeAttribute("disabled");
+    this.formSubmitButton.value = "Submit";
   },
 };
 

@@ -9,6 +9,7 @@ $footer-height: 150px;
 $text-color: saddlebrown;
 $button-width: 120px;
 $button-height: 60px;
+$button-box-shadow: -8px 8px 0 #000;
 
 @mixin link {
   color: $text-color;
@@ -37,7 +38,7 @@ $button-height: 60px;
   border: none;
   text-decoration: none;
   background: saddlebrown;
-  box-shadow: -8px 8px 0 #000;
+  box-shadow: $button-box-shadow;
 
   color: magenta;
   font-size: 28px;
@@ -48,7 +49,16 @@ $button-height: 60px;
 
   &:hover {
     box-shadow: -24px 12px 0 #000;
-    cursor: pointeror whatever your server is
+    cursor: pointer;
+  }
+
+  &:disabled:hover {
+    box-shadow: $button-box-shadow;
+    cursor: default;
+  }
+
+  &:focus {
+    outline: none;
   }
 }
 

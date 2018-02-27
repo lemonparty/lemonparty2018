@@ -148,9 +148,10 @@ def rsvp():
 @login_required
 def rsvp_response_handler():
     body = '<br><br>'.join(
-        [format_rsvp_field(k, v) for k, v in request.form.items()] +
+        [format_rsvp_field(k, v) for k, v in request.get_json().items()] +
             ['- Sincerely,<br>The Happy Lemon Party RSVP Robot']
     )
+
 
     # write to a flat file
     # -------------------------------------------------------------------------

@@ -1,5 +1,3 @@
-import $ from "jquery";
-
 const MAX = 20;
 const MAX_JUMP = 3;
 
@@ -49,7 +47,7 @@ class WanderingBoxShadow {
    * @return {jQuery element} - the element on which a shadow was set
    */
   setBoxShadow(el, x, y) {
-    el.css("box-shadow", `${x}px ${y}px 0 ${BOX_SHADOW_COLOR}`);
+    el.style.boxShadow = `${x}px ${y}px 0 ${BOX_SHADOW_COLOR}`;
 
     return el;
   }

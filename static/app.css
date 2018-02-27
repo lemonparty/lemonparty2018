@@ -275,7 +275,12 @@ em {
   width: 120px; }
   .body-home-rsvp-link:hover {
     box-shadow: -24px 12px 0 #000;
-    cursor: pointeror whatever your server is; }
+    cursor: pointer; }
+  .body-home-rsvp-link:disabled:hover {
+    box-shadow: -8px 8px 0 #000;
+    cursor: default; }
+  .body-home-rsvp-link:focus {
+    outline: none; }
 
 .body-gifts-signature {
   display: inline-block;
@@ -434,7 +439,12 @@ em {
   margin-top: 15px; }
   .body-rsvp-submit-button:hover {
     box-shadow: -24px 12px 0 #000;
-    cursor: pointeror whatever your server is; }
+    cursor: pointer; }
+  .body-rsvp-submit-button:disabled:hover {
+    box-shadow: -8px 8px 0 #000;
+    cursor: default; }
+  .body-rsvp-submit-button:focus {
+    outline: none; }
 
 .body-rsvp-error {
   display: none;
