@@ -9805,7 +9805,7 @@ var Form = {
       }
     });
 
-    this.hideMessages();
+    this.showSavingState();
 
     // validate
     var formIsValid = this.validate(data);
@@ -9858,11 +9858,21 @@ var Form = {
 
 
   /*
-   * Hide the statuses.
+   * Hide any errors and disable the button.
    */
-  hideMessages: function hideMessages() {
+  showSavingState: function showSavingState() {
     this.formError.style.display = "none";
-    this.showSavingState();
+    this.formSubmitButton.disabled = "disabled";
+    this.formSubmitButton.value = "Saving...";
+  },
+
+
+  /*
+   * Endable the save button again
+   */
+  hideSavingState: function hideSavingState() {
+    this.formSubmitButton.removeAttribute("disabled");
+    this.formSubmitButton.value = "Submit";
   },
 
 
@@ -9889,24 +9899,6 @@ var Form = {
     this.formError.style.display = "block";
     this.formSuccess.style.display = "none";
     this.hideSavingState();
-  },
-
-
-  /*
-   * Disable the save button while the form is being submitted
-   */
-  showSavingState: function showSavingState() {
-    this.formSubmitButton.disabled = "disabled";
-    this.formSubmitButton.value = "Saving...";
-  },
-
-
-  /*
-   * Endable the save button again
-   */
-  hideSavingState: function hideSavingState() {
-    this.formSubmitButton.removeAttribute("disabled");
-    this.formSubmitButton.value = "Submit";
   }
 };
 
