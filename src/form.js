@@ -148,7 +148,4 @@ const Form = {
   },
 };
 
-// bind to the window so the validator can be accesesd by the form onsubmit
-window.Form = Form;
-
 export default Form;
