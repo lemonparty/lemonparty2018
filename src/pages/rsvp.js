@@ -1,4 +1,4 @@
-import WanderingBoxShadow from "./wandering_box_shadow";
+import WanderingBoxShadow from "../wandering_box_shadow";
 
 const REQUIRED_FIELDS = [
   "name",
@@ -8,13 +8,18 @@ const REQUIRED_FIELDS = [
 const BACKEND_ERROR = "Uh... something went wrong saving the rsvp; I guess just email us your response?";
 const VALIDATION_ERROR = "There was a problem submitting your rsvp… did you fill everything out?";
 
-const Form = {
+const Rsvp = {
   init() {
     this.form = document.querySelectorAll(".body-rsvp-form")[0];
     this.formError = document.querySelectorAll(".body-rsvp-error")[0];
     this.formSubmit = document.querySelectorAll(".body-rsvp-submit")[0];
     this.formSubmitButton = document.querySelectorAll(".body-rsvp-submit-button")[0];
     this.formSuccess = document.querySelectorAll(".body-rsvp-success")[0];
+
+    // short circuit if we don't have a form (e.g. when we're on another page)
+    if (!this.form) {
+      return;
+    }
 
     this.form.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -148,4 +153,4 @@ const Form = {
   },
 };
 
-export default Form;
+export default Rsvp;

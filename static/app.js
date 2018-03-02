@@ -3725,9 +3725,9 @@ var _lemon_party = __webpack_require__(330);
 
 var _lemon_party2 = _interopRequireDefault(_lemon_party);
 
-var _form = __webpack_require__(332);
+var _rsvp = __webpack_require__(335);
 
-var _form2 = _interopRequireDefault(_form);
+var _rsvp2 = _interopRequireDefault(_rsvp);
 
 __webpack_require__(334);
 
@@ -3735,7 +3735,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 _background_changer2.default.init();
 _lemon_party2.default.init();
-_form2.default.init();
+_rsvp2.default.init();
 
 /***/ }),
 /* 126 */
@@ -9734,7 +9734,100 @@ var Lemon = function () {
 exports.default = Lemon;
 
 /***/ }),
-/* 332 */
+/* 332 */,
+/* 333 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var MAX = 20;
+var MAX_JUMP = 3;
+
+// these must match the values in src/pages/rsvp.scss
+var INITIAL_X = -12;
+var INITIAL_Y = -16;
+var BOX_SHADOW_COLOR = "#c08040";
+var SPEED = 500;
+
+var WanderingBoxShadow = function () {
+  function WanderingBoxShadow(el) {
+    var _this = this;
+
+    _classCallCheck(this, WanderingBoxShadow);
+
+    this.el = el;
+    this.x = INITIAL_X;
+    this.y = INITIAL_Y;
+
+    setInterval(function () {
+      _this.x = _this.getNumberNear(_this.x);
+      _this.y = _this.getNumberNear(_this.y);
+      _this.setBoxShadow(_this.el, _this.x, _this.y);
+    }, SPEED);
+  }
+
+  /*
+   * Get a number nearby another, controlled by the constants above.
+   * our desired delta is +/- MAX_JUMP, so MAX_JUMP * 2 / MAX_JUMP.
+   * e.g., a jump of 3 would result in a range of -3 to +3 plus the input.
+   *
+   * @param {int} number - the number to be near
+   * @return {int} - the new, nearby number
+  */
+
+
+  _createClass(WanderingBoxShadow, [{
+    key: "getNumberNear",
+    value: function getNumberNear(number) {
+      var jump = Math.round(Math.random() * MAX_JUMP * 2) - MAX_JUMP;
+
+      if (number + jump > MAX || number + jump < MAX * -1) {
+        return number - jump;
+      } else {
+        return number + jump;
+      }
+    }
+
+    /*
+     * Set the box shadow on an element.
+     *
+     * @param {jQuery element} el - the element on which to set a shadow
+     * @param {int} x - the x offset of the shadow
+     * @param {int} y - the y offset of the shadow
+     * @return {jQuery element} - the element on which a shadow was set
+     */
+
+  }, {
+    key: "setBoxShadow",
+    value: function setBoxShadow(el, x, y) {
+      el.style.boxShadow = x + "px " + y + "px 0 " + BOX_SHADOW_COLOR;
+
+      return el;
+    }
+  }]);
+
+  return WanderingBoxShadow;
+}();
+
+exports.default = WanderingBoxShadow;
+
+/***/ }),
+/* 334 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 335 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9755,7 +9848,7 @@ var REQUIRED_FIELDS = ["name", "is_going"];
 var BACKEND_ERROR = "Uh... something went wrong saving the rsvp; I guess just email us your response?";
 var VALIDATION_ERROR = "There was a problem submitting your rsvp… did you fill everything out?";
 
-var Form = {
+var Rsvp = {
   init: function init() {
     var _this = this;
 
@@ -9764,6 +9857,11 @@ var Form = {
     this.formSubmit = document.querySelectorAll(".body-rsvp-submit")[0];
     this.formSubmitButton = document.querySelectorAll(".body-rsvp-submit-button")[0];
     this.formSuccess = document.querySelectorAll(".body-rsvp-success")[0];
+
+    // short circuit if we don't have a form (e.g. when we're on another page)
+    if (!this.form) {
+      return;
+    }
 
     this.form.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -9902,99 +10000,7 @@ var Form = {
   }
 };
 
-exports.default = Form;
-
-/***/ }),
-/* 333 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var MAX = 20;
-var MAX_JUMP = 3;
-
-// these must match the values in src/pages/rsvp.scss
-var INITIAL_X = -12;
-var INITIAL_Y = -16;
-var BOX_SHADOW_COLOR = "#c08040";
-var SPEED = 500;
-
-var WanderingBoxShadow = function () {
-  function WanderingBoxShadow(el) {
-    var _this = this;
-
-    _classCallCheck(this, WanderingBoxShadow);
-
-    this.el = el;
-    this.x = INITIAL_X;
-    this.y = INITIAL_Y;
-
-    setInterval(function () {
-      _this.x = _this.getNumberNear(_this.x);
-      _this.y = _this.getNumberNear(_this.y);
-      _this.setBoxShadow(_this.el, _this.x, _this.y);
-    }, SPEED);
-  }
-
-  /*
-   * Get a number nearby another, controlled by the constants above.
-   * our desired delta is +/- MAX_JUMP, so MAX_JUMP * 2 / MAX_JUMP.
-   * e.g., a jump of 3 would result in a range of -3 to +3 plus the input.
-   *
-   * @param {int} number - the number to be near
-   * @return {int} - the new, nearby number
-  */
-
-
-  _createClass(WanderingBoxShadow, [{
-    key: "getNumberNear",
-    value: function getNumberNear(number) {
-      var jump = Math.round(Math.random() * MAX_JUMP * 2) - MAX_JUMP;
-
-      if (number + jump > MAX || number + jump < MAX * -1) {
-        return number - jump;
-      } else {
-        return number + jump;
-      }
-    }
-
-    /*
-     * Set the box shadow on an element.
-     *
-     * @param {jQuery element} el - the element on which to set a shadow
-     * @param {int} x - the x offset of the shadow
-     * @param {int} y - the y offset of the shadow
-     * @return {jQuery element} - the element on which a shadow was set
-     */
-
-  }, {
-    key: "setBoxShadow",
-    value: function setBoxShadow(el, x, y) {
-      el.style.boxShadow = x + "px " + y + "px 0 " + BOX_SHADOW_COLOR;
-
-      return el;
-    }
-  }]);
-
-  return WanderingBoxShadow;
-}();
-
-exports.default = WanderingBoxShadow;
-
-/***/ }),
-/* 334 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
+exports.default = Rsvp;
 
 /***/ })
 /******/ ]);
