@@ -24,10 +24,12 @@ $button-box-shadow: -8px 8px 0 #000;
 @mixin center {
   position: relative;
   left: 50%;
+  -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
 }
 
 @mixin button {
+  -webkit-appearance: none;
   display: block;
   z-index: 2;
   min-width: $button-width;

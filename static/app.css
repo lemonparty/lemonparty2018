@@ -68,6 +68,7 @@ body {
 .page-title {
   position: relative;
   left: 50%;
+  -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   display: block;
   width: 100%;
@@ -96,6 +97,7 @@ em {
 .text {
   position: relative;
   left: 50%;
+  -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   display: block;
   width: 100%;
@@ -255,7 +257,9 @@ em {
 .body-home-rsvp-link {
   position: relative;
   left: 50%;
+  -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
+  -webkit-appearance: none;
   display: block;
   z-index: 2;
   min-width: 120px;
@@ -293,6 +297,7 @@ em {
   .body-location iframe {
     position: relative;
     left: 50%;
+    -webkit-transform: translateX(-50%);
     transform: translateX(-50%); } }
 
 @media (max-width: 650px) {
@@ -302,6 +307,7 @@ em {
 .body-stuff-nav {
   position: relative;
   left: 50%;
+  -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   display: inline-block;
   max-width: 600px;
@@ -364,6 +370,7 @@ em {
   max-width: 500px;
   position: relative;
   left: 50%;
+  -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   transition: box-shadow 500ms linear; }
   @media (max-width: 380px) {
@@ -419,7 +426,9 @@ em {
 .body-rsvp-submit-button {
   position: relative;
   left: 50%;
+  -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
+  -webkit-appearance: none;
   display: block;
   z-index: 2;
   min-width: 120px;
