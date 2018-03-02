@@ -42,11 +42,12 @@ EMAIL_RECIPIENT = 'the email address to send the rsvp confirmation'
 ```
 
 To generate a password hash, start your python console while in the project's
-virtualenv, enter the following, and copy the output to `localsettings.py`:
+virtualenv, enter the following (replacing "[your password here]" with your
+password), and copy the output to `localsettings.py`:
 
 ```.py
 from passlib.hash import pbkdf2_sha256
-pbkdf2_sha256.hash("your password")
+pbkdf2_sha256.hash("[your password here]")
 ```
 
 ## Front end
