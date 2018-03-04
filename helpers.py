@@ -7,6 +7,7 @@ def format_rsvp_field(key, value):
         value or '<i>no response</i>'
     )
 
+
 # Stolen from Django
 def get_valid_filename(s):
     s = str(s).strip().replace(' ', '_')

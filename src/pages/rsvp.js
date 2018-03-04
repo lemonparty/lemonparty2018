@@ -5,7 +5,7 @@ const REQUIRED_FIELDS = [
   "is_going",
 ];
 
-const BACKEND_ERROR = "Uh... something went wrong saving the rsvp; I guess just email us your response?";
+const BACKEND_ERROR = "Uh… something went wrong saving the rsvp; I guess just email us your response?";
 const VALIDATION_ERROR = "There was a problem submitting your rsvp… did you fill everything out?";
 
 const Rsvp = {
@@ -121,7 +121,7 @@ const Rsvp = {
   },
 
   /*
-   * Endable the save button again
+   * Enable the save button.
    */
   hideSavingState() {
     this.formSubmitButton.removeAttribute("disabled");

@@ -22,7 +22,7 @@ class WanderingBoxShadow {
 
   /*
    * Get a number nearby another, controlled by the constants above.
-   * our desired delta is +/- MAX_JUMP, so MAX_JUMP * 2 / MAX_JUMP.
+   * our desired delta is +/- MAX_JUMP, so MAX_JUMP * 2 - MAX_JUMP.
    * e.g., a jump of 3 would result in a range of -3 to +3 plus the input.
    *
    * @param {int} number - the number to be near
@@ -41,10 +41,10 @@ class WanderingBoxShadow {
   /*
    * Set the box shadow on an element.
    *
-   * @param {jQuery element} el - the element on which to set a shadow
+   * @param {html element} el - the element on which to set a shadow
    * @param {int} x - the x offset of the shadow
    * @param {int} y - the y offset of the shadow
-   * @return {jQuery element} - the element on which a shadow was set
+   * @return {html element} - the element on which a shadow was set
    */
   setBoxShadow(el, x, y) {
     el.style.boxShadow = `${x}px ${y}px 0 ${BOX_SHADOW_COLOR}`;
