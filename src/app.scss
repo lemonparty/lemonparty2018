@@ -91,6 +91,11 @@ em {
   letter-spacing: 1px;
 }
 
+b {
+  font-weight: bold;
+  font-weight: 500;
+}
+
 @mixin h2 {
   font-weight: bold;
   font-style: italic;
