@@ -87,7 +87,7 @@ STUFF_TO_DO = [
             {
                 'name': u'Pizza Lucé',
                 'link': 'https://pizzaluce.com/locations/duluth',
-                'description': 'Tasty pizza and a good local beer list right downtown.',
+                'description': u'Tasty pizza and a good local beer list right downtown. But there’s no easy way to say this: we are having pizza at the wedding, so try to not overdo it.',
             },
             {
                 'name': 'New Scenic Cafe',
@@ -138,8 +138,8 @@ STUFF_TO_DO = [
     },
 
     {
-        'section_name': 'Big-ass trips',
-        'section_id': 'big_ass_trips',
+        'section_name': 'Bigger trips',
+        'section_id': 'bigger_trips',
         'contents': [
             {
                 'name': u'The Boundary Waters Canoe Area',
@@ -149,7 +149,7 @@ STUFF_TO_DO = [
             {
                 'name': u'The Superior Hiking Trail',
                 'link': 'https://shta.org/',
-                'description': u'The SHT stretches over 300 miles from Duluth along the shore to Canada. You can do an easy and really pretty overnight to Bear Lake (start from a parking area on Route 11, outside of Silver Bay), or through hike for a longer section of trail — drop one car at the end or take the shuttle back.',
+                'description': u'The SHT stretches over 300 miles from Duluth along the shore to Canada. You can do an easy and really pretty overnight to Bear Lake (start from a parking area on Route 11, outside of Silver Bay), or through-hike for a longer section of trail — drop one car at the end or take the shuttle back.',
             },
             {
                 'name': u'Climbing at Palisade Head',

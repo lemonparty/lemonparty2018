@@ -336,4 +336,7 @@ em {
   font-weight: bold; }
 
 .body-schedule-event {
-  display: inline-block; }
+  display: inline-block;
+  margin-bottom: 5px; }
+  .body-schedule-event:last-child {
+    margin-bottom: 0; }
