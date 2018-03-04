@@ -85,14 +85,14 @@ function createConfig(params) {
   ];
 
   if (isProduction) {
+    // minify css
     plugins.push(
-      new webpack.DefinePlugin({
-        "process.env": {
-          NODE_ENV: JSON.stringify("production")
-        }
+      new webpack.LoaderOptionsPlugin({
+        minimize: true,
       })
-    );
+    )
 
+    // minify js
     plugins.push(
       new ParallelUglifyESPlugin({
         compress: {

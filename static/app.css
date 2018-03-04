@@ -94,6 +94,10 @@ em {
   font-style: italic;
   letter-spacing: 1px; }
 
+b {
+  font-weight: bold;
+  font-weight: 500; }
+
 .text {
   position: relative;
   left: 50%;
