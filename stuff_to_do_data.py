@@ -22,7 +22,7 @@ STUFF_TO_DO = [
                     You can’t get into bars or afford to go out, and hanging out
                     at the mall has gotten a bit boring.
                     So, what to do? Cruise the Loop.
-                    Head down to Canal Park, open your windows, crank some
+                    Drive down to Canal Park, open your windows, crank some
                     tunes that show your refined sensibilities, and make a pass
                     around the loop at the end of the road.
                 ''',
@@ -112,7 +112,7 @@ STUFF_TO_DO = [
 
 
     {
-        'section_name': 'Food and drink',
+        'section_name': 'Food/drink',
         'section_id': 'food_and_drink',
         'contents': [
             {

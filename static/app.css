@@ -107,6 +107,8 @@ b {
   .text + .text {
     margin-top: 20px; }
   .text a {
+    padding-right: 3px;
+    padding-left: 3px;
     color: saddlebrown;
     background: pink;
     text-decoration: none; }
@@ -311,6 +313,8 @@ b {
     .body-stuff-nav-item:first-child {
       margin-left: 0; }
     .body-stuff-nav-item a {
+      padding-right: 3px;
+      padding-left: 3px;
       color: saddlebrown;
       background: pink;
       text-decoration: none; }
@@ -336,7 +340,7 @@ b {
   font-style: italic; }
 
 .body-schedule-time {
-  color: magenta;
+  color: orangered;
   font-weight: bold; }
 
 .body-schedule-event {

@@ -9,6 +9,8 @@ $footer-height: 150px;
 $text-color: saddlebrown;
 
 @mixin link {
+  padding-right: 3px;
+  padding-left: 3px;
   color: $text-color;
   background: pink;
   text-decoration: none;
