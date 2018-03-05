@@ -23,7 +23,14 @@ an example file:
 
 ```.py
 DEBUG = True # should be false in prod
+SECRET_KEY = 'a secret key' # see below for generating secret key
 PASSWORD_HASH = 'a hashed password' # see below for generating password hashes
+```
+
+To generate a secret key, we suggest:
+```.py
+import os
+os.urandom(24)
 ```
 
 To generate a password hash, start your python console while in the project's

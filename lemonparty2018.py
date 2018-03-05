@@ -4,12 +4,13 @@ from functools import wraps
 from passlib.hash import pbkdf2_sha256
 import os
 import json
-from localsettings import DEBUG, PASSWORD_HASH
+
+from localsettings import DEBUG, PASSWORD_HASH, SECRET_KEY
 from stuff_to_do_data import STUFF_TO_DO
 
 
 app = Flask(__name__)
-app.secret_key = os.urandom(12)
+app.secret_key = SECRET_KEY
 
 
 # context processors and decorators
@@ -67,6 +68,7 @@ def login():
         session['authentication_error'] = False
         return redirect(url_for('home'))
     else:
+        session['is_authenticated'] = False
         session['authentication_error'] = True
         return redirect(url_for('splash'))
 
