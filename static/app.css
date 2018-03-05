@@ -348,3 +348,7 @@ b {
   margin-bottom: 5px; }
   .body-schedule-event:last-child {
     margin-bottom: 0; }
+
+.body-contact-header {
+  font-weight: bold;
+  font-style: italic; }
