@@ -1,5 +1,6 @@
 # Lemon Party 2018
-This repo holds the website for Katherine and Michael's wedding. Let's see if this goes off with a hitch...
+This repo holds the website for Katherine and Michael's wedding. Let's see if
+this goes off with a hitch...
 
 ## Back end
 
@@ -18,23 +19,26 @@ Then you should be able to load localhost:5000 and see the site.
 
 ### `localsettings.py`
 
-`localsettings` stores information specific to a particular environment. Here is
-an example file:
+`localsettings` stores information specific to a particular environment. Here
+is an example file:
 
 ```.py
 DEBUG = True # should be false in prod
-SECRET_KEY = 'a secret key' # see below for generating secret key
-PASSWORD_HASH = 'a hashed password' # see below for generating password hashes
+SECRET_KEY = 'a secret key' # see below for generating a secret key
+PASSWORD_HASH = 'a hashed password' # see below for generating a password hash
 ```
 
-To generate a secret key, we suggest:
+To generate a secret key (used by Flask to encrypt its session data), we
+suggest entering the following in the python console:
+
 ```.py
 import os
 os.urandom(24)
 ```
 
-To generate a password hash, start your python console while in the project's
-virtualenv, enter the following, and copy the output to `localsettings.py`:
+To generate a password hash (used to verify user logins), start your python
+console while in the project's virtualenv, enter the following, and copy the
+output to `localsettings.py`:
 
 ```.py
 from passlib.hash import pbkdf2_sha256
