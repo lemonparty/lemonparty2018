@@ -74,6 +74,14 @@ STUFF_TO_DO = [
                 ''',
             },
             {
+                'name': u'Hawk Ridge',
+                'link': 'https://www.hawkridge.org/',
+                'description': u'''
+                    Come see some birds. Katherine’s mom would be thrilled to
+                    join you.
+                ''',
+            },
+            {
                 'name': u'Duluth Family Sauna',
                 'link': 'https://www.yelp.com/biz/duluth-family-sauna-duluth',
                 'description': u'''
