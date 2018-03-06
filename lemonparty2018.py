@@ -148,8 +148,9 @@ def rsvp():
 @app.route('/rsvp-response-handler', methods=['POST'])
 @login_required
 def rsvp_response_handler():
+    data = request.get_json().items()
     body = '<br><br>'.join(
-        [format_rsvp_field(k, v) for k, v in request.get_json().items()] +
+        [format_rsvp_field(k, v) for k, v in data] +
             ['- Sincerely,<br>The Happy Lemon Party RSVP Robot']
     )
 
@@ -163,15 +164,15 @@ def rsvp_response_handler():
         os.makedirs(rsvps_dir)
 
     time = datetime.now().strftime("%Y-%m-%d--%H-%M-%S-%f")
-    name = request.form.get('data[name]')
+    name = [item for item in data if item[0] == 'name'][0]
 
     output_file = os.path.join(
         rsvps_dir,
-        get_valid_filename('{}--{}.html'.format(time, name))
+        get_valid_filename(u'{}--{}.html'.format(time, name[1]))
     )
 
     with open(output_file, 'w') as f:
-        f.write(body)
+        f.write(body.encode('utf-8'))
 
 
     # send an email
