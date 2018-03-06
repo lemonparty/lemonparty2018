@@ -11,14 +11,14 @@ from passlib.hash import pbkdf2_sha256
 
 from helpers import format_rsvp_field, get_valid_filename
 from localsettings import (
-    DEBUG, PASSWORD_HASH, EMAIL_SERVER, EMAIL_PORT, EMAIL_USE_TLS,
+    DEBUG, SECRET_KEY, PASSWORD_HASH, EMAIL_SERVER, EMAIL_PORT, EMAIL_USE_TLS,
     EMAIL_USE_SSL, EMAIL_USERNAME, EMAIL_PASSWORD, EMAIL_RECIPIENT
 )
 from stuff_to_do_data import STUFF_TO_DO
 
 
 app = Flask(__name__)
-app.secret_key = os.urandom(12)
+app.secret_key = SECRET_KEY
 
 app.config['MAIL_SERVER'] = EMAIL_SERVER
 app.config['MAIL_PORT'] = EMAIL_PORT
@@ -84,6 +84,7 @@ def login():
         session['authentication_error'] = False
         return redirect(url_for('home'))
     else:
+        session['is_authenticated'] = False
         session['authentication_error'] = True
         return redirect(url_for('splash'))
 

@@ -31,7 +31,8 @@ is an example file:
 
 ```.py
 DEBUG = True # should be false in prod
-PASSWORD_HASH = 'see below for generating password hashes'
+SECRET_KEY = 'a secret key' # see below for generating a secret key
+PASSWORD_HASH = 'a hashed password' # see below for generating a password hash
 EMAIL_SERVER = 'smtp.gmail.com' # or whatever your server is
 EMAIL_PORT = 465
 EMAIL_USE_TLS = False
@@ -41,13 +42,22 @@ EMAIL_PASSWORD = 'the password for the email account'
 EMAIL_RECIPIENT = 'the email address to send the rsvp confirmation'
 ```
 
-To generate a password hash, start your python console while in the project's
-virtualenv, enter the following (replacing "[your password here]" with your
-password), and copy the output to `localsettings.py`:
+To generate a password hash (used to verify user logins), start your python
+console while in the project's virtualenv, enter the following (replacing
+"[your password here]" with your password), and copy the output to
+`localsettings.py`:
 
 ```.py
 from passlib.hash import pbkdf2_sha256
 pbkdf2_sha256.hash("[your password here]")
+```
+
+To generate a secret key (used by Flask to encrypt its session data), we
+suggest entering the following in the python console:
+
+```.py
+import os
+os.urandom(24)
 ```
 
 ## Front end

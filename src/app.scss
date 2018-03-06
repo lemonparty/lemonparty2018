@@ -12,6 +12,8 @@ $button-height: 60px;
 $button-box-shadow: -8px 8px 0 #000;
 
 @mixin link {
+  padding-right: 3px;
+  padding-left: 3px;
   color: $text-color;
   background: pink;
   text-decoration: none;
@@ -164,8 +166,9 @@ b {
 
 @import "pages/login";
 @import "pages/home";
-@import "pages/gifts";
-@import "pages/location";
-@import "pages/stuff_to_do";
-@import "pages/schedule";
 @import "pages/rsvp";
+@import "pages/location";
+@import "pages/schedule";
+@import "pages/stuff_to_do";
+@import "pages/gifts";
+@import "pages/contact";
