@@ -9756,7 +9756,7 @@ var _wandering_box_shadow2 = _interopRequireDefault(_wandering_box_shadow);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var REQUIRED_FIELDS = ["name", "is_going"];
+var REQUIRED_FIELDS = ["name", "is_going", "boat"];
 
 var BACKEND_ERROR = "Uh… something went wrong saving the rsvp; I guess just email us your response?";
 var VALIDATION_ERROR = "There was a problem submitting your rsvp… did you fill everything out?";

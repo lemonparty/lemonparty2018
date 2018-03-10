@@ -81,7 +81,7 @@ $form-padding: 20px;
   }
 
   // default empty-string Are You Going? response
-  &-going-default {
+  &-default {
     position: absolute !important; // and this is why it's bad to target element tags
     opacity: 0;
     width: 0;

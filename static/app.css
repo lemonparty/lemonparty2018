@@ -353,7 +353,7 @@ b {
   font-size: 14px;
   line-height: 21px; }
 
-.body-rsvp-going-default {
+.body-rsvp-default {
   position: absolute !important;
   opacity: 0;
   width: 0;

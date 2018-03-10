@@ -36,12 +36,12 @@
 
     <fieldset>
       <label class="body-rsvp-label">
-        Are you going?
+        Are you coming?
       </label>
 
       <input
         id="going-default"
-        class="body-rsvp-going-default"
+        class="body-rsvp-default"
         type="radio"
         name="is_going"
         value=""
@@ -58,12 +58,40 @@
     </fieldset>
 
     <fieldset>
+      <label class="body-rsvp-label">
+        Are you interested in the boat ride?
+      </label>
+      <span class="body-rsvp-note">
+        Up to 70 people can fit on the boat, but we invited more than that to
+        the wedding. If more people than can fit are in town and want to come,
+        we will figure out some fair way to decide out who can do so.
+      </span>
+
+      <input
+        id="boat-default"
+        class="body-rsvp-default"
+        type="radio"
+        name="boat"
+        value=""
+        checked="checked"
+      />
+
+      <input id="boat-yes" type="radio" name="boat" value="Yes." />
+      <label for="boat-yes">I will be in town in time and want to come!</label>
+
+      <br />
+
+      <input id="boat-no" type="radio" name="boat" value="No." />
+      <label for="boat-no">I do not like boats, or you.</label>
+    </fieldset>
+
+    <fieldset>
       <label for="diet" class="body-rsvp-label">
         Dietary requirements (optional)
       </label>
       <span class="body-rsvp-note">
-        Everything will be vegetarian. Most things will be vegan. If you have
-        additional restrictions, tell us here.
+        Everything will be vegetarian. Most things will be vegan. If you or
+        someone in your party have additional restrictions, tell us here.
       </span>
       <textarea
         id="diet"

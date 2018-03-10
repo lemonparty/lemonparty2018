@@ -3,6 +3,7 @@ import WanderingBoxShadow from "../wandering_box_shadow";
 const REQUIRED_FIELDS = [
   "name",
   "is_going",
+  "boat",
 ];
 
 const BACKEND_ERROR = "Uh… something went wrong saving the rsvp; I guess just email us your response?";
