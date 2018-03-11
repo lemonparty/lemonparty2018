@@ -86,6 +86,35 @@
     </fieldset>
 
     <fieldset>
+      <label class="body-rsvp-label">
+        Do you think there should be dancing?
+      </label>
+      <span class="body-rsvp-note">
+        Michael doesn’t want to have dancing, but Katherine thinks people will
+        get bored without it. What do you think?
+      </span>
+
+      <input
+        id="dancing-default"
+        class="body-rsvp-default"
+        type="radio"
+        name="dancing"
+        value=""
+        checked="checked"
+      />
+
+      <input id="dancing-yes" type="radio" name="dancing" value="Yes." />
+      <label for="dancing-yes">
+        If I can’t dance I’m leaving a bad review on yelp.
+      </label>
+
+      <br />
+
+      <input id="dancing-no" type="radio" name="dancing" value="No." />
+      <label for="dancing-no">I would prefer to not dance.</label>
+    </fieldset>
+
+    <fieldset>
       <label for="diet" class="body-rsvp-label">
         Dietary requirements (optional)
       </label>
