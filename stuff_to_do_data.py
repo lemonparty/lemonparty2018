@@ -34,7 +34,8 @@ STUFF_TO_DO = [
                     Starting in Canal Park and snaking north up the shore, The
                     Lakewalk is a gorgeous stretch of trail for walking or
                     biking, with some great stops including a rose garden and
-                    a park dedicated to Leif Erikson, the Viking.
+                    a park dedicated to Leif Erikson, the Viking. There is a
+                    bike-rental shop on the Canal Park end of the walk.
                 ''',
             },
             {
@@ -127,7 +128,9 @@ STUFF_TO_DO = [
                 'name': u'Pizza Lucé',
                 'link': 'https://pizzaluce.com/locations/duluth',
                 'description': u'''
-                    Tasty pizza and a good local beer list right downtown.
+                    Tasty pizza and a good local beer list right downtown. But
+                    heads up, we are having pizza at the wedding. They have a
+                    good brunch, too!
                 ''',
             },
             {
@@ -145,7 +148,7 @@ STUFF_TO_DO = [
                 'link': 'https://duluthgrill.com/',
                 'description': u'''
                     Low key northlands fare in West Duluth. They grow produce
-                    in their parking lot.
+                    in their parking lot. They are catering the boat ride, FYI.
                 ''',
             },
             {
