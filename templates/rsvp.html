@@ -9,9 +9,15 @@
   <h1 class="page-title">{{ title }}</h1>
 
   <p class="text">
-    Thanks for RSVPing. If you're confused, have any questions, or this thing
+    Thanks for RSVPing. If you’re confused, have any questions, or this thing
     doesn’t work because two software engineers can’t even make a website,
     <a href="{{ url_for('contact') }}">just ask</a>!
+  </p>
+
+  <p class="text">
+    Oh, and we didn’t know where to put this, so we’ll put it here: the dress
+    code is: pretty casual. Maybe Katherine will wear a dress? Michael hopefully
+    won’t wear a jacket. Remember: motel.
   </p>
 
   <form
@@ -63,8 +69,8 @@
       </label>
       <span class="body-rsvp-note">
         Up to 70 people can fit on the boat, but we invited more than that to
-        the wedding. If more people than can fit are in town and want to come,
-        we will figure out some fair way to decide out who can do so.
+        the wedding. If more people than can fit are in town, we will figure
+        out some fair way to decide out can come.
       </span>
 
       <input
@@ -91,7 +97,7 @@
       </label>
       <span class="body-rsvp-note">
         Michael doesn’t want to have dancing, but Katherine thinks people will
-        get bored without it. What do you think?
+        get bored without it. Weigh in on our first marital dispute!!!
       </span>
 
       <input
@@ -111,7 +117,9 @@
       <br />
 
       <input id="dancing-no" type="radio" name="dancing" value="No." />
-      <label for="dancing-no">I would prefer to not dance.</label>
+      <label for="dancing-no">
+        Thank you for ditching this ridiculous tradition.
+      </label>
     </fieldset>
 
     <fieldset>
