@@ -42,8 +42,9 @@ $form-padding: 20px;
   textarea {
     padding: 8px;
     border: 1px solid #ccc;
-    border-radius: 2px;
+    border-radius: 3px;
     font-size: 14px;
+    -webkit-appearance: none;
 
     &:focus {
       outline: none;
@@ -56,8 +57,10 @@ $form-padding: 20px;
   }
 
   input[type=radio] {
-    position: relative;
-    bottom: 2px;
+    @media (min-width: 400px) {
+      position: relative;
+      bottom: 2px;
+    }
   }
 
   textarea {
