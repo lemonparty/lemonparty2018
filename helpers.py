@@ -1,4 +1,5 @@
 import re
+import unicodedata
 
 
 def format_rsvp_field(key, value):
@@ -8,8 +9,11 @@ def format_rsvp_field(key, value):
     )
 
 
-# Stolen from Django
+# based on a django function, modified to handle unicode
 def get_valid_filename(s):
-    s = re.sub(r'[^\x00-\x7F]', '', s) # but we added this line
-    s = str(s).strip().replace(' ', '_')
+    s = (unicodedata
+        .normalize('NFKD', s)
+        .encode('ascii', 'ignore')
+        .strip()
+        .replace(' ', '_'))
     return re.sub(r'(?u)[^-\w.]', '', s)
