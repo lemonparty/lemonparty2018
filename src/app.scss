@@ -59,8 +59,8 @@ $text-shadow-values: ();
 $text-shadow-color: magenta;
 
 @for $i from 0 through 20 {
-  $offset: $i * 0.8px;
-  $text-shadow-values: append($text-shadow-values, $offset * 0.6 $offset * 1.1 0 $text-shadow-color);
+  $offset: $i * 1px;
+  $text-shadow-values: append($text-shadow-values, $offset * 0.5 $offset 0 $text-shadow-color);
 }
 
 .page-title {
