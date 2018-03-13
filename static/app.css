@@ -77,7 +77,8 @@ body {
   letter-spacing: 3px;
   color: #67330e;
   font-weight: bold;
-  text-shadow: 0px 0px 0 magenta, 0.5px 1px 0 magenta, 1px 2px 0 magenta, 1.5px 3px 0 magenta, 2px 4px 0 magenta, 2.5px 5px 0 magenta, 3px 6px 0 magenta, 3.5px 7px 0 magenta, 4px 8px 0 magenta, 4.5px 9px 0 magenta, 5px 10px 0 magenta, 5.5px 11px 0 magenta, 6px 12px 0 magenta, 6.5px 13px 0 magenta, 7px 14px 0 magenta, 7.5px 15px 0 magenta, 8px 16px 0 magenta, 8.5px 17px 0 magenta, 9px 18px 0 magenta, 9.5px 19px 0 magenta, 10px 20px 0 magenta; }
+  text-shadow: 0.5px 1px 0 magenta, 1px 2px 0 magenta, 1.5px 3px 0 magenta, 2px 4px 0 magenta, 2.5px 5px 0 magenta, 3px 6px 0 magenta, 3.5px 7px 0 magenta, 4px 8px 0 magenta, 4.5px 9px 0 magenta, 5px 10px 0 magenta, 5.5px 11px 0 magenta, 6px 12px 0 magenta, 6.5px 13px 0 magenta, 7px 14px 0 magenta, 7.5px 15px 0 magenta, 8px 16px 0 magenta, 8.5px 17px 0 magenta, 9px 18px 0 magenta, 9.5px 19px 0 magenta, 10px 20px 0 magenta;
+  transition: text-shadow 1500ms linear; }
   @media (min-width: 650px) {
     .page-title {
       margin: -20px 0;
