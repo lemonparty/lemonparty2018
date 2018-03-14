@@ -9292,10 +9292,13 @@ exports.default = {
     }
 
     this.title = document.querySelector(".page-title");
-    this.color = "#ff00ff"; // "magenta"; this should match app.scss's initial text shadow color
     this.minDepth = 6;
     this.maxDepth = 30;
-    this.interval = 1500; // this should match app.scss's trxt shadow transition time
+
+    // these two values should match the color and transition time in the
+    // .page-title block in app.scss
+    this.color = "#ff00ff";
+    this.interval = 1500;
 
     // run immediately on init
     this.makeNewTextShadow();

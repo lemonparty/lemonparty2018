@@ -5,10 +5,13 @@ export default {
     }
 
     this.title = document.querySelector(".page-title");
-    this.color = "#ff00ff"; // "magenta"; this should match app.scss's initial text shadow color
     this.minDepth = 6;
     this.maxDepth = 30;
-    this.interval = 1500; // this should match app.scss's trxt shadow transition time
+
+    // these two values should match the color and transition time in the
+    // .page-title block in app.scss
+    this.color = "#ff00ff";
+    this.interval = 1500;
 
     // run immediately on init
     this.makeNewTextShadow();
@@ -50,6 +53,8 @@ export default {
     const G = f >> 8&0x00FF;
     const B = f&0x0000FF;
 
-    return "#"+(0x1000000+(Math.round((t-R)*p)+R)*0x10000+(Math.round((t-G)*p)+G)*0x100+(Math.round((t-B)*p)+B)).toString(16).slice(1);
+    return "#" + (
+      0x1000000+(Math.round((t-R)*p)+R)*0x10000+(Math.round((t-G)*p)+G)*0x100+(Math.round((t-B)*p)+B)
+    ).toString(16).slice(1);
   },
 };
