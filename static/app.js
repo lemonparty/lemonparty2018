@@ -3723,12 +3723,17 @@ var _lemon_party = __webpack_require__(329);
 
 var _lemon_party2 = _interopRequireDefault(_lemon_party);
 
+var _home = __webpack_require__(335);
+
+var _home2 = _interopRequireDefault(_home);
+
 __webpack_require__(331);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _background_changer2.default.init();
 _lemon_party2.default.init();
+_home2.default.init();
 
 /***/ }),
 /* 126 */
@@ -9264,6 +9269,80 @@ exports.default = Lemon;
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 332 */,
+/* 333 */,
+/* 334 */,
+/* 335 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {
+  init: function init() {
+    var _this = this;
+
+    if (!document.body.classList.contains("body-home")) {
+      return;
+    }
+
+    this.title = document.querySelector(".page-title");
+    this.minDepth = 6;
+    this.maxDepth = 30;
+
+    // these two values should match the color and transition time in the
+    // .page-title block in app.scss
+    this.color = "#ff00ff";
+    this.interval = 1500;
+
+    // run immediately on init
+    this.makeNewTextShadow();
+
+    // start the interval to continue running it
+    setInterval(function () {
+      _this.makeNewTextShadow();
+    }, this.interval);
+  },
+  makeNewTextShadow: function makeNewTextShadow() {
+    var depth = this.getRandomNumberBetween(this.minDepth, this.maxDepth);
+    this.makeTextShadow(depth);
+  },
+  getRandomNumberBetween: function getRandomNumberBetween(min, max) {
+    return Math.round(Math.random() * (max - min) + min);
+  },
+  makeTextShadow: function makeTextShadow() {
+    var depth = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 20;
+
+    var res = [];
+    var color = void 0;
+
+    for (var i = 1; i <= depth; i++) {
+      color = this.shadeColor(this.color, i * 0.033);
+      res.push(i * 0.5 + "px " + i + "px 0 " + color);
+    }
+
+    this.title.style.textShadow = res.join(", ");
+  },
+
+
+  // found on this thread:
+  // https://stackoverflow.com/questions/5560248/programmatically-lighten-or-darken-a-hex-color-or-rgb-and-blend-colors
+  shadeColor: function shadeColor(color, percent) {
+    var f = parseInt(color.slice(1), 16);
+    var t = percent < 0 ? 0 : 255;
+    var p = percent < 0 ? percent * -1 : percent;
+    var R = f >> 16;
+    var G = f >> 8 & 0x00FF;
+    var B = f & 0x0000FF;
+
+    return "#" + (0x1000000 + (Math.round((t - R) * p) + R) * 0x10000 + (Math.round((t - G) * p) + G) * 0x100 + (Math.round((t - B) * p) + B)).toString(16).slice(1);
+  }
+};
 
 /***/ })
 /******/ ]);
