@@ -99,9 +99,9 @@ body {
 $text-shadow-values: ();
 $text-shadow-color: magenta;
 
-@for $i from 0 through 20 {
-  $offset: $i * 0.8px;
-  $text-shadow-values: append($text-shadow-values, $offset * 0.6 $offset * 1.1 0 $text-shadow-color);
+@for $i from 1 through 20 {
+  $offset: $i * 1px;
+  $text-shadow-values: append($text-shadow-values, $offset * 0.5 $offset 0 $text-shadow-color);
 }
 
 .page-title {
@@ -115,6 +115,7 @@ $text-shadow-color: magenta;
   color: darken($text-color, 8%);
   font-weight: bold;
   text-shadow: zip($text-shadow-values);
+  transition: text-shadow 1500ms linear;
 
   @media (min-width: 650px) {
     margin: -20px 0;
