@@ -1,6 +1,6 @@
 export default {
   init() {
-    if (!document.body.classList.contains("body-home")) {
+    if (!document.querySelectorAll(".body-home").length) {
       return;
     }
 
