@@ -3723,11 +3723,11 @@ var _lemon_party = __webpack_require__(329);
 
 var _lemon_party2 = _interopRequireDefault(_lemon_party);
 
-var _home = __webpack_require__(331);
+var _home = __webpack_require__(335);
 
 var _home2 = _interopRequireDefault(_home);
 
-__webpack_require__(332);
+__webpack_require__(331);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -9065,7 +9065,7 @@ exports.default = {
   init: function init() {
     var _this = this;
 
-    if (!document.body.classList.contains("body-login")) {
+    if (!document.querySelectorAll(".body-login").length) {
       return;
     }
 
@@ -9266,6 +9266,15 @@ exports.default = Lemon;
 
 /***/ }),
 /* 331 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 332 */,
+/* 333 */,
+/* 334 */,
+/* 335 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9278,7 +9287,7 @@ exports.default = {
   init: function init() {
     var _this = this;
 
-    if (!document.body.classList.contains("body-home")) {
+    if (!document.querySelectorAll(".body-home").length) {
       return;
     }
 
@@ -9334,12 +9343,6 @@ exports.default = {
     return "#" + (0x1000000 + (Math.round((t - R) * p) + R) * 0x10000 + (Math.round((t - G) * p) + G) * 0x100 + (Math.round((t - B) * p) + B)).toString(16).slice(1);
   }
 };
-
-/***/ }),
-/* 332 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
