@@ -2,11 +2,11 @@
 This repo holds the website for Katherine and Michael's wedding. Let's see if
 this goes off with a hitch...
 
-This site is a pretty basic static site; the only dynamic thing going on is the
-RSVP form. In searching for an RSVP solution of the right "weight", we settled
-on emailing when a form is submitted, as well as writing a flat file to disk
-for backup (to the`./rsvps` foler) — a database felt too heavy, and submitting
-to a google form with some weird unsupported ajax felt too brittle.
+lemonparty2018 is a pretty basic static site; the only dynamic thing going on
+is the RSVP form. In searching for an RSVP solution of the right "weight", we
+settled on emailing when a form is submitted, along with writing a flat file to
+disk for backup (to the`./rsvps` foler). A database felt too heavy, and
+submitting to a google form with some weird unsupported ajax felt too brittle.
 
 ## Back end
 
