@@ -1,0 +1,170 @@
+{% extends '_base.html' %}
+{% set title = 'RSVP' %}
+{% block title %}{{ title }}{% endblock %}
+{% block bodyclass %}logged-in body-rsvp{% endblock %}
+{% set active_page = 'rsvp' %}
+
+{% block content %}
+  {% include '_nav.html' %}
+  <h1 class="page-title">{{ title }}</h1>
+
+  <p class="text">
+    Thanks for RSVPing. If you’re confused, have any questions, or this thing
+    doesn’t work because two software engineers can’t even make a website,
+    <a href="{{ url_for('contact') }}">just ask</a>!
+  </p>
+
+  <p class="text">
+    Oh, and we didn’t know where to put this, so we’ll put it here: the dress
+    code is pretty casual. Maybe Katherine will wear a dress? Michael hopefully
+    won’t wear a jacket. Remember: motel.
+  </p>
+
+  <form
+    id="rsvp-form"
+    class="body-rsvp-form"
+    action="/rsvp-response-handler"
+    method="POST"
+  >
+
+    <fieldset>
+      <label for="name" class="body-rsvp-label">
+        Full name(s)
+      </label>
+      <textarea
+        id="name"
+        autocomplete="off"
+        tabindex="0"
+        name="name"
+        placeholder="Jean-Claude Van Damme"
+      ></textarea>
+    </fieldset>
+
+    <fieldset>
+      <label class="body-rsvp-label">
+        Are you coming?
+      </label>
+
+      <input
+        id="going-default"
+        class="body-rsvp-default"
+        type="radio"
+        name="is_going"
+        value=""
+        checked="checked"
+      />
+
+      <input id="going-yes" type="radio" name="is_going" value="Sure." />
+      <label for="going-yes">Sure.</label>
+
+      <br />
+
+      <input id="going-no" type="radio" name="is_going" value="Nah." />
+      <label for="going-no">Nah.</label>
+    </fieldset>
+
+    <fieldset>
+      <label class="body-rsvp-label">
+        Are you interested in the boat ride?
+      </label>
+      <span class="body-rsvp-note">
+        Up to 70 people can fit on the boat, but we invited more than that to
+        the wedding. If more people than can fit are in town, we will figure
+        out some fair way to decide out can come.
+      </span>
+
+      <input
+        id="boat-default"
+        class="body-rsvp-default"
+        type="radio"
+        name="boat"
+        value=""
+        checked="checked"
+      />
+
+      <input id="boat-yes" type="radio" name="boat" value="Yes." />
+      <label for="boat-yes">I will be in town in time and want to come!</label>
+
+      <br />
+
+      <input id="boat-no" type="radio" name="boat" value="No." />
+      <label for="boat-no">I do not like boats.</label>
+    </fieldset>
+
+    <fieldset>
+      <label class="body-rsvp-label">
+        Do you think there should be dancing? (optional)
+      </label>
+      <span class="body-rsvp-note">
+        Michael doesn’t want to have dancing, but Katherine thinks people will
+        get bored without it. Weigh in on our first marital dispute!
+      </span>
+
+      <input
+        id="dancing-default"
+        class="body-rsvp-default"
+        type="radio"
+        name="dancing"
+        value=""
+        checked="checked"
+      />
+
+      <input id="dancing-yes" type="radio" name="dancing" value="Yes." />
+      <label for="dancing-yes">
+        If I can’t dance I’m leaving a bad review on yelp.
+      </label>
+
+      <br />
+
+      <input id="dancing-no" type="radio" name="dancing" value="No." />
+      <label for="dancing-no">
+        Thank you for ditching this ridiculous tradition.
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <label for="diet" class="body-rsvp-label">
+        Dietary requirements (optional)
+      </label>
+      <span class="body-rsvp-note">
+        Everything will be vegetarian. Most things will be vegan. If you or
+        someone in your party have additional restrictions, tell us here.
+      </span>
+      <textarea
+        id="diet"
+        autocomplete="off"
+        name="diet"
+        placeholder="I only eat the leaves of every third fallen tree."
+      ></textarea>
+    </fieldset>
+
+    <fieldset>
+      <label for="notes" class="body-rsvp-label">
+        Anything else we should know? (optional)
+      </label>
+      <span class="body-rsvp-note">
+        Any information that we need that this form does not capture.
+      </span>
+      <textarea
+        id="notes"
+        autocomplete="off"
+        name="notes"
+        placeholder="This website is, frankly, horrifying."
+      ></textarea>
+    </fieldset>
+
+    <fieldset class="body-rsvp-error">
+      Oh no, something went wrong!
+    </fieldset>
+
+    <fieldset class="body-rsvp-success">
+      <span class="body-rsvp-success-content">
+        THANKS!!! Hope we see you sooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooon!
+      </span>
+    </fieldset>
+
+    <fieldset class="body-rsvp-submit">
+      <input type="submit" class="body-rsvp-submit-button" value="Submit"/>
+    </fieldset>
+  </form>
+{% endblock %}

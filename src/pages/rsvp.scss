@@ -1,0 +1,125 @@
+@keyframes marquee {
+  0% {
+    transform: translateX(55%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+$form-padding: 20px;
+
+.body-rsvp {
+  $form-shadow-color: mix(purple, yellow);
+
+  &-form {
+    margin-top: 50px;
+    padding: $form-padding $form-padding $form-padding + 10;
+    background: lighten(yellow, 15%);
+    border: 5px solid cyan;
+    border-radius: 8px;
+    box-shadow: -12px -16px $form-shadow-color;
+    width: 100%;
+    max-width: 500px;
+    @include center;
+    transition: box-shadow 500ms linear;
+
+    @media (max-width: 380px) {
+      box-shadow: -8px -16px $form-shadow-color;
+    }
+  }
+
+  fieldset {
+    margin-top: 25px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  input[type=text],
+  textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+    -webkit-appearance: none;
+
+    &:focus {
+      outline: none;
+      border-color: purple;
+    }
+  }
+
+  input[type=text] {
+    min-width: 200px;
+  }
+
+  input[type=radio] {
+    @media (min-width: 400px) {
+      position: relative;
+      bottom: 2px;
+    }
+  }
+
+  textarea {
+    width: 100%;
+    resize: none;
+  }
+
+  &-label {
+    display: block;
+    width: 100%;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+
+  &-note {
+    display: block;
+    margin-bottom: 8px;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  // default empty-string Are You Going? response
+  &-default {
+    position: absolute !important; // and this is why it's bad to target element tags
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  &-submit-button {
+    @include center;
+    @include button;
+    margin-top: 15px;
+  }
+
+  // statuses
+  // --------
+
+  &-error {
+    display: none;
+    color: red;
+  }
+
+  &-success {
+    display: none;
+    position: relative;
+    overflow: hidden;
+    width: calc(100% + #{$form-padding * 2});
+    height: 26px;
+    margin-left: $form-padding * -1;
+    color: green;
+
+    &-content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: marquee 8s linear infinite;
+      white-space: nowrap;
+    }
+  }
+}

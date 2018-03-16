@@ -1,28 +1,7 @@
-$button-width: 120px;
-$button-height: 60px;
-
 .body-home {
   &-rsvp-link {
     @include center;
-    display: block;
-    z-index: 2;
-    width: $button-width;
-    height: $button-height;
-    margin-top: 50px;
-
-    text-decoration: none;
-    background: saddlebrown;
-    box-shadow: -8px 8px 0 #000;
-
-    color: magenta;
-    font-size: 28px;
-    font-weight: bold;
-    letter-spacing: 4px;
-    line-height: $button-height;
-    text-align: center;
-
-    &:hover {
-      box-shadow: -24px 12px 0 #000;
-    }
+    @include button;
+    width: 120px;
   }
 }

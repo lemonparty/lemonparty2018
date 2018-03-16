@@ -7,6 +7,9 @@
 $nav-height: 272px;
 $footer-height: 150px;
 $text-color: saddlebrown;
+$button-width: 120px;
+$button-height: 60px;
+$button-box-shadow: -8px 8px 0 #000;
 
 @mixin link {
   padding-right: 3px;
@@ -23,7 +26,45 @@ $text-color: saddlebrown;
 @mixin center {
   position: relative;
   left: 50%;
+  -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
+}
+
+@mixin button {
+  -webkit-appearance: none;
+  display: block;
+  z-index: 2;
+  min-width: $button-width;
+  height: $button-height;
+  padding: 0 15px;
+  margin-top: 50px;
+
+  border: none;
+  text-decoration: none;
+  background: saddlebrown;
+  border-radius: 0;
+  box-shadow: $button-box-shadow;
+
+  color: magenta;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  line-height: $button-height;
+  text-align: center;
+
+  &:hover {
+    box-shadow: -24px 12px 0 #000;
+    cursor: pointer;
+  }
+
+  &:disabled:hover {
+    box-shadow: $button-box-shadow;
+    cursor: default;
+  }
+
+  &:focus {
+    outline: none;
+  }
 }
 
 
@@ -127,8 +168,9 @@ b {
 
 @import "pages/login";
 @import "pages/home";
-@import "pages/gifts";
+@import "pages/rsvp";
 @import "pages/location";
-@import "pages/stuff_to_do";
 @import "pages/schedule";
+@import "pages/stuff_to_do";
+@import "pages/gifts";
 @import "pages/contact";

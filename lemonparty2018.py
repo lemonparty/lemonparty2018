@@ -1,16 +1,32 @@
-from flask import Flask
-from flask import render_template, session, request, redirect, url_for
+from datetime import datetime
 from functools import wraps
-from passlib.hash import pbkdf2_sha256
-import os
 import json
+import os
 
-from localsettings import DEBUG, PASSWORD_HASH, SECRET_KEY
+from flask import (
+    Flask, jsonify, render_template, session, request, redirect, url_for
+)
+from flask_mail import Mail, Message
+from passlib.hash import pbkdf2_sha256
+
+from helpers import format_rsvp_field, get_valid_filename
+from localsettings import (
+    DEBUG, SECRET_KEY, PASSWORD_HASH, EMAIL_SERVER, EMAIL_PORT, EMAIL_USE_TLS,
+    EMAIL_USE_SSL, EMAIL_USERNAME, EMAIL_PASSWORD, EMAIL_RECIPIENT
+)
 from stuff_to_do_data import STUFF_TO_DO
 
 
 app = Flask(__name__)
 app.secret_key = SECRET_KEY
+
+app.config['MAIL_SERVER'] = EMAIL_SERVER
+app.config['MAIL_PORT'] = EMAIL_PORT
+app.config['MAIL_USE_TLS'] = EMAIL_USE_TLS
+app.config['MAIL_USE_SSL'] = EMAIL_USE_SSL
+app.config['MAIL_USERNAME'] = EMAIL_USERNAME
+app.config['MAIL_PASSWORD'] = EMAIL_PASSWORD
+mail = Mail(app)
 
 
 # context processors and decorators
@@ -121,6 +137,58 @@ def gifts():
 @login_required
 def contact():
     return render_template('contact.html')
+
+
+@app.route('/rsvp')
+@login_required
+def rsvp():
+    return render_template('rsvp.html')
+
+
+@app.route('/rsvp-response-handler', methods=['POST'])
+@login_required
+def rsvp_response_handler():
+    data = request.get_json().items()
+    body = '<br><br>'.join(
+        [format_rsvp_field(k, v) for k, v in data] +
+            ['- Sincerely,<br>The Happy Lemon Party RSVP Robot']
+    )
+
+
+    # write to a flat file
+    # -------------------------------------------------------------------------
+
+    rsvps_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'rsvps')
+
+    if not os.path.exists(rsvps_dir):
+        os.makedirs(rsvps_dir)
+
+    time = datetime.now().strftime("%Y-%m-%d--%H-%M-%S-%f")
+    name = [item for item in data if item[0] == 'name'][0]
+
+    output_file = os.path.join(
+        rsvps_dir,
+        get_valid_filename(u'{}--{}.html'.format(time, name[1]))
+    )
+
+    with open(output_file, 'w') as f:
+        f.write(body.encode('utf-8'))
+
+
+    # send an email
+    # -------------------------------------------------------------------------
+
+    msg = Message('[lemonparty2018-rsvp]',
+                  sender=EMAIL_USERNAME,
+                  recipients=[EMAIL_RECIPIENT],
+                  html=body)
+
+    try:
+        mail.send(msg)
+        return jsonify({ 'success': True })
+
+    except:
+        return jsonify({ 'success': False })
 
 
 if __name__ == '__main__':
