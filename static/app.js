@@ -9815,10 +9815,6 @@ var Rsvp = {
       }
     });
 
-    // extract the csrf token from the data object
-    var csrfToken = data.csrf_token;
-    delete data.csrf_token;
-
     this.showSavingState();
 
     // validate
@@ -9828,13 +9824,9 @@ var Rsvp = {
     if (formIsValid) {
       fetch(url, {
         method: "post",
-        credentials: "include",
         headers: {
           "Accept": "application/json, text/plain, */*",
-          "Content-Type": "application/json",
-          "X-CSRFToken": csrfToken,
-          "X-CSRF-Token": csrfToken,
-          "X-XSRF-Token": csrfToken
+          "Content-Type": "application/json"
         },
         body: JSON.stringify(data)
       }).then(function (res) {
@@ -9845,13 +9837,7 @@ var Rsvp = {
         if (res.success) {
           _this2.showSuccessMessage();
         } else {
-          var message = BACKEND_ERROR;
-
-          if (res.message) {
-            message = res.message;
-          }
-
-          _this2.showErrorMessage(message);
+          _this2.showErrorMessage(BACKEND_ERROR);
         }
       }).catch(function () {
         _this2.showErrorMessage(BACKEND_ERROR);
