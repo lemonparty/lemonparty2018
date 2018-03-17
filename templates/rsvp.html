@@ -166,5 +166,7 @@
     <fieldset class="body-rsvp-submit">
       <input type="submit" class="body-rsvp-submit-button" value="Submit"/>
     </fieldset>
+
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
   </form>
 {% endblock %}

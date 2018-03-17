@@ -7,6 +7,7 @@ from flask import (
     Flask, jsonify, render_template, session, request, redirect, url_for
 )
 from flask_mail import Mail, Message
+from flask_wtf.csrf import CSRFProtect, CSRFError
 from passlib.hash import pbkdf2_sha256
 
 from helpers import format_rsvp_field, get_valid_filename
@@ -27,6 +28,8 @@ app.config['MAIL_USE_SSL'] = EMAIL_USE_SSL
 app.config['MAIL_USERNAME'] = EMAIL_USERNAME
 app.config['MAIL_PASSWORD'] = EMAIL_PASSWORD
 mail = Mail(app)
+
+csrf = CSRFProtect(app)
 
 
 # context processors and decorators
@@ -78,6 +81,7 @@ def splash():
 
 
 @app.route('/login', methods=['POST'])
+@csrf.exempt
 def login():
     if pbkdf2_sha256.verify(request.form['password'], PASSWORD_HASH):
         session['is_authenticated'] = True
@@ -142,11 +146,11 @@ def contact():
 @app.route('/rsvp')
 @login_required
 def rsvp():
+    print session
     return render_template('rsvp.html')
 
 
 @app.route('/rsvp-response-handler', methods=['POST'])
-@login_required
 def rsvp_response_handler():
     data = request.get_json().items()
     body = '<br><br>'.join(
@@ -189,6 +193,14 @@ def rsvp_response_handler():
 
     except:
         return jsonify({ 'success': False })
+
+
+@app.errorhandler(CSRFError)
+def handle_csrf_error(e):
+    return jsonify({
+        'success': False,
+        'message': e.description,
+    })
 
 
 if __name__ == '__main__':

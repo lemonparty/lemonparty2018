@@ -62,6 +62,10 @@ const Rsvp = {
       }
     });
 
+    // extract the csrf token from the data object
+    const csrfToken = data.csrf_token;
+    delete(data.csrf_token);
+
     this.showSavingState();
 
     // validate
@@ -71,9 +75,11 @@ const Rsvp = {
     if (formIsValid) {
       fetch(url, {
         method: "post",
+        credentials: "include",
         headers: {
           "Accept": "application/json, text/plain, */*",
           "Content-Type": "application/json",
+          "X-CSRFToken": csrfToken,
         },
         body: JSON.stringify(data)
       }).then((res) => {
@@ -84,7 +90,13 @@ const Rsvp = {
         if (res.success) {
           this.showSuccessMessage();
         } else {
-          this.showErrorMessage(BACKEND_ERROR);
+          let message = BACKEND_ERROR;
+
+          if (res.message) {
+            message = res.message;
+          }
+
+          this.showErrorMessage(message);
         }
       }).catch(() => {
         this.showErrorMessage(BACKEND_ERROR);
