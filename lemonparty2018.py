@@ -146,7 +146,6 @@ def contact():
 @app.route('/rsvp')
 @login_required
 def rsvp():
-    print session
     return render_template('rsvp.html')
 
 
