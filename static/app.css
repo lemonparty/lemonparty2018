@@ -457,18 +457,21 @@ b {
       width: 140px; }
     .body-schedule-event-image--coffee {
       width: 125px; }
-    @media (min-width: 1000px) {
+    @media (min-width: 1100px) {
       .body-schedule-event-image {
-        position: absolute;
-        top: 0; }
+        position: absolute; }
         .body-schedule-event-image--boat, .body-schedule-event-image--pizza {
           left: -200px; }
         .body-schedule-event-image--bundt, .body-schedule-event-image--coffee {
           right: -200px; }
+        .body-schedule-event-image--boat {
+          top: 0; }
         .body-schedule-event-image--bundt {
-          top: -100px; }
+          top: -90px; }
         .body-schedule-event-image--pizza {
-          top: -50px; } }
+          top: -60px; }
+        .body-schedule-event-image--coffee {
+          top: -30px; } }
   .body-schedule-event-time {
     color: orangered;
     font-weight: bold; }

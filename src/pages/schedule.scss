@@ -48,9 +48,8 @@
         width: 125px;
       }
 
-      @media (min-width: 1000px) {
+      @media (min-width: 1100px) {
         position: absolute;
-        top: 0;
 
         &--boat, &--pizza {
           left: -200px;
@@ -60,12 +59,20 @@
           right: -200px;
         }
 
+        &--boat {
+          top: 0;
+        }
+
         &--bundt {
-          top: -100px;
+          top: -90px;
         }
 
         &--pizza {
-          top: -50px;
+          top: -60px;
+        }
+
+        &--coffee {
+          top: -30px;
         }
       }
     }
