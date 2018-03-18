@@ -5,10 +5,5 @@ Flask-Mail==0.9.1
 itsdangerous==0.24
 Jinja2==2.10
 MarkupSafe==1.0
-pbr==1.10.0
-six==1.10.0
-stevedore==1.18.0
-virtualenv==15.0.3
-virtualenv-clone==0.2.6
-virtualenvwrapper==4.7.2
-Werkzeug==0.14.1
+passlib==1.7.1
+Werkzeug==0.13
