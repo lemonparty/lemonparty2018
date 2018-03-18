@@ -445,11 +445,18 @@ b {
     margin-bottom: 0; }
   .body-schedule-event-image {
     display: block;
-    margin: 0 auto;
-    width: 150px;
+    margin: 25px auto;
     animation: spin 8s linear infinite; }
     .body-schedule-event-image--bundt, .body-schedule-event-image--coffee {
       animation-direction: reverse; }
+    .body-schedule-event-image--boat {
+      width: 175px; }
+    .body-schedule-event-image--bundt {
+      width: 165px; }
+    .body-schedule-event-image--pizza {
+      width: 140px; }
+    .body-schedule-event-image--coffee {
+      width: 125px; }
     @media (min-width: 1000px) {
       .body-schedule-event-image {
         position: absolute;

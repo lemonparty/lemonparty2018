@@ -25,12 +25,27 @@
 
     &-image {
       display: block;
-      margin: 0 auto;
-      width: 150px;
+      margin: 25px auto;
       animation: spin 8s linear infinite;
 
       &--bundt, &--coffee {
         animation-direction: reverse;
+      }
+
+      &--boat {
+        width: 175px;
+      }
+
+      &--bundt {
+        width: 165px;
+      }
+
+      &--pizza {
+        width: 140px;
+      }
+
+      &--coffee {
+        width: 125px;
       }
 
       @media (min-width: 1000px) {
