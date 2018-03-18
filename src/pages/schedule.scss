@@ -1,20 +1,63 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .body-schedule {
   &-header {
     display: block;
     @include h2;
   }
 
-  &-time {
-    color: orangered;
-    font-weight: bold;
-  }
-
   &-event {
-    display: inline-block;
+    position: relative;
+    display: block;
     margin-bottom: 5px;
 
     &:last-child {
       margin-bottom: 0;
+    }
+
+    &-image {
+      display: block;
+      margin: 0 auto;
+      width: 150px;
+      animation: spin 8s linear infinite;
+
+      &--bundt, &--coffee {
+        animation-direction: reverse;
+      }
+
+      @media (min-width: 1000px) {
+        position: absolute;
+        top: 0;
+
+        &--boat, &--pizza {
+          left: -200px;
+        }
+
+        &--bundt, &--coffee {
+          right: -200px;
+        }
+
+        &--bundt {
+          top: -100px;
+        }
+
+        &--pizza {
+          top: -50px;
+        }
+      }
+    }
+
+    &-time {
+      color: orangered;
+      font-weight: bold;
     }
   }
 }

@@ -13,7 +13,7 @@
     <span class="body-schedule-header">Friday 8/3</span>
 
     <span class="body-schedule-event">
-      <span class="body-schedule-time">7pm: Boat Ride</span>
+      <span class="body-schedule-event-time">7pm: Boat Ride</span>
       If you’re in town, come for a boat ride around Duluth’s harbor. The boat
       will board at 7 at the
       <a href="https://www.google.com/maps/place/Vista+Fleet/@46.781109,-92.0977703,18.18z/data=!4m5!3m4!1s0x52ae5294a3331a3b:0x1133c0eded84ac93!8m2!3d46.78098!4d-92.0970115?hl=en">
@@ -21,6 +21,9 @@
       depart at 7:30, and bring us back at 9:30. We’ll have food and drinks,
       and if the weather is good, we might even get to go under the Lift Bridge
       and out into the lake! Bring your ID if you plan on drinking.
+
+      <img class="body-schedule-event-image body-schedule-event-image--boat"
+           src="{{ url_for('static', filename='images/boat.png') }}">
     </span>
   </p>
 
@@ -28,7 +31,7 @@
     <span class="body-schedule-header">Saturday 8/4</span>
 
     <span class="body-schedule-event">
-      <span class="body-schedule-time">Pre-wedding</span>
+      <span class="body-schedule-event-time">Pre-wedding</span>
       There are lots of fun things to do around Duluth; check out some ideas
       <a href="{{ url_for('stuff_to_do') }}">here</a>!
       Folks will also be around Lake Breeze in the afternoon, so feel free to
@@ -36,21 +39,27 @@
     </span>
 
     <span class="body-schedule-event">
-      <span class="body-schedule-time">TBD o'clock: Wedding</span>
+      <span class="body-schedule-event-time">TBD o'clock: Wedding</span>
       This is where we get this whole marriage situation sorted out, somewhere
       on the grounds of Lake Breeze. This will take, maybe, 10 minutes?
+
+      <img class="body-schedule-event-image body-schedule-event-image--bundt"
+         src="{{ url_for('static', filename='images/bundt.png') }}">
     </span>
 
     <span class="body-schedule-event">
-      <span class="body-schedule-time">Post-wedding</span>
+      <span class="body-schedule-event-time">Post-wedding</span>
       Some people call this a cocktail hour. Maybe play some lawn games with
       your cocktails?
     </span>
 
     <span class="body-schedule-event">
-      <span class="body-schedule-time">Post-post-wedding</span>
+      <span class="body-schedule-event-time">Post-post-wedding</span>
       Now you get more food and can sit down and all that; isn’t that nice?
       Pizza!
+
+      <img class="body-schedule-event-image body-schedule-event-image--pizza"
+           src="{{ url_for('static', filename='images/pizza.svg') }}">
     </span>
   </p>
 
@@ -58,10 +67,13 @@
     <span class="body-schedule-header">Sunday 8/5</span>
 
     <span class="body-schedule-event">
-      <span class="body-schedule-time">10am-12pm: Brunch</span>
+      <span class="body-schedule-event-time">10am-12pm: Brunch</span>
       Drop by the Lake Breeze lodge for coffee, breakfast, bloody marys,
       and goodbyes.
       No need to be on time (to this, or really any part of the weekend).
+
+      <img class="body-schedule-event-image body-schedule-event-image--coffee"
+           src="{{ url_for('static', filename='images/coffee.jpeg') }}">
     </span>
   </p>
 {% endblock %}
