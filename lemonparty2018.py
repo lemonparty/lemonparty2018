@@ -150,6 +150,7 @@ def rsvp():
 
 
 @app.route('/rsvp-response-handler', methods=['POST'])
+@login_required
 def rsvp_response_handler():
     data = request.get_json().items()
     body = '<br><br>'.join(
