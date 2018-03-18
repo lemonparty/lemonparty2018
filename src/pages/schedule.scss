@@ -1,20 +1,85 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .body-schedule {
   &-header {
     display: block;
     @include h2;
   }
 
-  &-time {
-    color: orangered;
-    font-weight: bold;
-  }
-
   &-event {
-    display: inline-block;
+    position: relative;
+    display: block;
     margin-bottom: 5px;
 
     &:last-child {
       margin-bottom: 0;
+    }
+
+    &-image {
+      display: block;
+      margin: 25px auto;
+      animation: spin 8s linear infinite;
+
+      &--bundt, &--coffee {
+        animation-direction: reverse;
+      }
+
+      &--boat {
+        width: 175px;
+      }
+
+      &--bundt {
+        width: 165px;
+      }
+
+      &--pizza {
+        width: 140px;
+      }
+
+      &--coffee {
+        width: 125px;
+      }
+
+      @media (min-width: 1100px) {
+        position: absolute;
+
+        &--boat, &--pizza {
+          left: -200px;
+        }
+
+        &--bundt, &--coffee {
+          right: -200px;
+        }
+
+        &--boat {
+          top: 0;
+        }
+
+        &--bundt {
+          top: -90px;
+        }
+
+        &--pizza {
+          top: -60px;
+        }
+
+        &--coffee {
+          top: -30px;
+        }
+      }
+    }
+
+    &-time {
+      color: orangered;
+      font-weight: bold;
     }
   }
 }
