@@ -10,7 +10,7 @@
 
   <p class="text">
     Thanks for RSVPing. If you’re confused, have any questions, or this thing
-    doesn’t work because two software engineers can’t even make a website,
+    doesn’t work because two programmers can’t even make a website,
     <a href="{{ url_for('contact') }}">just ask</a>!
   </p>
 
@@ -55,7 +55,7 @@
       />
 
       <input id="going-yes" type="radio" name="is_going" value="Sure." />
-      <label for="going-yes">Sure.</label>
+      <label for="going-yes">Sure!</label>
 
       <br />
 
@@ -65,12 +65,11 @@
 
     <fieldset>
       <label class="body-rsvp-label">
-        Are you interested in the boat ride?
+        Are you interested in the boat ride on Friday at 7pm?
       </label>
       <span class="body-rsvp-note">
-        Up to 70 people can fit on the boat, but we invited more than that to
-        the wedding. If more people than can fit are in town, we will figure
-        out some fair way to decide out can come.
+        The boat does have a max capacity. We doubt we’ll hit it, but if we do,
+        we will figure out some fair way to decide out can come.
       </span>
 
       <input
@@ -96,7 +95,7 @@
         Do you think there should be dancing? (optional)
       </label>
       <span class="body-rsvp-note">
-        Michael doesn’t want to have dancing, but Katherine thinks people will
+        Michael isn’t a fan of dancing, but Katherine thinks folks will
         get bored without it. Weigh in on our first marital dispute!
       </span>
 
@@ -118,23 +117,24 @@
 
       <input id="dancing-no" type="radio" name="dancing" value="No." />
       <label for="dancing-no">
-        Thank you for ditching this ridiculous tradition.
+        A wedding without dancing? Sign me up!
       </label>
     </fieldset>
 
     <fieldset>
       <label for="diet" class="body-rsvp-label">
-        Dietary requirements (optional)
+        Dietary restrictions (optional)
       </label>
       <span class="body-rsvp-note">
-        Everything will be vegetarian. Most things will be vegan. If you or
-        someone in your party have additional restrictions, tell us here.
+        Besides the boat ride (where there will be meat and vegan options),
+        everything will be vegetarian, and most things will be vegan.
+        But please let us know about any additional restrictions.
       </span>
       <textarea
         id="diet"
         autocomplete="off"
         name="diet"
-        placeholder="I only eat the leaves of every third fallen tree."
+        placeholder="I require a can of SPAM at every meal."
       ></textarea>
     </fieldset>
 
@@ -142,9 +142,6 @@
       <label for="notes" class="body-rsvp-label">
         Anything else we should know? (optional)
       </label>
-      <span class="body-rsvp-note">
-        Any information that we need that this form does not capture.
-      </span>
       <textarea
         id="notes"
         autocomplete="off"
