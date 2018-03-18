@@ -181,15 +181,15 @@ b {
     .nav-link:nth-child(3).active {
       transform: rotate(82deg); }
     .nav-link:nth-child(4).active {
-      transform: rotate(160deg); }
+      transform: rotate(182deg); }
     .nav-link:nth-child(5).active {
-      transform: rotate(173deg); }
+      transform: rotate(208deg); }
     .nav-link:nth-child(6).active {
       transform: rotate(121deg); }
     .nav-link:nth-child(7).active {
       transform: rotate(76deg); }
     .nav-link:nth-child(8).active {
-      transform: rotate(162deg); }
+      transform: rotate(102deg); }
 
 .body-login {
   min-height: 100%;
