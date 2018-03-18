@@ -19,8 +19,7 @@ STUFF_TO_DO = [
                 'link': 'https://www.google.com/maps/dir/46.7803981,-92.092697/46.7804495,-92.0926112/@46.780743,-92.0935627,18z/data=!3m1!4b1!4m2!4m1!3e0?hl=en',
                 'description': u'''
                     Imagine you are a high school student.
-                    You can’t get into bars or afford to go out, and hanging out
-                    at the mall has gotten a bit boring.
+                    There’s nothing to do; hanging out at the mall has gotten SO old.
                     So, what to do? Cruise the Loop.
                     Drive down to Canal Park, open your windows, crank some
                     tunes that show your refined sensibilities, and make a pass
@@ -31,11 +30,11 @@ STUFF_TO_DO = [
                 'name': u'The Lakewalk',
                 'link': 'https://www.google.com/maps/dir/46.7800223,-92.0913201/46.8025932,-92.0686212/@46.7913221,-92.090369,15z/am=t/data=!3m1!4b1!4m2!4m1!3e2?hl=en',
                 'description': u'''
-                    Starting in Canal Park and snaking north up the shore, The
-                    Lakewalk is a gorgeous stretch of trail for walking or
-                    biking, with some great stops including a rose garden and
-                    a park dedicated to Leif Erikson, the Viking. There is a
-                    bike-rental shop on the Canal Park end of the walk.
+                    Starting in Canal Park and snaking north up the shore,
+                    The Lakewalk is a walking/biking trail,
+                    with some great stops including a rose garden and
+                    a park dedicated to Leif Erikson. There is a
+                    bike-rental shop at the Canal Park end of the walk.
                 ''',
             },
             {
@@ -51,9 +50,9 @@ STUFF_TO_DO = [
                 'name': u'Park Point beach',
                 'link': 'http://www.duluthmn.gov/parks/parks-listing/park-point/',
                 'description': u'''
-                    If you feel like crossing the lift bridge, you can reward
-                    yourself with a trip to the beach. There’s parking, plenty
-                    of sand, and a beach house with bathrooms.
+                    If you are brave enough to cross the lift bridge, you can
+                    reward yourself with a trip to the beach. There’s parking,
+                    plenty of sand, and a beach house with bathrooms.
                 ''',
             },
             {
