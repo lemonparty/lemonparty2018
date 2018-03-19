@@ -12,7 +12,7 @@ from passlib.hash import pbkdf2_sha256
 
 from helpers import format_rsvp_field, get_valid_filename
 from localsettings import (
-    DEBUG, SECRET_KEY, PASSWORD_HASH, EMAIL_CONFIG, EMAIL_RECIPIENT
+    DEBUG, SECRET_KEY, PASSWORD_HASH, EMAIL_CONFIG, EMAIL_RECIPIENTS
 )
 from stuff_to_do_data import STUFF_TO_DO
 
@@ -176,7 +176,7 @@ def rsvp_response_handler():
     # -------------------------------------------------------------------------
 
     msg = Message('[lemonparty2018-rsvp]',
-                  recipients=[EMAIL_RECIPIENT],
+                  recipients=EMAIL_RECIPIENTS,
                   html=body)
 
     try:
