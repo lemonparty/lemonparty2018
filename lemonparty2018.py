@@ -10,26 +10,19 @@ from flask_mail import Mail, Message
 from flask_wtf.csrf import CSRFProtect, CSRFError
 from passlib.hash import pbkdf2_sha256
 
-from helpers import format_rsvp_field, get_valid_filename
+from helpers import format_rsvp_field, get_ascii, get_valid_filename
 from localsettings import (
-    DEBUG, SECRET_KEY, PASSWORD_HASH, EMAIL_SERVER, EMAIL_PORT, EMAIL_USE_TLS,
-    EMAIL_USE_SSL, EMAIL_USERNAME, EMAIL_PASSWORD, EMAIL_RECIPIENT
+    DEBUG, SECRET_KEY, PASSWORD_HASH, EMAIL_CONFIG, EMAIL_RECIPIENTS
 )
 from stuff_to_do_data import STUFF_TO_DO
 
 
 app = Flask(__name__)
 app.secret_key = SECRET_KEY
-
-app.config['MAIL_SERVER'] = EMAIL_SERVER
-app.config['MAIL_PORT'] = EMAIL_PORT
-app.config['MAIL_USE_TLS'] = EMAIL_USE_TLS
-app.config['MAIL_USE_SSL'] = EMAIL_USE_SSL
-app.config['MAIL_USERNAME'] = EMAIL_USERNAME
-app.config['MAIL_PASSWORD'] = EMAIL_PASSWORD
-mail = Mail(app)
-
 csrf = CSRFProtect(app)
+
+app.config.update(EMAIL_CONFIG)
+mail = Mail(app)
 
 
 # context processors and decorators
@@ -160,19 +153,22 @@ def rsvp_response_handler():
 
 
     # write to a flat file
-    # -------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
 
-    rsvps_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'rsvps')
+    rsvps_dir = os.path.join(
+        os.path.dirname(os.path.realpath(__file__)),
+        'rsvps'
+    )
 
     if not os.path.exists(rsvps_dir):
         os.makedirs(rsvps_dir)
 
     time = datetime.now().strftime("%Y-%m-%d--%H-%M-%S-%f")
-    name = [item for item in data if item[0] == 'name'][0]
+    name = [item for item in data if item[0] == 'name'][0][1]
 
     output_file = os.path.join(
         rsvps_dir,
-        get_valid_filename(u'{}--{}.html'.format(time, name[1]))
+        get_valid_filename(u'{}--{}.html'.format(time, name))
     )
 
     with open(output_file, 'w') as f:
@@ -180,11 +176,10 @@ def rsvp_response_handler():
 
 
     # send an email
-    # -------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
 
-    msg = Message('[lemonparty2018-rsvp]',
-                  sender=EMAIL_USERNAME,
-                  recipients=[EMAIL_RECIPIENT],
+    msg = Message('[lemonparty2018-rsvp] {}'.format(get_ascii(name)),
+                  recipients=EMAIL_RECIPIENTS,
                   html=body)
 
     try:
