@@ -9,11 +9,18 @@ def format_rsvp_field(key, value):
     )
 
 
+def get_ascii(s):
+    return (
+        unicodedata.normalize('NFKD', s)
+        .encode('ascii', 'ignore')
+    )
+
+
 # based on a django function, modified to handle unicode
 def get_valid_filename(s):
-    s = (unicodedata
-        .normalize('NFKD', s)
-        .encode('ascii', 'ignore')
+    s = (
+        get_ascii(s)
         .strip()
-        .replace(' ', '_'))
+        .replace(' ', '_')
+    )
     return re.sub(r'(?u)[^-\w.]', '', s)
