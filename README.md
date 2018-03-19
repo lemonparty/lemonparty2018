@@ -32,13 +32,17 @@ is an example file:
 DEBUG = True # should be false in prod
 SECRET_KEY = 'a secret key' # see below for generating a secret key
 PASSWORD_HASH = 'a hashed password' # see below for generating a password hash
-EMAIL_SERVER = 'smtp.gmail.com' # or whatever your server is
-EMAIL_PORT = 465
-EMAIL_USE_TLS = False
-EMAIL_USE_SSL = True
-EMAIL_USERNAME = 'the username/email address from which to send confirmations'
-EMAIL_PASSWORD = 'the password for the email account'
 EMAIL_RECIPIENT = 'the email address to send the rsvp confirmation'
+
+EMAIL_CONFIG = {
+    'MAIL_SERVER': 'smtp.gmail.com', # or whatever your server is
+    'MAIL_PORT': 465, # or whatever port your mail server uses
+    'MAIL_USE_TLS': False,
+    'MAIL_USE_SSL': True,
+    'MAIL_DEFAULT_SENDER': 'the email address sending from',
+    'MAIL_USERNAME': 'the username for the email account',
+    'MAIL_PASSWORD': 'the password for the email account'
+}
 ```
 
 To generate a password hash (used to verify user logins), start your python
