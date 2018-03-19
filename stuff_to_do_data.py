@@ -41,9 +41,9 @@ STUFF_TO_DO = [
                 'name': u'Aerial Lift Bridge',
                 'link': 'https://www.google.com/maps/place/Aerial+Lift+Bridge/@46.778977,-92.0950788,17z/data=!3m1!4b1!4m5!3m4!1s0x52ae52ec55a6c0ad:0xb7092797d58f931e!8m2!3d46.7789733!4d-92.0928901?hl=en',
                 'description': u'''
-                    A Duluth landmark in Canal Park, the Lift Bridge features
-                    an uncommon design where the center span is lifted straight
-                    up to let barges pass. Sick.
+                    A Duluth landmark, the Lift Bridge features an uncommon
+                    design where the center span is lifted straight up to let
+                    barges pass. Sick.
                 ''',
             },
             {
@@ -225,7 +225,7 @@ STUFF_TO_DO = [
                 ''',
             },
             {
-                'name': u'Tettegouche State Park',
+                'name': u'Tettegouche State Park and Palisade Head',
                 'link': 'http://www.dnr.state.mn.us/state_parks/tettegouche/index.html',
                 'description': u'''
                     An hour north of Lake Breeze, the climactic final scene of
