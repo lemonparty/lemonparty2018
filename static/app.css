@@ -518,6 +518,34 @@ b {
   .body-stuff .text:first-of-type {
     padding-top: 0; }
 
+.body-stuff-bridge-wrapper {
+  position: absolute;
+  overflow: hidden;
+  top: 200px;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+.body-stuff-bridge {
+  position: absolute; }
+  .body-stuff-bridge--left, .body-stuff-bridge--right {
+    top: 12vw;
+    width: 6vw;
+    height: 100%;
+    background: url("/static/images/bridge-sides.svg") top center repeat-y;
+    background-size: contain; }
+  .body-stuff-bridge--left {
+    left: -2.4vw; }
+  .body-stuff-bridge--right {
+    right: -2.4vw; }
+  .body-stuff-bridge--top {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 12vw;
+    background: url("/static/images/bridge-top.svg") top center no-repeat;
+    background-size: cover; }
+
 .body-gifts-signature {
   display: inline-block;
   width: 350px;
