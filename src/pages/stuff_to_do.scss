@@ -1,4 +1,26 @@
+@keyframes bridge {
+  0% {
+    background-position: center bottom;
+  }
+
+  5% {
+    background-position: center bottom;
+  }
+
+  95% {
+    background-position: center top;
+  }
+
+  100% {
+    background-position: center top;
+  }
+}
+
 .body-stuff {
+  // this makes the bridge wrapper sizing based off the document instead of the
+  // window
+  position: relative;
+
   &-nav {
     @include center;
     display: inline-block;
@@ -39,6 +61,69 @@
 
     &:first-of-type {
       padding-top: 0;
+    }
+  }
+
+
+  // bridge
+  // --------------------------------------------------------------------------
+
+  $y-offset: 200px;
+  $top-height: 12vw;
+  $side-offset: -2.4vw;
+  $center-width: 95vw;
+  $center-padding: 16vw;
+
+  &-bridge-wrapper {
+    position: absolute;
+    overflow: hidden;
+    top: $y-offset;
+    left: 0;
+    width: 100%;
+    height: calc(100% - #{$y-offset});
+    opacity: 0.4;
+  }
+
+  &-bridge {
+    position: absolute;
+
+    &--left,
+    &--right {
+      top: $top-height;
+      width: 6vw;
+      height: 100%;
+      background: url("/static/images/bridge-sides.svg") top center repeat-y;
+      background-size: contain;
+    }
+
+    &--left {
+      left: $side-offset;
+    }
+
+    &--right {
+      right: $side-offset;
+    }
+
+    &--top {
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: $top-height;
+      background: url("/static/images/bridge-top.svg") top center no-repeat;
+      background-size: cover;
+    }
+
+    &--center {
+      top: $center-padding;
+      left: (100 - $center-width) / 2;
+      width: $center-width;
+      height: calc(100% - #{$center-padding * 2});
+      background: url("/static/images/bridge-center.svg");
+      background-position: center bottom;
+      background-repeat: no-repeat;
+      background-size: contain;
+      animation: bridge 40000ms ease-in-out infinite;
+      animation-direction: alternate;
     }
   }
 }

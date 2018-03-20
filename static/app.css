@@ -479,44 +479,91 @@ b {
     color: orangered;
     font-weight: bold; }
 
-.body-stuff-nav {
-  position: relative;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
-  display: inline-block;
-  max-width: 600px;
-  margin-top: 10px;
-  margin-bottom: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly; }
-  .body-stuff-nav-item {
+@keyframes bridge {
+  0% {
+    background-position: center bottom; }
+  5% {
+    background-position: center bottom; }
+  95% {
+    background-position: center top; }
+  100% {
+    background-position: center top; } }
+
+.body-stuff {
+  position: relative; }
+  .body-stuff-nav {
+    position: relative;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
     display: inline-block;
-    padding: 10px; }
-    .body-stuff-nav-item:first-child {
-      margin-left: 0; }
-    .body-stuff-nav-item a {
-      padding-right: 3px;
-      padding-left: 3px;
-      color: saddlebrown;
-      background: pink;
-      text-decoration: none; }
-      .body-stuff-nav-item a:hover {
-        background: orange; }
-
-.body-stuff-section-title {
-  font-weight: bold;
-  font-style: italic; }
-
-.body-stuff-item {
-  display: inline-block;
-  margin-top: 10px; }
-
-.body-stuff .text {
-  padding-top: 20px; }
-  .body-stuff .text:first-of-type {
-    padding-top: 0; }
+    max-width: 600px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; }
+    .body-stuff-nav-item {
+      display: inline-block;
+      padding: 10px; }
+      .body-stuff-nav-item:first-child {
+        margin-left: 0; }
+      .body-stuff-nav-item a {
+        padding-right: 3px;
+        padding-left: 3px;
+        color: saddlebrown;
+        background: pink;
+        text-decoration: none; }
+        .body-stuff-nav-item a:hover {
+          background: orange; }
+  .body-stuff-section-title {
+    font-weight: bold;
+    font-style: italic; }
+  .body-stuff-item {
+    display: inline-block;
+    margin-top: 10px; }
+  .body-stuff .text {
+    padding-top: 20px; }
+    .body-stuff .text:first-of-type {
+      padding-top: 0; }
+  .body-stuff-bridge-wrapper {
+    position: absolute;
+    overflow: hidden;
+    top: 200px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 200px);
+    opacity: 0.4; }
+  .body-stuff-bridge {
+    position: absolute; }
+    .body-stuff-bridge--left, .body-stuff-bridge--right {
+      top: 12vw;
+      width: 6vw;
+      height: 100%;
+      background: url("/static/images/bridge-sides.svg") top center repeat-y;
+      background-size: contain; }
+    .body-stuff-bridge--left {
+      left: -2.4vw; }
+    .body-stuff-bridge--right {
+      right: -2.4vw; }
+    .body-stuff-bridge--top {
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 12vw;
+      background: url("/static/images/bridge-top.svg") top center no-repeat;
+      background-size: cover; }
+    .body-stuff-bridge--center {
+      top: 16vw;
+      left: 2.5vw;
+      width: 95vw;
+      height: calc(100% - 32vw);
+      background: url("/static/images/bridge-center.svg");
+      background-position: center bottom;
+      background-repeat: no-repeat;
+      background-size: contain;
+      animation: bridge 40000ms ease-in-out infinite;
+      animation-direction: alternate; }
 
 .body-gifts-signature {
   display: inline-block;
