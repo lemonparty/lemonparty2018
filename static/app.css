@@ -555,8 +555,8 @@ b {
       background-size: cover; }
     .body-stuff-bridge--center {
       top: 16vw;
-      left: 2.5vw;
-      width: 95vw;
+      left: 2.65vw;
+      width: 94.7vw;
       height: calc(100% - 32vw);
       background: url("/static/images/bridge-center.svg");
       background-position: center bottom;
