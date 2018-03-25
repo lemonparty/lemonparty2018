@@ -19,6 +19,7 @@ from stuff_to_do_data import STUFF_TO_DO
 
 app = Flask(__name__)
 app.secret_key = SECRET_KEY
+app.config['TEMPLATES_AUTO_RELOAD'] = DEBUG
 csrf = CSRFProtect(app)
 
 app.config.update(EMAIL_CONFIG)
