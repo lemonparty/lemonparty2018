@@ -109,6 +109,10 @@ b {
   max-width: 550px; }
   .text + .text {
     margin-top: 20px; }
+  .text.footnote {
+    margin-top: 80px;
+    font-size: 13px;
+    line-height: 18px; }
   .text a {
     padding-right: 3px;
     padding-left: 3px;
@@ -116,6 +120,31 @@ b {
     background: pink;
     text-decoration: none; }
     .text a:hover {
+      background: orange; }
+  .text-sup {
+    position: relative;
+    top: -0.7em;
+    font-size: 70%; }
+
+.text-blockquote {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  display: inline-block;
+  margin-top: 10px;
+  max-width: 550px;
+  border-left: 3px solid orange;
+  padding-left: 15px;
+  font-size: 13px;
+  line-height: 18px; }
+  .text-blockquote a {
+    padding-right: 3px;
+    padding-left: 3px;
+    color: saddlebrown;
+    background: pink;
+    text-decoration: none; }
+    .text-blockquote a:hover {
       background: orange; }
 
 .nav {

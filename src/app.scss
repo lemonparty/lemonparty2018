@@ -7,6 +7,7 @@
 $nav-height: 272px;
 $footer-height: 150px;
 $text-color: saddlebrown;
+$text-max-width: 550px;
 $button-width: 120px;
 $button-height: 60px;
 $button-box-shadow: -8px 8px 0 #000;
@@ -149,11 +150,38 @@ b {
   @include center;
   display: block;
   width: 100%;
-  max-width: 550px;
+  max-width: $text-max-width;
 
   & + .text {
     margin-top: 20px;
   }
+
+  &.footnote {
+    margin-top: 80px;
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  a {
+    @include link;
+  }
+
+  &-sup {
+    position: relative;
+    top: -0.7em;
+    font-size: 70%;
+  }
+}
+
+.text-blockquote {
+  @include center;
+  display: inline-block;
+  margin-top: 10px;
+  max-width: $text-max-width;
+  border-left: 3px solid orange;
+  padding-left: 15px;
+  font-size: 13px;
+  line-height: 18px;
 
   a {
     @include link;
