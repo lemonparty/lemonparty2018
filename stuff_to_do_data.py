@@ -137,7 +137,7 @@ STUFF_TO_DO = [
                 'link': 'http://newsceniccafe.com/',
                 'description': u'''
                     An excellent, cozy, and pretty much gourmet restaurant up
-                    the shore a ways. Try the Borealis beer if you’re drinking;
+                    the shore a ways. Try the Borealis beer if it’s in stock;
                     the Scenic is one of the only places you can find this
                     hyper-local Belgian style brand.
                 ''',
