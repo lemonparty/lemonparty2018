@@ -1,7 +1,8 @@
 .body-gifts {
   &-signature {
     display: inline-block;
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
     height: 40px;
     background: url("/static/images/signature.png") center center no-repeat;
     background-size: contain;

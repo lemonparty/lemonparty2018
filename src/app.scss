@@ -27,6 +27,7 @@ $button-box-shadow: -8px 8px 0 #000;
 @mixin center {
   position: relative;
   left: 50%;
+  -ms-transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
 }
@@ -93,6 +94,10 @@ body {
 
     @media (max-width: 500px) {
       padding-top: $nav-height;
+    }
+
+    @media (max-width: 360px) {
+      padding-top: $nav-height + 50;
     }
   }
 }

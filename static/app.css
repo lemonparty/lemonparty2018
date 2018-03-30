@@ -64,10 +64,14 @@ body {
     @media (max-width: 500px) {
       body.logged-in {
         padding-top: 272px; } }
+    @media (max-width: 360px) {
+      body.logged-in {
+        padding-top: 322px; } }
 
 .page-title {
   position: relative;
   left: 50%;
+  -ms-transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   display: block;
@@ -102,6 +106,7 @@ b {
 .text {
   position: relative;
   left: 50%;
+  -ms-transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   display: block;
@@ -129,6 +134,7 @@ b {
 .text-blockquote {
   position: relative;
   left: 50%;
+  -ms-transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   display: inline-block;
@@ -297,6 +303,7 @@ b {
 .body-home-rsvp-link {
   position: relative;
   left: 50%;
+  -ms-transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   -webkit-appearance: none;
@@ -344,6 +351,7 @@ b {
   max-width: 500px;
   position: relative;
   left: 50%;
+  -ms-transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   transition: box-shadow 500ms linear; }
@@ -402,6 +410,7 @@ b {
 .body-rsvp-submit-button {
   position: relative;
   left: 50%;
+  -ms-transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   -webkit-appearance: none;
@@ -455,6 +464,7 @@ b {
   .body-location iframe {
     position: relative;
     left: 50%;
+    -ms-transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%); } }
 
@@ -527,6 +537,7 @@ b {
   .body-stuff-nav {
     position: relative;
     left: 50%;
+    -ms-transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
     display: inline-block;
@@ -600,7 +611,8 @@ b {
 
 .body-gifts-signature {
   display: inline-block;
-  width: 350px;
+  width: 100%;
+  max-width: 350px;
   height: 40px;
   background: url("/static/images/signature.png") center center no-repeat;
   background-size: contain; }
