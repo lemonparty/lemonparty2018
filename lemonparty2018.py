@@ -70,8 +70,7 @@ def splash():
         return redirect(url_for('home'))
     else:
         return render_template('login.html',
-            authentication_error=session.get('authentication_error'),
-            show_login=request.args.get('show_login'))
+            authentication_error=session.get('authentication_error'))
 
 
 @app.route('/login', methods=['POST'])
