@@ -178,7 +178,7 @@ def rsvp_response_handler():
     # send an email
     # --------------------------------------------------------------------------
 
-    msg = Message('[lemonparty2018-rsvp] {}'.format(get_ascii(name)),
+    msg = Message('[lemonparty2018-rsvp] {}'.format(get_valid_filename(name)),
                   recipients=EMAIL_RECIPIENTS,
                   html=body)
 
