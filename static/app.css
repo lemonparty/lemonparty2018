@@ -609,6 +609,15 @@ b {
       animation: bridge 40000ms ease-in-out infinite;
       animation-direction: alternate; }
 
+.body-gifts-list {
+  margin-top: 10px !important;
+  list-style: disc; }
+  .body-gifts-list li {
+    margin-top: 5px;
+    margin-left: 25px; }
+    .body-gifts-list li:first-child {
+      margin-top: 0; }
+
 .body-gifts-signature {
   display: inline-block;
   width: 100%;

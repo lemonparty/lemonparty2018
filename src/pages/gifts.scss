@@ -1,4 +1,18 @@
 .body-gifts {
+  &-list {
+    margin-top: 10px !important;
+    list-style: disc;
+
+    li {
+      margin-top: 5px;
+      margin-left: 25px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
   &-signature {
     display: inline-block;
     width: 100%;
