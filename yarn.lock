@@ -6,7 +6,7 @@ abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
 
-accessible-autocomplete@^2.0.1:
+accessible-autocomplete@2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/accessible-autocomplete/-/accessible-autocomplete-2.0.1.tgz#dbbe703d0b48cd37ec0fea97fe46f066528e8098"
   integrity sha512-2Cq8uI+deZNGMS38MmzE+40yT1A2ZC+aRC80l4zazQeh9TrhTn7Ho1fZ0Den1F+WQBe8RNLZtufzGFrMVU8K8w==
@@ -2448,8 +2448,9 @@ lru-cache@^4.0.1:
     yallist "^2.1.2"
 
 macaddress@^0.2.8:
-  version "0.2.8"
-  resolved "https://registry.yarnpkg.com/macaddress/-/macaddress-0.2.8.tgz#5904dc537c39ec6dbefeae902327135fa8511f12"
+  version "0.2.9"
+  resolved "https://registry.yarnpkg.com/macaddress/-/macaddress-0.2.9.tgz#3579b8b9acd5b96b4553abf0f394185a86813cb3"
+  integrity sha512-k4F1JUof6cQXxNFzx3thLby4oJzXTXQueAOOts944Vqizn+Rjc2QNFenT9FJSLU1CH3PmrHRSyZs2E+Cqw+P2w==
 
 make-dir@^1.0.0:
   version "1.1.0"
