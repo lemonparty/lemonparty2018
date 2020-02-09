@@ -1,0 +1,82 @@
+{% extends '_base.html' %}
+{% set title = 'Photos' %}
+{% block title %}Photos{% endblock %}
+{% block bodyclass %}logged-in body-photos{% endblock %}
+{% set active_page = 'photos' %}
+
+{% block content %}
+  {% include '_nav.html' %}
+
+  <h1 class="page-title">{{ title }}</h1>
+
+  <p class="text">
+    Photos by
+    <a href="https://onona.co" target="_blank" rel="noopener noreferrer">
+      Onona</a>.
+    She is amazing! Click on a photo for the full-size version, which you may save for your records.
+  </p>
+
+  <div class="text photo-filter-row">
+    {% if show_filter and not photo_filter %}
+      <label for="photo-filter">
+        Search for a name:
+      </label>
+      <div
+        class="photo-filter-row-autocomplete"
+        id="photo-filter-container"
+      ></div>
+    {% endif %}
+  </div>
+
+  <div class="content photos">
+    {% if not photo_filter %}
+      <div class="photos-navigation-wrapper">
+        <div class="photos-navigation-content">
+          <ul class="photos-navigation">
+            {% for section in sections %}
+              <li class="photos-navigation-item">
+                <a
+                  class="photos-navigation-item-link"
+                  href="#{{ section.id }}"
+                >
+                  {{ section.id|get_section_display_name}}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    {% endif %}
+
+    {% for section in sections %}
+      <div
+        id="{{section.id}}"
+        class="photos-section"
+      >
+        <h2 class="photos-section-header">
+          {% if photo_filter %}
+            {{ photo_filter }}
+          {% else %}
+            {{ section.id|get_section_display_name}}
+          {% endif %}
+          {% if photo_filter %}
+            <a
+              class="photos-section-clear"
+              href={{ url_for('photos', show_filter=1) }}
+            >
+              clear search
+            </a>
+          {% endif %}
+        </h2>
+        {% for row in section.photos %}
+          <div class="photos-row">
+            {% for photo in row %}
+              {% set row_count = row|length %}
+              {% include "photos_photo.html" %}
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

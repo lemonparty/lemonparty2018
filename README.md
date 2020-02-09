@@ -2,11 +2,11 @@
 This repo holds the website for Katherine and Michael's wedding. Let's see if
 this goes off with a hitch...
 
-lemonparty2018 is a pretty basic static site; the only dynamic thing going on
-is the RSVP form. In searching for an RSVP solution of the right "weight", we
-settled on emailing when a form is submitted, along with writing a flat file to
-disk for backup (to the`./rsvps` foler). A database felt too heavy, and
-submitting to a google form with some weird unsupported ajax felt too brittle.
+lemonparty2018 is a pretty basic wedding website template. It features:
+* a splash screen with login
+* an rsvp form that emails and writes a flat file to disk
+* a photo display page with dynamic layouts and lazily loaded images
+
 
 ## Back end
 
@@ -50,12 +50,12 @@ EMAIL_RECIPIENTS = [
 
 To generate a password hash (used to verify user logins), start your python
 console while in the project's virtualenv, enter the following (replacing
-"[your password here]" with your password), and copy the output to
+"your password here" with your password), and copy the output to
 `localsettings.py`:
 
 ```.py
 from passlib.hash import pbkdf2_sha256
-pbkdf2_sha256.hash("[your password here]")
+pbkdf2_sha256.hash("your password here")
 ```
 
 To generate a secret key (used by Flask to encrypt its session data), we
@@ -75,9 +75,9 @@ Our desired node version is specified in `.nvmrc`. Assuming you have that
 installed and activated (e.g. with `nvm use`), run `yarn install` to install
 the JS packages required for this app.
 
-Then to start webpack watching and compiling the files, run `npm run watch`. To
-compile the minified files for use in production, run `npm run build`. The
+Then to start webpack watching and compiling the files, run `yarn watch`. To
+compile the minified files for use in production, run `yarn build`. The
 minified files are used in the templates if the `DEBUG` variable in
-`localsettings` is false. Cachebusting is built into the `npm run build`
+`localsettings` is false. Cachebusting is built into the `yarn build`
 command; it adds a hash to the filename and stores the current hash in a json
 file for python to read.

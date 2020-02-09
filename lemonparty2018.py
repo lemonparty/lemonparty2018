@@ -10,11 +10,12 @@ from flask_mail import Mail, Message
 from flask_wtf.csrf import CSRFProtect, CSRFError
 from passlib.hash import pbkdf2_sha256
 
-from helpers import format_rsvp_field, get_ascii, get_valid_filename
+from helpers import (format_rsvp_field, get_ascii, get_valid_filename, photo_root)
 from localsettings import (
     DEBUG, SECRET_KEY, PASSWORD_HASH, EMAIL_CONFIG, EMAIL_RECIPIENTS
 )
 from stuff_to_do_data import STUFF_TO_DO
+from photos_data import (PHOTOS, PHOTO_MAX_DIMENSION)
 
 
 app = Flask(__name__)
@@ -48,17 +49,66 @@ def static_path_processor():
         'js_path': js_path,
     }
 
+@app.context_processor
+def image_path_processor():
+    def get_image_path(photo, size='large', id_key='id_color'):
+        if not photo.get(id_key):
+            return None
+
+        return '{}/{}/{}.jpg'.format(photo_root(), size, photo[id_key])
+
+    return dict(get_image_path=get_image_path)
+
 
 def login_required(f):
     @wraps(f)
 
     def decorated_function(*args, **kwargs):
         if not DEBUG and not session.get('is_authenticated'):
-            return redirect(url_for('splash'))
+            after = None
+
+            if request.path != '/home':
+                after = request.path.replace('/', '')
+
+            return redirect(url_for('splash', after=after))
 
         return f(*args, **kwargs)
 
     return decorated_function
+
+
+@app.template_filter('get_relative_photo_width')
+def get_relative_photo_width(photo):
+    return photo['x'] * (float(PHOTO_MAX_DIMENSION) / photo['y'])
+
+
+@app.template_filter('get_relative_row_width')
+def get_relative_row_width(row):
+    # as a percentage; must match $gutter in photos.scss
+    gutter = 0.01;
+
+    return sum([get_relative_photo_width(photo) for photo in row]) * (
+        1 + (gutter * (len(row) - 1))
+    )
+
+def chunk(lst, n):
+    """Yield successive n-sized chunks from lst."""
+    for i in xrange(0, len(lst), n):
+        yield lst[i:i + n]
+
+
+@app.template_filter('get_section_display_name')
+def get_section_display_name(section_id):
+    return {
+        'getting-ready': 'Getting Ready',
+        'family-photos-toast-time': 'Formals',
+        'details': 'Details',
+        'ceremony': 'Ceremony',
+        'reception': 'Reception',
+        'katherine-michael': 'Lovey-Dovey Crap',
+        'end-of-evening-dancing': 'Later',
+        'film': 'Film',
+    }[section_id]
 
 
 # pages
@@ -69,8 +119,10 @@ def splash():
     if session.get('is_authenticated'):
         return redirect(url_for('home'))
     else:
+        after = request.args.get('after')
         return render_template('login.html',
-            authentication_error=session.get('authentication_error'))
+            authentication_error=session.get('authentication_error'),
+            after=after)
 
 
 @app.route('/login', methods=['POST'])
@@ -79,7 +131,15 @@ def login():
     if pbkdf2_sha256.verify(request.form['password'], PASSWORD_HASH):
         session['is_authenticated'] = True
         session['authentication_error'] = False
-        return redirect(url_for('home'))
+        after = request.form['after']
+
+        try:
+            redirect_url = url_for(after)
+
+        except:
+            redirect_url = url_for('home')
+
+        return redirect(redirect_url)
     else:
         session['is_authenticated'] = False
         session['authentication_error'] = True
@@ -140,6 +200,46 @@ def contact():
 @login_required
 def rsvp():
     return render_template('rsvp.html')
+
+
+@app.route('/photos')
+@login_required
+def photos():
+    show_filter = request.args.get('show_filter')
+    photo_filter = request.args.get('filter')
+
+    if photo_filter:
+        all_photos = []
+
+        for section in PHOTOS:
+            for row in section['photos']:
+                all_photos = all_photos + row
+
+        def filter_by_name(photo):
+            if photo.get('people'):
+                return photo_filter in photo['people']
+            else:
+                return False
+
+        filtered_photos = filter(filter_by_name, all_photos)
+
+        sections = [
+            {
+                'name': photo_filter,
+                'id': 'filtered-photos',
+                'photos': chunk(filtered_photos, 2),
+            },
+        ]
+    else:
+        sections = PHOTOS
+
+    return render_template(
+        'photos.html',
+        sections=sections,
+        photo_root=photo_root,
+        show_filter=show_filter,
+        photo_filter=photo_filter,
+    )
 
 
 @app.route('/rsvp-response-handler', methods=['POST'])

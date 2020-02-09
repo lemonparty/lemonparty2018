@@ -1,6 +1,10 @@
 import re
 import unicodedata
 
+from flask import url_for
+
+from localsettings import DEBUG
+
 
 def format_rsvp_field(key, value):
     return u'<b>{}</b><br>{}'.format(
@@ -24,3 +28,10 @@ def get_valid_filename(s):
         .replace(' ', '_')
     )
     return re.sub(r'(?u)[^-\w.]', '', s)
+
+
+def photo_root():
+    if DEBUG:
+        return url_for('static', filename='photos')
+    else:
+        return 'https://static.lemonparty2018.org'

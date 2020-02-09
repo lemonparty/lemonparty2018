@@ -1,0 +1,27 @@
+{% set src_color =  get_image_path(photo, id_key='id_color', size='small') %}
+{% set src_grayscale =  get_image_path(photo, id_key='id_grayscale', size='small') %}
+<div
+  data-image-src-color="{{ src_color or '' }}"
+  data-image-src-grayscale= "{{ src_grayscale or '' }}"
+  data-image-href-color="{{ get_image_path(photo, id_key='id_color', size='large') or '' }}"
+  data-image-href-grayscale= "{{ get_image_path(photo, id_key='id_grayscale', size='large') or '' }}"
+  class="photos-photo"
+  style="
+   width: {{ (photo|get_relative_photo_width / row|get_relative_row_width) * 100 }}%;
+  "
+>
+  <div
+    style="padding-top: {{ (photo.y / photo.x) * 100 }}%;"
+  >
+  </div>
+  <div class="photos-photo-overlay">
+    <a href="#" class="photos-photo-overlay-button fullSizeButton">
+      full size
+    </a>
+    {% if src_color and src_grayscale %}
+      <button class="photos-photo-overlay-button colorToggleButton">
+        toggle color
+      </button>
+    {% endif %}
+  </div>
+</div>

@@ -1,0 +1,282 @@
+// variables
+// ----------------------------------------------------------------------------
+
+$mobile-breakpoint: 700px;
+$navigation-breakpoint: 830px;
+$content-width: 75vw;
+$content-max-width: 1200px;
+$gutter: 0.01; // must match `gutter` in lemonparty2018.py
+$row-gutter: $content-width * $gutter;
+$row-max-gutter: $content-max-width * $gutter;
+$br: 2px;
+
+$bg: #fdf5ee;
+$text: #316373;
+
+$loader-bg: #d2d437;
+$loader-fg: #999a00;
+$loader-size: 40px;
+$loader-size-mobile: 26px;
+
+
+// mixins
+// ----------------------------------------------------------------------------
+
+@-moz-keyframes spin {
+	100% {
+		-moz-transform: rotate(360deg);
+	}
+}
+@-webkit-keyframes spin {
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+@keyframes spin {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@mixin size-loader($ls) {
+	border-width: $ls * 0.2;
+	margin-top: $ls * -0.5;
+	margin-left: $ls * -0.5;
+	width: $ls;
+	height: $ls;
+}
+
+
+// styles
+// ----------------------------------------------------------------------------
+
+.photo-filter-row {
+	display: flex;
+
+	&-autocomplete {
+		position: relative;
+		bottom: 4px;
+		margin-left: 10px;
+
+		@media (min-width: #{$mobile-breakpoint}) {
+			bottom: 6px;
+		}
+	}
+}
+
+.photos {
+	position: relative;
+	width: 75vw;
+	width: $content-width;
+	max-width: $content-max-width;
+	margin: 2vw auto 5vw;
+
+	@media (max-width: #{$mobile-breakpoint}) {
+		width: 96vw;
+		right: 2vw;
+	}
+
+	// the outer wrapper, for sticky positioning
+	&-navigation-wrapper {
+		position: sticky;
+		z-index: 2;
+		top: 0;
+	}
+
+	// the middle wrapper, for width and centering
+	&-navigation-content {
+		position: relative;
+		left: 50%;
+		width: 100vw;
+		max-width: 1200px;
+		transform: translateX(-50%);
+	}
+
+	// the ul, wrapping the actual nav items
+	&-navigation {
+		background: rgba(yellow, 0.9);
+
+		@media (max-width: #{$navigation-breakpoint}) {
+			display: block;
+			overflow: scroll;
+			white-space: nowrap;
+		}
+
+		@media (min-width: #{$navigation-breakpoint - 1}) {
+			width: 100%;
+			display: flex;
+			justify-content: space-evenly;
+		}
+
+		&-item {
+			padding: 10px;
+
+			@media (max-width: #{$navigation-breakpoint}) {
+				display: inline-block;
+			}
+
+			&-link {
+				color: magenta;
+				text-decoration: none;
+
+				&:hover {
+					color: cyan;
+				}
+			}
+		}
+	}
+
+	&-section {
+		padding-top: 70px;
+
+		&#filtered-photos {
+			padding-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&-header {
+			display: block;
+			width: 100%;
+			margin-bottom: 20px;
+			text-align: center;
+			font-weight: bold;
+			font-size: 24px;
+		}
+
+		&-clear {
+			@include link;
+			position: relative;
+			bottom: 1px;
+			margin-left: 4px;
+			font-size: 14px;
+		}
+	}
+
+	&-row {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: $row-gutter;
+
+		@media (min-width: #{$content-max-width}) {
+			margin-bottom: $row-max-gutter;
+		}
+	}
+
+	&-photo {
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		border-radius: $br;
+
+		&[data-image-src-color] {
+			background: rgba(#000, 0.05);
+		}
+
+		&.isLoading {
+			&::after {
+				box-sizing: border-box;
+				content: "";
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				border-style: solid;
+				border-color: $loader-bg;
+				border-bottom-color: $loader-fg;
+				border-radius: 50%;
+				animation: spin 3000ms linear infinite;
+
+				@media (max-width: #{$mobile-breakpoint}) {
+					@include size-loader($loader-size-mobile);
+				}
+
+				@media (min-width: #{$mobile-breakpoint}) {
+					@include size-loader($loader-size);
+				}
+			}
+
+			.photos-photo-content {
+				opacity: 0;
+			}
+		}
+
+		&-content,
+		&-overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border-radius: $br;
+		}
+
+		&-content {
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center center;
+			transition: opacity 200ms linear;
+		}
+
+		&-overlay {
+			z-index: 1;
+			background: rgba(#000, 0.6);
+			text-align: center;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			transition: opacity 75ms linear;
+			opacity: 0;
+
+			&:hover {
+				opacity: 1;
+			}
+
+			&-button {
+				align-self: center;
+				width: 50%;
+				border: none;
+				border-radius: 2px;
+				padding: 10px;
+				background: magenta;
+				color: cyan;
+				cursor: pointer;
+				font-size: 14px;
+				line-height: 20px;
+				text-decoration: none;
+
+				&:focus {
+					outline: none;
+				}
+
+				@media (max-width: #{$mobile-breakpoint}) {
+					width: 95%;
+				}
+			}
+
+			&-button + &-button {
+				margin-top: 20px;
+			}
+		}
+	}
+}
+
+.footer {
+	font-size: 16px;
+	text-align: center;
+
+	@media (max-width: 360px) {
+		font-size: 14px;
+	}
+
+	a {
+		color: $text;
+
+		&:hover {
+			color: lighten($text, 15%);
+		}
+	}
+}
