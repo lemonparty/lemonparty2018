@@ -27,7 +27,7 @@
     "webpack-parallel-uglify-es-plugin": "0.1.0"
   },
   "dependencies": {
-    "accessible-autocomplete": "2.0.1",
+    "accessible-autocomplete": "2.0.2",
     "babel-polyfill": "6.26.0",
     "lodash": "4.17.15",
     "webpack-assets-manifest": "1.0.0",
