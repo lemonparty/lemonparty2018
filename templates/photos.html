@@ -17,15 +17,13 @@
   </p>
 
   <div class="text photo-filter-row">
-    {% if show_filter and not photo_filter %}
-      <label for="photo-filter">
-        Search for a name:
-      </label>
-      <div
-        class="photo-filter-row-autocomplete"
-        id="photo-filter-container"
-      ></div>
-    {% endif %}
+    <label for="photo-filter">
+      Search for a name:
+    </label>
+    <div
+      class="photo-filter-row-autocomplete"
+      id="photo-filter-container"
+    ></div>
   </div>
 
   <div class="content photos">
@@ -62,7 +60,7 @@
           {% if photo_filter %}
             <a
               class="photos-section-clear"
-              href={{ url_for('photos', show_filter=1) }}
+              href={{ url_for('photos') }}
             >
               clear search
             </a>

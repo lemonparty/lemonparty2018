@@ -205,7 +205,6 @@ def rsvp():
 @app.route('/photos')
 @login_required
 def photos():
-    show_filter = request.args.get('show_filter')
     photo_filter = request.args.get('filter')
 
     if photo_filter:
@@ -237,7 +236,6 @@ def photos():
         'photos.html',
         sections=sections,
         photo_root=photo_root,
-        show_filter=show_filter,
         photo_filter=photo_filter,
     )
 
