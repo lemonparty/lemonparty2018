@@ -502,7 +502,7 @@ PHOTOS = [
                 {"id_color": "lemonparty-0372", "id_grayscale": "", "people": ["becky", "josh"], "x": 1200, "y": 1600},
             ],
             [
-                {"id_color": "lemonparty-0371", "id_grayscale": "", "people": ["anne", "adam p", "steve"], "x": 1600, "y": 1200},
+                {"id_color": "lemonparty-0371", "id_grayscale": "", "people": ["anne", "adam p", "steve", "brianna", "clara"], "x": 1600, "y": 1200},
                 {"id_color": "lemonparty-0366", "id_grayscale": "", "people": ["amy"], "x": 1200, "y": 1600},
             ],
             [
