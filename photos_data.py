@@ -1242,8 +1242,8 @@ PHOTOS = [
                 {"id_color": "lemonparty-0869", "id_grayscale": "lemonparty-0870", "people": [], "x": 1600, "y": 1067},
             ],
             [
-                {"id_color": "lemonparty-0871", "id_grayscale": "lemonparty-0872", "people": [], "x": 1600, "y": 1067},
-                {"id_color": "lemonparty-0873", "id_grayscale": "lemonparty-0874", "people": [], "x": 1600, "y": 1067},
+                {"id_color": "lemonparty-0871", "id_grayscale": "lemonparty-0872", "people": ["joanne", "chris g", "isabella", "sophia", "victor", "alison", "owen", "mike g", "brianna", "lillie", "elsie", "zach", "blair", "chris m"], "x": 1600, "y": 1067},
+                {"id_color": "lemonparty-0873", "id_grayscale": "lemonparty-0874", "people": ["joanne", "chris g", "isabella", "sophia", "alison", "owen", "shelley"], "x": 1600, "y": 1067},
             ],
             [
                 {"id_color": "lemonparty-0875", "id_grayscale": "", "people": ["crispen", "pierre"], "x": 1600, "y": 1067},
