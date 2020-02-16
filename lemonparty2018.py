@@ -208,20 +208,26 @@ def photos():
     photo_filter = request.args.get('filter')
 
     if photo_filter:
-        all_photos = []
+        if photo_filter == 'nicholas':
+            filtered_photos = [
+                { 'id_color': 'nicholas', 'id_grayscale': '', 'people': [], 'x': 1200, 'y': 679 },
+            ]
+        else:
+            all_photos = []
 
-        for section in PHOTOS:
-            for row in section['photos']:
-                all_photos = all_photos + row
+            for section in PHOTOS:
+                for row in section['photos']:
+                    all_photos = all_photos + row
 
-        def filter_by_name(photo):
-            if photo.get('people'):
-                return photo_filter in photo['people']
-            else:
-                return False
+            def filter_by_name(photo):
+                if photo.get('people'):
+                    return photo_filter in photo['people']
+                else:
+                    return False
 
-        filtered_photos = filter(filter_by_name, all_photos)
+            filtered_photos = filter(filter_by_name, all_photos)
 
+        print filtered_photos
         sections = [
             {
                 'name': photo_filter,
