@@ -10,7 +10,7 @@ lemonparty2018 is a pretty basic wedding website template. It features:
 
 ## Back end
 
-The back end requires Python `3.3` or greater, and served with Flask. To get
+The back end requires Python `3.3` or greater, and is served with Flask. To get
 started:
 
 * clone the repo and cd in
