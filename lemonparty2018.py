@@ -227,7 +227,6 @@ def photos():
 
             filtered_photos = filter(filter_by_name, all_photos)
 
-        print filtered_photos
         sections = [
             {
                 'name': photo_filter,

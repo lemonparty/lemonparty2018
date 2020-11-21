@@ -10,12 +10,12 @@ lemonparty2018 is a pretty basic wedding website template. It features:
 
 ## Back end
 
-The back end is written in Python, and served with Flask. To get started,
-assuming you have pip, virtualenv, and virtualenvwrapper installed:
+The back end requires Python `3.3` or greater, and is served with Flask. To get
+started:
 
-* clone the repo
-* `mkvirtualenv lemonparty2018`
-* `workon lemonparty2018`
+* clone the repo and cd in
+* `python -m venv lemonparty2018-venv`
+* `source lemonparty2018-venv/bin/activate`
 * `pip install -r requirements.txt`
 * add a file in the root of the project called `localsettings.py`. example
   contents are listed below.

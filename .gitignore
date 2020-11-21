@@ -8,6 +8,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+lemonparty2018-venv
+
 localsettings.py
 rsvps
 static/photos
