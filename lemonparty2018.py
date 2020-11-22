@@ -208,9 +208,9 @@ def photos():
     photo_filter = request.args.get('filter')
 
     if photo_filter:
-        if photo_filter == 'nicholas':
+        if photo_filter == 'nicolas':
             filtered_photos = [
-                { 'id_color': 'nicholas', 'id_grayscale': '', 'people': [], 'x': 1200, 'y': 679 },
+                { 'id_color': 'nicolas', 'id_grayscale': '', 'people': [], 'x': 1200, 'y': 679 },
             ]
         else:
             all_photos = []
