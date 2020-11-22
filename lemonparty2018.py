@@ -274,7 +274,7 @@ def rsvp_response_handler():
         get_valid_filename(u'{}--{}.html'.format(time, name))
     )
 
-    with open(output_file, 'w') as f:
+    with open(output_file, 'wb') as f:
         f.write(body.encode('utf-8'))
 
 

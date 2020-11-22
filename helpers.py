@@ -24,6 +24,7 @@ def get_ascii(s):
 def get_valid_filename(s):
     s = (
         get_ascii(s)
+        .decode('utf-8')
         .strip()
         .replace(' ', '_')
     )
