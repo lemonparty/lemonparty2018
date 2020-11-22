@@ -93,7 +93,7 @@ def get_relative_row_width(row):
 
 def chunk(lst, n):
     """Yield successive n-sized chunks from lst."""
-    for i in xrange(0, len(lst), n):
+    for i in range(0, len(lst), n):
         yield lst[i:i + n]
 
 
@@ -225,7 +225,7 @@ def photos():
                 else:
                     return False
 
-            filtered_photos = filter(filter_by_name, all_photos)
+            filtered_photos = list(filter(filter_by_name, all_photos))
 
         sections = [
             {
