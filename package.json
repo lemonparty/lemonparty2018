@@ -29,7 +29,7 @@
   "dependencies": {
     "accessible-autocomplete": "2.0.2",
     "babel-polyfill": "6.26.0",
-    "lodash": "4.17.19",
+    "lodash": "4.17.21",
     "webpack-assets-manifest": "1.0.0",
     "webpack-notifier": "1.5.0",
     "whatwg-fetch": "2.0.3"
